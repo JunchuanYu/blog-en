@@ -30,10 +30,7 @@ about:
 
 Hi!
 
-My name is Junchuan Yu, and I am a remote sensing researcher. 
-
-I graduated from [CUGB](https://en.cugb.edu.cn/), and my research involves hyperspectral remote sensing, deep learning, system development and geological applications, etc.
-
+My name is Junchuan Yu, and I am a remote sensing researcher. I graduated from [CUGB](https://en.cugb.edu.cn/), and my research involves hyperspectral remote sensing, deep learning, system development and geological applications, etc.
 I am very happy to share the knowledge about data science and remote sensing with more people here.
 
 :::

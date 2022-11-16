@@ -17,7 +17,9 @@ website:
         href: https://www.zhihu.com/people/yu-jun-chuan-84
       - icon: bootstrap
         href: https://space.bilibili.com/18814004/
-
+  # twitter-card:
+  #   creator: "@beamilz"
+  #   card-style: summary_large_image
   navbar:
     right:
       - text: About
