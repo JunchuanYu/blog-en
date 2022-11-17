@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Junchuan Yu – main</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2J79YYG9CZ"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
+</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<!-- Primary Meta Tags -->
+<title>Junchuan's blog</title>
+<meta name="title" content="Junchuan's blog">
+<meta name="description" content="Welcome to my blog!">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="">
+<meta property="og:title" content="">
+<meta property="og:description" content="Welcome to my blog!">
+<meta property="og:image" content="">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="">
+<meta property="twitter:title" content="Junchuan's blog">
+<meta property="twitter:description" content="Welcome to my blog!">
+<meta property="twitter:image" content="">
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Junchuan Yu</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts/index.html">
+ <span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../publication/index.html">
+ <span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks/index.html">
+ <span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching/index.html">
+ <span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/JunchuanYu"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/JunchuanYu"><i class="bi bi-book" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://space.bilibili.com/18814004/"><i class="bi bi-bootstrap" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#利用多光谱遥感数据进行地物分类" id="toc-利用多光谱遥感数据进行地物分类" class="nav-link active" data-scroll-target="#利用多光谱遥感数据进行地物分类">利用多光谱遥感数据进行地物分类</a>
+  <ul class="collapse">
+  <li><a href="#加载并查看数据" id="toc-加载并查看数据" class="nav-link" data-scroll-target="#加载并查看数据">1. 加载并查看数据</a></li>
+  <li><a href="#数据切片" id="toc-数据切片" class="nav-link" data-scroll-target="#数据切片">2. 数据切片</a></li>
+  <li><a href="#模型训练" id="toc-模型训练" class="nav-link" data-scroll-target="#模型训练">3. 模型训练</a></li>
+  <li><a href="#评价测试" id="toc-评价测试" class="nav-link" data-scroll-target="#评价测试">4. 评价测试</a></li>
+  <li><a href="#优化改进" id="toc-优化改进" class="nav-link" data-scroll-target="#优化改进">4. 优化改进</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+<section id="利用多光谱遥感数据进行地物分类" class="level1">
+<h1>利用多光谱遥感数据进行地物分类</h1>
+<section id="本课程目的是利用神经网络开展多光谱地物分类学习从整幅卫星影像制作样本数据集训练多分类神经网络并实现对整景卫星数据的预测" class="level4">
+<h4 class="anchored" data-anchor-id="本课程目的是利用神经网络开展多光谱地物分类学习从整幅卫星影像制作样本数据集训练多分类神经网络并实现对整景卫星数据的预测">本课程目的是利用神经网络开展多光谱地物分类，学习从整幅卫星影像制作样本数据集，训练多分类神经网络，并实现对整景卫星数据的预测。</h4>
+<p>运行该代码提前需要安装以下几个必要的库 1. numpy 2. tensorflow = 2.5 3. h5py = 3.1 4. Pillow = 8.4</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> h5py</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.optimizers <span class="im">import</span> RMSprop,Adam</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.callbacks <span class="im">import</span> ModelCheckpoint,EarlyStopping,ReduceLROnPlateau,CSVLogger</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.models <span class="im">import</span> load_model</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time,glob</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> model <span class="im">import</span> all_model</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utils <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="加载并查看数据" class="level3">
+<h3 class="anchored" data-anchor-id="加载并查看数据">1. 加载并查看数据</h3>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 加载数据集，数据集维度为3840×3840×4，最后一个波段是真值标签，标签一共有六类，“”</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>hdf5_path <span class="op">=</span> <span class="st">"./data/kaggle_14_3b_5c.hdf5"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>fd <span class="op">=</span> h5py.File(hdf5_path, <span class="st">'r'</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>fd.keys()</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>images<span class="op">=</span>fd[<span class="st">'image'</span>]</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>labels<span class="op">=</span>fd[<span class="st">'label'</span>]</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>n_label<span class="op">=</span><span class="bu">len</span>(np.unique(labels)) <span class="co">#{0:'buiding',1:'Road', 2:'Tree',3: 'Crops',4:'Water'}</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">## 该影像是反射率数据（通常数值在0-1之间），为了节省存储空间常将数值放大10000倍，保存为无符号整型数据</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.<span class="bu">max</span>(images),np.<span class="bu">min</span>(images),np.<span class="bu">max</span>(labels),np.<span class="bu">min</span>(labels))</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>images<span class="op">=</span>np.array(images)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>labels<span class="op">=</span>np.array(labels)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(images.shape,labels.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>9995 213 4 0
+(14, 3840, 3840, 3) (14, 3840, 3840)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 将整幅影像及标签数据打印出来,为了提升原始影像的显示效果，对原有数据进行拉伸处理 </span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> stretch_n(band, lower_percent<span class="op">=</span><span class="dv">5</span>, higher_percent<span class="op">=</span><span class="dv">95</span>): <span class="co">#5和95表示分位数</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    band<span class="op">=</span>np.array(band,dtype<span class="op">=</span>np.float32)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> np.percentile(band, lower_percent)<span class="op">*</span><span class="fl">1.0</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> np.percentile(band, higher_percent)<span class="op">*</span><span class="fl">1.0</span>       </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    band[band<span class="op">&lt;</span>c] <span class="op">=</span> c</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    band[band<span class="op">&gt;</span>d] <span class="op">=</span> d</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span>  (band <span class="op">-</span> c)  <span class="op">/</span> (d <span class="op">-</span> c)  </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> out.astype(np.float32)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> adjust_contrast(data,n_band<span class="op">=</span><span class="dv">3</span>):    <span class="co">#通过循环对各个波段进行拉伸</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>np.array(data,dtype<span class="op">=</span>np.float32)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> img <span class="kw">in</span> data:</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(n_band):</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>            img[:,:,k] <span class="op">=</span> stretch_n(img[:,:,k])</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> data</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>newimg<span class="op">=</span>adjust_contrast(images.copy()) <span class="co">#该操作讲改变原始数据，因此用.copy，不对原始数据进行更改</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.<span class="bu">max</span>(images),np.<span class="bu">max</span>(newimg))</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>show_5_images(images<span class="op">/</span><span class="dv">10000</span>,labels)<span class="co">#plot函数要求数据为0-1之间的浮点型或0-255的8位整型数据</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>show_5_images(newimg,labels)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>9995 1.0</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="main_files/figure-html/cell-4-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="main_files/figure-html/cell-4-output-3.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="main_files/figure-html/cell-4-output-4.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="main_files/figure-html/cell-4-output-5.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="数据切片" class="level3">
+<h3 class="anchored" data-anchor-id="数据切片">2. 数据切片</h3>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 定义随机裁剪和顺序裁剪两种方式，顺序裁剪是按照固定步长沿行列循环裁剪，切片数是有限的，随机裁剪是以随机点为起始点裁剪，切片数可以是无限的且可自定义，后者的好处是可以通过增加算法约束label中某一类的数量来实现精准的样本获取。</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> random_crop(image,crop_sz):</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    img_sz<span class="op">=</span>image.shape[:<span class="dv">2</span>]</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    random_x <span class="op">=</span> np.random.randint(<span class="dv">0</span>,img_sz[<span class="dv">0</span>]<span class="op">-</span>crop_sz<span class="op">+</span><span class="dv">1</span>) <span class="co">##生成随机点</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    random_y <span class="op">=</span> np.random.randint(<span class="dv">0</span>,img_sz[<span class="dv">1</span>]<span class="op">-</span>crop_sz<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    s_img <span class="op">=</span> image[random_x:random_x<span class="op">+</span>crop_sz,random_y:random_y<span class="op">+</span>crop_sz,:] <span class="co">##以随机点为起始点生成样本框，进行切片</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> s_img</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> data_crop_random(img_arr,crop_sz,n_patch):   </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> img_arr.shape[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> np.zeros([n_patch, crop_sz, crop_sz, c])</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> np.arange(n_patch):</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        image <span class="op">=</span> random_crop(img_arr,crop_sz)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        data[ j,:,:,:] <span class="op">=</span> image</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> data</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sequential_crop(imagearray,crop_sz,step<span class="op">=</span><span class="dv">256</span>):</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> []</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    row_num <span class="op">=</span> ((imagearray.shape)[<span class="dv">0</span>] <span class="op">-</span> step) <span class="op">//</span> step  <span class="co">##最多能裁剪几行 几列</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    col_num<span class="op">=</span>((imagearray.shape)[<span class="dv">1</span>] <span class="op">-</span> step) <span class="op">//</span> step</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    x_start<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    y_start<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> h <span class="kw">in</span> <span class="bu">range</span>(row_num):</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> w <span class="kw">in</span> <span class="bu">range</span>(col_num):</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>            crop_img <span class="op">=</span> imagearray[crop_sz<span class="op">*</span>h<span class="op">+</span>y_start:crop_sz<span class="op">*</span>(h<span class="op">+</span><span class="dv">1</span>)<span class="op">+</span>y_start, crop_sz<span class="op">*</span>w<span class="op">+</span>x_start:crop_sz<span class="op">*</span>(w<span class="op">+</span><span class="dv">1</span>)<span class="op">+</span>x_start,:] <span class="co">##行列循环，滑动窗口移动              </span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>            data.append(crop_img)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>x<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>np.array(data)</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> data</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> data_crop(imagearray,crop_sz,stride,random<span class="op">=</span><span class="va">None</span>,n_patch<span class="op">=</span><span class="dv">250</span>):   <span class="co">#设置random选项，用来切换是否采用随机裁切</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> []</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(imagearray.shape[<span class="dv">0</span>]):</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> random:</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>            image<span class="op">=</span>data_crop_random(imagearray[i,:,:,:],crop_sz,n_patch)</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>            image <span class="op">=</span>sequential_crop(imagearray[i,:,:,:],crop_sz,stride)</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>            data  <span class="op">=</span> image <span class="co">##注意当i=0的时候需要将image赋给data，否则data依然是空，不可以进行concatnate</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>            data  <span class="op">=</span> np.concatenate((data, image), axis <span class="op">=</span> <span class="dv">0</span>) </span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"patch processing....:"</span><span class="op">+</span><span class="bu">str</span>(i))</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>np.array(data,dtype<span class="op">=</span>np.float32)</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"final processed:"</span><span class="op">+</span><span class="bu">str</span>(i)<span class="op">+</span><span class="st">"...No.:"</span><span class="op">+</span><span class="bu">str</span>(data.shape[<span class="dv">0</span>]))    </span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 合并images和labels方便切片</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>data_all <span class="op">=</span> np.concatenate((newimg, np.expand_dims(labels,axis<span class="op">=-</span><span class="dv">1</span>)), axis <span class="op">=</span> <span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>stride<span class="op">=</span><span class="dv">256</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>cropsize<span class="op">=</span><span class="dv">256</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>all_patches<span class="op">=</span>data_crop(data_all,cropsize,stride,random<span class="op">=</span><span class="va">False</span>)<span class="co">##保留2景数据做测试</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data_all.shape,all_patches.shape)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>i<span class="op">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>patch processing....:0
+patch processing....:1
+patch processing....:2
+patch processing....:3
+patch processing....:4
+patch processing....:5
+patch processing....:6
+patch processing....:7
+patch processing....:8
+patch processing....:9
+patch processing....:10
+patch processing....:11
+patch processing....:12
+patch processing....:13
+final processed:13...No.:2744
+(14, 3840, 3840, 4) (2744, 256, 256, 4)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">##调用utils中的plot_func查看数据与label是否对应,反复运行这个cell进行数据浏览i表示每次浏览跨越数据的个数</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plot_func(all_patches[i:i<span class="op">+</span><span class="dv">20</span>,:,:,:<span class="dv">3</span>],all_patches[i:i<span class="op">+</span><span class="dv">20</span>:,:,:,<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>i<span class="op">+=</span><span class="dv">500</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="main_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="main_files/figure-html/cell-7-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>all_patches<span class="op">=</span>suffle_data(all_patches) <span class="co">#对数据进行打乱处理</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(2744, 256, 256, 4)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">##可以选择将数据保存为h5文件，方便后续使用</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>hdf5_path <span class="op">=</span> <span class="st">'./data/patches_rgb_4b_5c.hdf5'</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> h5py.File(hdf5_path, mode<span class="op">=</span><span class="st">'w'</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>f[<span class="st">'image'</span>] <span class="op">=</span> all_patches[:,:,:,<span class="dv">0</span>:<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>f[<span class="st">'label'</span>] <span class="op">=</span> all_patches[:,:,:,<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>f.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="模型训练" class="level3">
+<h3 class="anchored" data-anchor-id="模型训练">3. 模型训练</h3>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># hdf5_path = "./data/patches_rgb_4b_6c.hdf5"</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># fd = h5py.File(hdf5_path, 'r')</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># fd.keys()</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># images=np.array(fd['image'])</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># labels=np.array(fd['label'])#3:tree,4:road,5:crop</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 对数据进行归一化处理，并将label转成one-hot标签形式</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># n_label=5</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> post_normalize_image(images,labels,n_label<span class="op">=</span>n_label):</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    msk <span class="op">=</span> label_hot(labels,n_label)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> images</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> img,msk</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># img,msk=post_normalize_image(images,labels,n_label)</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>img,msk<span class="op">=</span>post_normalize_image(all_patches[:,:,:,<span class="dv">0</span>:<span class="op">-</span><span class="dv">1</span>],all_patches[:,:,:,<span class="op">-</span><span class="dv">1</span>],n_label)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">## 将数据集按照7:3进行划分</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>xtrain,xtest,ytrain,ytest<span class="op">=</span>train_test_split(img,msk,test_size<span class="op">=</span><span class="fl">0.2</span>,random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="kw">del</span> img,msk <span class="co">#如果数据较大可以在此删除降低内存</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(xtrain.shape,xtest.shape,ytrain.shape,ytest.shape)</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>i<span class="op">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(2195, 256, 256, 3) (549, 256, 256, 3) (2195, 256, 256, 5) (549, 256, 256, 5)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>plot_func(xtrain[i:i<span class="op">+</span><span class="dv">20</span>,:,:,:<span class="dv">3</span>],np.argmax(ytrain,axis<span class="op">=-</span><span class="dv">1</span>)[i:i<span class="op">+</span><span class="dv">20</span>:,:,:])</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>i<span class="op">+=</span><span class="dv">500</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="main_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="main_files/figure-html/cell-12-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 设定必要的参数</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>loss<span class="op">=</span><span class="st">'categorical_crossentropy'</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>optimizer<span class="op">=</span>Adam()</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>loss_weights<span class="op">=</span><span class="st">''</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>metrics<span class="op">=</span>[<span class="st">'accuracy'</span>]</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>batch_size<span class="op">=</span><span class="dv">20</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>epoch<span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>input_height<span class="op">=</span>xtrain.shape[<span class="dv">1</span>]</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>input_width<span class="op">=</span>xtrain.shape[<span class="dv">2</span>]</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>nchannel<span class="op">=</span>xtrain.shape[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>num_train<span class="op">=</span>xtrain.shape[<span class="dv">0</span>]</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>num_val<span class="op">=</span>xtest.shape[<span class="dv">0</span>]</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>ATM<span class="op">=</span>all_model(loss,loss_weights,optimizer,metrics,input_height,input_width,n_label,nchannel) <span class="co">#向all_model传参返回模型</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>modelname<span class="op">=</span><span class="st">'unet'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 加载UNET模型</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>model<span class="op">=</span>ATM.UNET()<span class="co">#deeplabv3p,UNET,dlinknet,convattunet</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># model.summary()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 开始训练</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>begin_time <span class="op">=</span> time.time()          </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>out_dir <span class="op">=</span> <span class="st">"./checkpoint/"</span><span class="op">+</span>modelname<span class="op">+</span><span class="st">'/'</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> os.path.exists(out_dir):</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    os.makedirs(out_dir) </span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">## 设置model-checkpoint用来存储模型参数文件</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>model_checkpoint <span class="op">=</span> ModelCheckpoint(filepath<span class="op">=</span>out_dir<span class="op">+</span><span class="st">"-</span><span class="sc">{epoch:02d}</span><span class="st">e-val_loss</span><span class="sc">{val_loss:2f}</span><span class="st">.hdf5"</span>,monitor<span class="op">=</span><span class="st">"val_loss"</span>,save_best_only<span class="op">=</span><span class="va">True</span>,mode<span class="op">=</span><span class="st">'auto'</span>)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co">## 设置csvlogger用来记录训练记录</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>csvlogger <span class="op">=</span>CSVLogger(filename<span class="op">=</span>out_dir<span class="op">+</span>modelname<span class="op">+</span><span class="st">'-'</span><span class="op">+</span><span class="bu">str</span>(epoch)<span class="op">+</span><span class="st">'-log.csv'</span>, separator<span class="op">=</span><span class="st">','</span>, append<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co">## model_checkpoint和csvlogger要想发挥作用必须放入callback中</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>result<span class="op">=</span>model.fit(xtrain, ytrain, batch_size<span class="op">=</span>batch_size, epochs<span class="op">=</span>epoch, verbose<span class="op">=</span><span class="dv">1</span>, shuffle<span class="op">=</span><span class="va">True</span>,validation_data<span class="op">=</span>(xtest, ytest),callbacks<span class="op">=</span>[model_checkpoint,csvlogger])</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time()</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'time lapsing </span><span class="sc">{0}</span><span class="st"> s </span><span class="ch">\n</span><span class="st">'</span>.<span class="bu">format</span>(end_time <span class="op">-</span> begin_time))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Epoch 1/50
+110/110 [==============================] - 42s 275ms/step - loss: 1.1495 - accuracy: 0.6211 - val_loss: 0.8305 - val_accuracy: 0.7096
+Epoch 2/50
+110/110 [==============================] - 22s 198ms/step - loss: 0.8297 - accuracy: 0.7023 - val_loss: 0.8479 - val_accuracy: 0.7174
+Epoch 3/50
+110/110 [==============================] - 23s 213ms/step - loss: 0.7564 - accuracy: 0.7295 - val_loss: 0.7701 - val_accuracy: 0.7465
+Epoch 4/50
+110/110 [==============================] - 23s 209ms/step - loss: 0.7241 - accuracy: 0.7353 - val_loss: 0.7346 - val_accuracy: 0.7350
+Epoch 5/50
+110/110 [==============================] - 23s 209ms/step - loss: 0.6612 - accuracy: 0.7560 - val_loss: 0.6612 - val_accuracy: 0.7651
+Epoch 6/50
+110/110 [==============================] - 22s 199ms/step - loss: 0.6603 - accuracy: 0.7573 - val_loss: 0.6624 - val_accuracy: 0.7571
+Epoch 7/50
+110/110 [==============================] - 23s 211ms/step - loss: 0.6069 - accuracy: 0.7803 - val_loss: 0.6109 - val_accuracy: 0.7743
+Epoch 8/50
+110/110 [==============================] - 23s 209ms/step - loss: 0.5959 - accuracy: 0.7837 - val_loss: 0.5707 - val_accuracy: 0.7895
+Epoch 9/50
+110/110 [==============================] - 23s 211ms/step - loss: 0.5670 - accuracy: 0.7965 - val_loss: 0.5354 - val_accuracy: 0.8031
+Epoch 10/50
+110/110 [==============================] - 22s 196ms/step - loss: 0.5354 - accuracy: 0.8077 - val_loss: 0.5420 - val_accuracy: 0.8020
+Epoch 11/50
+110/110 [==============================] - 22s 197ms/step - loss: 0.5269 - accuracy: 0.8084 - val_loss: 0.5449 - val_accuracy: 0.8104
+Epoch 12/50
+110/110 [==============================] - 23s 208ms/step - loss: 0.5232 - accuracy: 0.8107 - val_loss: 0.5206 - val_accuracy: 0.8109
+Epoch 13/50
+110/110 [==============================] - 23s 210ms/step - loss: 0.4868 - accuracy: 0.8268 - val_loss: 0.4856 - val_accuracy: 0.8252
+Epoch 14/50
+110/110 [==============================] - 22s 198ms/step - loss: 0.4827 - accuracy: 0.8273 - val_loss: 0.6254 - val_accuracy: 0.7814
+Epoch 15/50
+110/110 [==============================] - 22s 198ms/step - loss: 0.4961 - accuracy: 0.8224 - val_loss: 0.4901 - val_accuracy: 0.8262
+Epoch 16/50
+110/110 [==============================] - 23s 209ms/step - loss: 0.4700 - accuracy: 0.8329 - val_loss: 0.4735 - val_accuracy: 0.8256
+Epoch 17/50
+110/110 [==============================] - 22s 197ms/step - loss: 0.4603 - accuracy: 0.8339 - val_loss: 0.4862 - val_accuracy: 0.8220
+Epoch 18/50
+110/110 [==============================] - 22s 196ms/step - loss: 0.4476 - accuracy: 0.8389 - val_loss: 0.4996 - val_accuracy: 0.8220
+Epoch 19/50
+110/110 [==============================] - 23s 210ms/step - loss: 0.4218 - accuracy: 0.8471 - val_loss: 0.4579 - val_accuracy: 0.8304
+Epoch 20/50
+110/110 [==============================] - 22s 197ms/step - loss: 0.3968 - accuracy: 0.8580 - val_loss: 0.4725 - val_accuracy: 0.8203
+Epoch 21/50
+110/110 [==============================] - 22s 199ms/step - loss: 0.4013 - accuracy: 0.8550 - val_loss: 0.4729 - val_accuracy: 0.8256
+Epoch 22/50
+110/110 [==============================] - 23s 210ms/step - loss: 0.3659 - accuracy: 0.8679 - val_loss: 0.4542 - val_accuracy: 0.8362
+Epoch 23/50
+110/110 [==============================] - 22s 197ms/step - loss: 0.3730 - accuracy: 0.8648 - val_loss: 0.4884 - val_accuracy: 0.8149
+Epoch 24/50
+110/110 [==============================] - 23s 210ms/step - loss: 0.3559 - accuracy: 0.8716 - val_loss: 0.4249 - val_accuracy: 0.8431
+Epoch 25/50
+110/110 [==============================] - 22s 198ms/step - loss: 0.3223 - accuracy: 0.8838 - val_loss: 0.4684 - val_accuracy: 0.8340
+Epoch 26/50
+110/110 [==============================] - 22s 198ms/step - loss: 0.3408 - accuracy: 0.8776 - val_loss: 0.4931 - val_accuracy: 0.8341
+Epoch 27/50
+110/110 [==============================] - 22s 197ms/step - loss: 0.2869 - accuracy: 0.8964 - val_loss: 0.4596 - val_accuracy: 0.8429
+Epoch 28/50
+110/110 [==============================] - 22s 197ms/step - loss: 0.2717 - accuracy: 0.9020 - val_loss: 0.4739 - val_accuracy: 0.8430
+Epoch 29/50
+110/110 [==============================] - 22s 199ms/step - loss: 0.2566 - accuracy: 0.9070 - val_loss: 0.4645 - val_accuracy: 0.8507
+Epoch 30/50
+110/110 [==============================] - 22s 199ms/step - loss: 0.2469 - accuracy: 0.9102 - val_loss: 0.5344 - val_accuracy: 0.8413
+Epoch 31/50
+110/110 [==============================] - 22s 198ms/step - loss: 0.2762 - accuracy: 0.9023 - val_loss: 0.5081 - val_accuracy: 0.8386
+Epoch 32/50
+110/110 [==============================] - 22s 198ms/step - loss: 0.2831 - accuracy: 0.8983 - val_loss: 0.4640 - val_accuracy: 0.8485
+Epoch 33/50
+110/110 [==============================] - 22s 198ms/step - loss: 0.2424 - accuracy: 0.9125 - val_loss: 0.4504 - val_accuracy: 0.8548
+Epoch 34/50
+110/110 [==============================] - 22s 197ms/step - loss: 0.2218 - accuracy: 0.9193 - val_loss: 0.4752 - val_accuracy: 0.8492
+Epoch 35/50
+110/110 [==============================] - 22s 198ms/step - loss: 0.2124 - accuracy: 0.9227 - val_loss: 0.4808 - val_accuracy: 0.8529
+Epoch 36/50
+110/110 [==============================] - 22s 198ms/step - loss: 0.2016 - accuracy: 0.9262 - val_loss: 0.5387 - val_accuracy: 0.8507
+Epoch 37/50
+110/110 [==============================] - 22s 196ms/step - loss: 0.1973 - accuracy: 0.9278 - val_loss: 0.5704 - val_accuracy: 0.8502
+Epoch 38/50
+110/110 [==============================] - 22s 197ms/step - loss: 0.1797 - accuracy: 0.9334 - val_loss: 0.5250 - val_accuracy: 0.8552
+Epoch 39/50
+110/110 [==============================] - 22s 198ms/step - loss: 0.1729 - accuracy: 0.9356 - val_loss: 0.5235 - val_accuracy: 0.8561
+Epoch 40/50
+110/110 [==============================] - 22s 197ms/step - loss: 0.1718 - accuracy: 0.9359 - val_loss: 0.5590 - val_accuracy: 0.8421
+Epoch 41/50
+110/110 [==============================] - 22s 197ms/step - loss: 0.1823 - accuracy: 0.9320 - val_loss: 0.5435 - val_accuracy: 0.8470
+Epoch 42/50
+110/110 [==============================] - 22s 198ms/step - loss: 0.1711 - accuracy: 0.9358 - val_loss: 0.5568 - val_accuracy: 0.8570
+Epoch 43/50
+110/110 [==============================] - 22s 197ms/step - loss: 0.1513 - accuracy: 0.9426 - val_loss: 0.6066 - val_accuracy: 0.8564
+Epoch 44/50
+110/110 [==============================] - 22s 198ms/step - loss: 0.1386 - accuracy: 0.9466 - val_loss: 0.5596 - val_accuracy: 0.8534
+Epoch 45/50
+110/110 [==============================] - 22s 197ms/step - loss: 0.1423 - accuracy: 0.9451 - val_loss: 0.6868 - val_accuracy: 0.8247
+Epoch 46/50
+110/110 [==============================] - 22s 196ms/step - loss: 0.2242 - accuracy: 0.9180 - val_loss: 0.5130 - val_accuracy: 0.8211
+Epoch 47/50
+110/110 [==============================] - 22s 197ms/step - loss: 0.2567 - accuracy: 0.9064 - val_loss: 0.4996 - val_accuracy: 0.8435
+Epoch 48/50
+110/110 [==============================] - 22s 198ms/step - loss: 0.1763 - accuracy: 0.9341 - val_loss: 0.5540 - val_accuracy: 0.8556
+Epoch 49/50
+110/110 [==============================] - 22s 200ms/step - loss: 0.1357 - accuracy: 0.9472 - val_loss: 0.5536 - val_accuracy: 0.8574
+Epoch 50/50
+110/110 [==============================] - 22s 198ms/step - loss: 0.1193 - accuracy: 0.9528 - val_loss: 0.5919 - val_accuracy: 0.8576
+time lapsing 1127.027404308319 s 
+</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 打印训练曲线，确认训练效果，精度不够，loss不收敛，模型学习能力不足且容易过拟合</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_fig(H,outdir):</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    N<span class="op">=</span><span class="bu">len</span>(H.history[<span class="st">'loss'</span>])</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    plt.style.use(<span class="st">"ggplot"</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">6</span>))</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    plt.plot(np.arange(<span class="dv">0</span>, N), H.history[<span class="st">"loss"</span>], label<span class="op">=</span><span class="st">"train_loss"</span>)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    plt.plot(np.arange(<span class="dv">0</span>, N), H.history[<span class="st">"val_loss"</span>], label<span class="op">=</span><span class="st">"val_loss"</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    plt.plot(np.arange(<span class="dv">0</span>, N), H.history[<span class="st">"accuracy"</span>], label<span class="op">=</span><span class="st">"train_acc"</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    plt.plot(np.arange(<span class="dv">0</span>, N), H.history[<span class="st">"val_accuracy"</span>], label<span class="op">=</span><span class="st">"val_acc"</span>)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    plt.ylim(<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"Training Loss and Accuracy"</span>)</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"Epoch #"</span>)</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">"Loss/Accuracy"</span>)</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    plt.legend(loc<span class="op">=</span><span class="st">"lower left"</span>)</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    plt.savefig(outdir)</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>plot_fig(result,modelname<span class="op">+</span><span class="st">"_Loss_Acc_epoch.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="main_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="评价测试" class="level3">
+<h3 class="anchored" data-anchor-id="评价测试">4. 评价测试</h3>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 训练过程只保留最有性能参数文件，因此从训练记录里选择最后一个即可</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>h5<span class="op">=</span>glob.glob(<span class="st">"./checkpoint/"</span><span class="op">+</span>modelname<span class="op">+</span><span class="st">"/*.hdf5"</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>model_list<span class="op">=</span>np.sort(h5)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>model<span class="op">=</span>load_model(model_list[<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># model=load_model(model_list[-1],custom_objects={'interpolation':interpolation})#keras导入模型需要判断是会否有自定义函数或层，有的话需要在custom_objects中定义，并编译</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model_list[<span class="op">-</span><span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>./checkpoint/unet\-24e-val_loss0.424916.hdf5</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 首先对切片数据进行预测，查看效果</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>i<span class="op">=</span><span class="dv">100</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>pred<span class="op">=</span>model.predict(xtest,batch_size<span class="op">=</span><span class="dv">64</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>pred<span class="op">=</span>np.argmax(pred,axis<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>gt<span class="op">=</span>np.argmax(ytest,axis<span class="op">=-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>9/9 [==============================] - 9s 530ms/step</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">##逐批次查看预测效果</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>val_plot_func(xtest[i:i<span class="op">+</span><span class="dv">20</span>],gt[i:i<span class="op">+</span><span class="dv">20</span>],pred[i:i<span class="op">+</span><span class="dv">20</span>])</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>i<span class="op">+=</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="main_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="main_files/figure-html/cell-19-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="main_files/figure-html/cell-19-output-3.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 用测试集评价模型精度</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> call_matric(pred,gt, [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>, <span class="st">'all'</span>])</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     precision    recall  F1-score       iou        oa      miou
+0     0.850384  0.895335  0.872280  0.773491  0.843104  0.519765
+1     0.716035  0.285363  0.408089  0.256352  0.843104  0.519765
+2     0.754666  0.684739  0.718004  0.560067  0.843104  0.519765
+3     0.862850  0.904145  0.883015  0.790534  0.843104  0.519765
+4     0.466484  0.291084  0.358479  0.218382  0.843104  0.519765
+all   0.730084  0.612133  0.647973  0.519765  0.843104  0.519765</code></pre>
+</div>
+</div>
+</section>
+<section id="优化改进" class="level3">
+<h3 class="anchored" data-anchor-id="优化改进">4. 优化改进</h3>
+<section id="数据优化" class="level4">
+<h4 class="anchored" data-anchor-id="数据优化">4.1 数据优化</h4>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>build_num <span class="op">=</span> np.<span class="bu">sum</span>(labels <span class="op">==</span><span class="dv">0</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>road_num <span class="op">=</span> np.<span class="bu">sum</span>(labels <span class="op">==</span> <span class="dv">1</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>tree_num <span class="op">=</span> np.<span class="bu">sum</span>(labels <span class="op">==</span> <span class="dv">2</span>)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>crop_num <span class="op">=</span> np.<span class="bu">sum</span>(labels <span class="op">==</span> <span class="dv">3</span>)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>water_num <span class="op">=</span> np.<span class="bu">sum</span>(labels <span class="op">==</span> <span class="dv">4</span>)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 这两行代码解决 plt 中文显示的问题</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">'font.sans-serif'</span>] <span class="op">=</span> [<span class="st">'SimHei'</span>]</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">'axes.unicode_minus'</span>] <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">"ggplot"</span>)</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>classes <span class="op">=</span> (<span class="st">'0-Building'</span>, <span class="st">'1-Road'</span>, <span class="st">'2-Tree'</span>, <span class="st">'3-Crop'</span>, <span class="st">'4-Riveer'</span>)</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [build_num,road_num, tree_num,crop_num, water_num]</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(numbers)</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>plt.barh(classes, numbers,color<span class="op">=</span><span class="st">'lightblue'</span>)</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Number of pixels in each category'</span>)</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.savefig("Number-category.png", dpi = 600, bbox_inches="tight")</span></span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[99016105, 11047398, 17424954, 76998497, 1951446]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="main_files/figure-html/cell-21-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 定义随机裁剪增加对于label中1和4样本的采集,"num_count(image[:,:,-1],1)"表示切片中数值为1的像元个数</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> data_crop_random2(img_arr,crop_sz,n_patch):   </span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span>[]</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    k<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> np.arange(<span class="dv">1000</span>):</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>        image <span class="op">=</span> random_crop(img_arr,crop_sz)</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> num_count(image[:,:,<span class="op">-</span><span class="dv">1</span>],<span class="dv">1</span>) <span class="op">+</span>num_count(image[:,:,<span class="op">-</span><span class="dv">1</span>],<span class="dv">4</span>) <span class="op">&gt;</span><span class="dv">8000</span>:</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>            data.append(image)</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>            k<span class="op">+=</span><span class="dv">1</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> k<span class="op">==</span>n_patch:</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span>                 </span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> k <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>        data  <span class="op">=</span> np.expand_dims(image,axis<span class="op">=</span><span class="dv">0</span>) <span class="co">##注意如果k=0，即没有符合条件的数据将最后一个image赋给data，避免data为空</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>        data  <span class="op">=</span> np.array(data,dtype<span class="op">=</span>np.float32)</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(data.shape)</span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> data.astype(np.float32)</span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> data_crop2(imagearray,crop_sz,stride,random<span class="op">=</span><span class="va">None</span>,n_patch<span class="op">=</span><span class="dv">250</span>):   </span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> []</span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(imagearray.shape[<span class="dv">0</span>]):</span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> random:</span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>            image<span class="op">=</span>data_crop_random2(imagearray[i,:,:,:],crop_sz,n_patch)</span>
+<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a>            image <span class="op">=</span>sequential_crop(imagearray[i,:,:,:],crop_sz,stride)</span>
+<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a>            data  <span class="op">=</span> image <span class="co">##注意当i=0的时候需要将image赋给data，否则data依然是空，不可以进行concatnate</span></span>
+<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb31-29"><a href="#cb31-29" aria-hidden="true" tabindex="-1"></a>            data  <span class="op">=</span> np.concatenate((data, image), axis <span class="op">=</span> <span class="dv">0</span>) </span>
+<span id="cb31-30"><a href="#cb31-30" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"patch processing....:"</span><span class="op">+</span><span class="bu">str</span>(i))</span>
+<span id="cb31-31"><a href="#cb31-31" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>np.array(data,dtype<span class="op">=</span>np.float32)</span>
+<span id="cb31-32"><a href="#cb31-32" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"final processed:"</span><span class="op">+</span><span class="bu">str</span>(i)<span class="op">+</span><span class="st">"...No.:"</span><span class="op">+</span><span class="bu">str</span>(data.shape[<span class="dv">0</span>]))    </span>
+<span id="cb31-33"><a href="#cb31-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 同样使用前面14幅影像进行切片，增加不平衡样本数据的采集</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># data_all = np.concatenate((newimg, np.expand_dims(labels,axis=-1)), axis = -1)</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># stride=256</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># cropsize=256</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>all_patches2<span class="op">=</span>data_crop2(data_all,cropsize,stride,random<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data_all.shape,all_patches2.shape)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>i<span class="op">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(1, 256, 256, 4)
+patch processing....:0
+(1, 256, 256, 4)
+patch processing....:1
+(207, 256, 256, 4)
+patch processing....:2
+(1, 256, 256, 4)
+patch processing....:3
+(250, 256, 256, 4)
+patch processing....:4
+(250, 256, 256, 4)
+patch processing....:5
+(63, 256, 256, 4)
+patch processing....:6
+(197, 256, 256, 4)
+patch processing....:7
+(151, 256, 256, 4)
+patch processing....:8
+(250, 256, 256, 4)
+patch processing....:9
+(68, 256, 256, 4)
+patch processing....:10
+(171, 256, 256, 4)
+patch processing....:11
+(24, 256, 256, 4)
+patch processing....:12
+(81, 256, 256, 4)
+patch processing....:13
+final processed:13...No.:1715
+(14, 3840, 3840, 4) (1715, 256, 256, 4)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>all_patches2<span class="op">=</span>suffle_data(all_patches2)<span class="co"># 对新的数据集进行随机打乱</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(1715, 256, 256, 4)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot_func(all_patches2[i:i+20,:,:,:3],all_patches2[i:i+20:,:,:,-1])</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co"># i+=500</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="main_files/figure-html/cell-25-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="main_files/figure-html/cell-25-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 加载前面生成的切片数据</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># hdf5_path = "./data/patches_rgb_4b_5c.hdf5"</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># fd = h5py.File(hdf5_path, 'r')</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co"># fd.keys()</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co"># images2=np.array(fd['image'])</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="co"># labels2=np.array(fd['label'])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 对两次切片数据进行合并，得到新的数据集</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>newimages<span class="op">=</span>np.concatenate((images2,all_patches2[:,:,:,<span class="dv">0</span>:<span class="op">-</span><span class="dv">1</span>]),axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>newlabels<span class="op">=</span>np.concatenate((labels2,all_patches2[:,:,:,<span class="op">-</span><span class="dv">1</span>]),axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(newimages.shape,newlabels.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(4459, 256, 256, 3) (4459, 256, 256)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">##可以选择将数据保存为h5文件，方便后续使用</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>hdf5_path <span class="op">=</span> <span class="st">'./data/patches2_rgb_4b_5c.hdf5'</span> </span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> h5py.File(hdf5_path, mode<span class="op">=</span><span class="st">'w'</span>)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>f[<span class="st">'image'</span>] <span class="op">=</span> newimages</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>f[<span class="st">'label'</span>] <span class="op">=</span> newlabels</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>f.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># hdf5_path = './data/patches2_rgb_4b_5c.hdf5' </span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co"># fd = h5py.File(hdf5_path, 'r')</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co"># fd.keys()</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co"># newimages=np.array(fd['image'])</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="co"># newlabels=np.array(fd['label'])#3:tree,4:road,5:crop</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 对数据进行归一化处理，并将label转成one-hot标签形式</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>n_label<span class="op">=</span><span class="dv">5</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> post_normalize_image(images,labels,n_label<span class="op">=</span>n_label):</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>    msk <span class="op">=</span> label_hot(labels,n_label)</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> images</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> img,msk</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>img,msk<span class="op">=</span>post_normalize_image(newimages,newlabels,n_label)</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 将数据集按照7:3进行划分</span></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>xtrain,xtest,ytrain,ytest<span class="op">=</span>train_test_split(img,msk,test_size<span class="op">=</span><span class="fl">0.2</span>,random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a><span class="kw">del</span> img,msk <span class="co">#如果数据较大可以在此删除降低内存</span></span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(xtrain.shape,xtest.shape,ytrain.shape,ytest.shape)</span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>i<span class="op">=</span><span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(3567, 256, 256, 3) (892, 256, 256, 3) (3567, 256, 256, 5) (892, 256, 256, 5)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>plot_func(xtrain[i:i<span class="op">+</span><span class="dv">20</span>,:,:,:<span class="dv">3</span>],np.argmax(ytrain,axis<span class="op">=-</span><span class="dv">1</span>)[i:i<span class="op">+</span><span class="dv">20</span>:,:,:])</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>i<span class="op">+=</span><span class="dv">500</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="main_files/figure-html/cell-31-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="main_files/figure-html/cell-31-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="模型优化" class="level4">
+<h4 class="anchored" data-anchor-id="模型优化">4.2 模型优化</h4>
+<div class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 计算真值标签中各个类别的占比，作为损失函数的权重，权重值越大模型识别错误代价越大一定程度缓解数据不平衡问题。</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co"># from sklearn.utils.class_weight import compute_class_weight</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="co"># classes = np.unique(labels)  </span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="co"># class_weight = compute_class_weight(class_weight='balanced', classes=classes, y=labels.reshape(-1))</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>class_weight<span class="op">=</span>np.array([<span class="fl">0.35</span>,<span class="fl">4.48</span>,<span class="fl">2.07</span>,<span class="fl">0.68</span>,<span class="fl">28.55</span>])</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(class_weight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[ 0.35  4.48  2.07  0.68 28.55]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 采用带有权重的交叉熵损失函数</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> keras <span class="im">import</span> backend <span class="im">as</span> K</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> weighted_categorical_crossentropy(weights):</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Usage:</span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="co">        weights = np.array([0.5,2,10]) # Class one at 0.5, class 2 twice the normal weights, class 3 10x.</span></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="co">        loss = weighted_categorical_crossentropy(weights)</span></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>    weights <span class="op">=</span> K.variable(weights)</span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> loss(y_true, y_pred):</span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># scale predictions so that the class probas of each sample sum to 1</span></span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a>        y_pred <span class="op">/=</span> K.<span class="bu">sum</span>(y_pred, axis<span class="op">=-</span><span class="dv">1</span>, keepdims<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># clip to prevent NaN's and Inf's</span></span>
+<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a>        y_pred <span class="op">=</span> K.clip(y_pred, K.epsilon(), <span class="dv">1</span> <span class="op">-</span> K.epsilon())</span>
+<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a>        <span class="co"># calc</span></span>
+<span id="cb47-17"><a href="#cb47-17" aria-hidden="true" tabindex="-1"></a>        loss <span class="op">=</span> y_true <span class="op">*</span> K.log(y_pred) <span class="op">*</span> weights</span>
+<span id="cb47-18"><a href="#cb47-18" aria-hidden="true" tabindex="-1"></a>        loss <span class="op">=</span> <span class="op">-</span>K.<span class="bu">sum</span>(loss, <span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb47-19"><a href="#cb47-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> loss</span>
+<span id="cb47-20"><a href="#cb47-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> loss</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 设定必要的参数</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>loss<span class="op">=</span>weighted_categorical_crossentropy(class_weight)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>optimizer<span class="op">=</span>Adam()</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>loss_weights<span class="op">=</span><span class="st">''</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>metrics<span class="op">=</span>[<span class="st">'accuracy'</span>]</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>batch_size<span class="op">=</span><span class="dv">10</span></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>epoch<span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>input_height<span class="op">=</span>xtrain.shape[<span class="dv">1</span>]</span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>input_width<span class="op">=</span>xtrain.shape[<span class="dv">2</span>]</span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>nchannel<span class="op">=</span>xtrain.shape[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>num_train<span class="op">=</span>xtrain.shape[<span class="dv">0</span>]</span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>num_val<span class="op">=</span>xtest.shape[<span class="dv">0</span>]</span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a>ATM<span class="op">=</span>all_model(loss,loss_weights,optimizer,metrics,input_height,input_width,n_label,nchannel)</span>
+<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a>modelname<span class="op">=</span><span class="st">'convattunet'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co">## unet下采样操作较多导致细小线状地物信息丢失，新的网络减少下采样，且在decoder部分采用注意力机制提升浅层特征的权重</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>model<span class="op">=</span>ATM.convattunet()<span class="co">#deeplabv3p,UNET,dlinknet,convattunet</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="co"># model.summary()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>384</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 开始训练</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>begin_time <span class="op">=</span> time.time()          </span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>out_dir <span class="op">=</span> <span class="st">"./checkpoint/"</span><span class="op">+</span>modelname<span class="op">+</span><span class="st">'/'</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> os.path.exists(out_dir):</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>    os.makedirs(out_dir) </span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>model_checkpoint <span class="op">=</span> ModelCheckpoint(filepath<span class="op">=</span>out_dir<span class="op">+</span><span class="st">"-</span><span class="sc">{epoch:02d}</span><span class="st">e-val_loss</span><span class="sc">{val_loss:2f}</span><span class="st">.hdf5"</span>,monitor<span class="op">=</span><span class="st">"val_loss"</span>,save_best_only<span class="op">=</span><span class="va">True</span>,mode<span class="op">=</span><span class="st">'auto'</span>)</span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>csvlogger <span class="op">=</span>CSVLogger(filename<span class="op">=</span>out_dir<span class="op">+</span>modelname<span class="op">+</span><span class="st">'-'</span><span class="op">+</span><span class="bu">str</span>(epoch)<span class="op">+</span><span class="st">'-log.csv'</span>, separator<span class="op">=</span><span class="st">','</span>, append<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>result<span class="op">=</span>model.fit(xtrain, ytrain, batch_size<span class="op">=</span>batch_size, epochs<span class="op">=</span>epoch, verbose<span class="op">=</span><span class="dv">1</span>, shuffle<span class="op">=</span><span class="va">True</span>,validation_data<span class="op">=</span>(xtest, ytest),callbacks<span class="op">=</span>[model_checkpoint,csvlogger])</span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time()</span>
+<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'time lapsing </span><span class="sc">{0}</span><span class="st"> s </span><span class="ch">\n</span><span class="st">'</span>.<span class="bu">format</span>(end_time <span class="op">-</span> begin_time))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Epoch 1/50
+357/357 [==============================] - 132s 344ms/step - loss: 1.7302 - accuracy: 0.3324 - val_loss: 2.7731 - val_accuracy: 0.0355
+Epoch 2/50
+357/357 [==============================] - 117s 328ms/step - loss: 1.1811 - accuracy: 0.4554 - val_loss: 1.1779 - val_accuracy: 0.4066
+Epoch 3/50
+357/357 [==============================] - 117s 329ms/step - loss: 1.3168 - accuracy: 0.3951 - val_loss: 1.1310 - val_accuracy: 0.5230
+Epoch 4/50
+357/357 [==============================] - 115s 323ms/step - loss: 1.2823 - accuracy: 0.4182 - val_loss: 1.2304 - val_accuracy: 0.4714
+Epoch 5/50
+357/357 [==============================] - 115s 323ms/step - loss: 1.0932 - accuracy: 0.4740 - val_loss: 2.0796 - val_accuracy: 0.4236
+Epoch 6/50
+357/357 [==============================] - 116s 324ms/step - loss: 1.0692 - accuracy: 0.4806 - val_loss: 1.8193 - val_accuracy: 0.2795
+Epoch 7/50
+357/357 [==============================] - 117s 328ms/step - loss: 0.9390 - accuracy: 0.5248 - val_loss: 0.8420 - val_accuracy: 0.5531
+Epoch 8/50
+357/357 [==============================] - 116s 324ms/step - loss: 0.9168 - accuracy: 0.5349 - val_loss: 1.3639 - val_accuracy: 0.4214
+Epoch 9/50
+357/357 [==============================] - 115s 323ms/step - loss: 0.7919 - accuracy: 0.5759 - val_loss: 0.8654 - val_accuracy: 0.5469
+Epoch 10/50
+357/357 [==============================] - 116s 324ms/step - loss: 0.7120 - accuracy: 0.6098 - val_loss: 0.9407 - val_accuracy: 0.6363
+Epoch 11/50
+357/357 [==============================] - 115s 323ms/step - loss: 0.6665 - accuracy: 0.6290 - val_loss: 0.9928 - val_accuracy: 0.5825
+Epoch 12/50
+357/357 [==============================] - 117s 329ms/step - loss: 0.6473 - accuracy: 0.6359 - val_loss: 0.7060 - val_accuracy: 0.6126
+Epoch 13/50
+357/357 [==============================] - 116s 324ms/step - loss: 0.7309 - accuracy: 0.6215 - val_loss: 1.2073 - val_accuracy: 0.6001
+Epoch 14/50
+357/357 [==============================] - 115s 324ms/step - loss: 0.7831 - accuracy: 0.5896 - val_loss: 1.0000 - val_accuracy: 0.4280
+Epoch 15/50
+357/357 [==============================] - 115s 324ms/step - loss: 0.6402 - accuracy: 0.6407 - val_loss: 0.8063 - val_accuracy: 0.6192
+Epoch 16/50
+357/357 [==============================] - 117s 328ms/step - loss: 0.5884 - accuracy: 0.6662 - val_loss: 0.6009 - val_accuracy: 0.7153
+Epoch 17/50
+357/357 [==============================] - 116s 324ms/step - loss: 0.5722 - accuracy: 0.6790 - val_loss: 0.6031 - val_accuracy: 0.6628
+Epoch 18/50
+357/357 [==============================] - 117s 328ms/step - loss: 0.5473 - accuracy: 0.6883 - val_loss: 0.5610 - val_accuracy: 0.6622
+Epoch 19/50
+357/357 [==============================] - 115s 324ms/step - loss: 0.6260 - accuracy: 0.6581 - val_loss: 0.6122 - val_accuracy: 0.6706
+Epoch 20/50
+357/357 [==============================] - 115s 323ms/step - loss: 0.5256 - accuracy: 0.6956 - val_loss: 0.5667 - val_accuracy: 0.6594
+Epoch 21/50
+357/357 [==============================] - 117s 327ms/step - loss: 0.4587 - accuracy: 0.7269 - val_loss: 0.4607 - val_accuracy: 0.6873
+Epoch 22/50
+357/357 [==============================] - 115s 323ms/step - loss: 0.4570 - accuracy: 0.7349 - val_loss: 5.9171 - val_accuracy: 0.2067
+Epoch 23/50
+357/357 [==============================] - 116s 324ms/step - loss: 0.7492 - accuracy: 0.6173 - val_loss: 0.5541 - val_accuracy: 0.6501
+Epoch 24/50
+357/357 [==============================] - 115s 323ms/step - loss: 0.5090 - accuracy: 0.7099 - val_loss: 0.4747 - val_accuracy: 0.6905
+Epoch 25/50
+357/357 [==============================] - 115s 323ms/step - loss: 0.4161 - accuracy: 0.7504 - val_loss: 0.4940 - val_accuracy: 0.7504
+Epoch 26/50
+357/357 [==============================] - 115s 323ms/step - loss: 0.4415 - accuracy: 0.7416 - val_loss: 0.6152 - val_accuracy: 0.7500
+Epoch 27/50
+357/357 [==============================] - 117s 328ms/step - loss: 0.4088 - accuracy: 0.7558 - val_loss: 0.4202 - val_accuracy: 0.7457
+Epoch 28/50
+357/357 [==============================] - 115s 323ms/step - loss: 0.3941 - accuracy: 0.7668 - val_loss: 0.4369 - val_accuracy: 0.7617
+Epoch 29/50
+357/357 [==============================] - 117s 328ms/step - loss: 0.3693 - accuracy: 0.7788 - val_loss: 0.3911 - val_accuracy: 0.7993
+Epoch 30/50
+357/357 [==============================] - 116s 324ms/step - loss: 0.3296 - accuracy: 0.7972 - val_loss: 0.4089 - val_accuracy: 0.8031
+Epoch 31/50
+357/357 [==============================] - 115s 323ms/step - loss: 0.6094 - accuracy: 0.6927 - val_loss: 0.5222 - val_accuracy: 0.7067
+Epoch 32/50
+357/357 [==============================] - 115s 323ms/step - loss: 0.6922 - accuracy: 0.6500 - val_loss: 0.4923 - val_accuracy: 0.7336
+Epoch 33/50
+357/357 [==============================] - 115s 323ms/step - loss: 0.3982 - accuracy: 0.7583 - val_loss: 0.4426 - val_accuracy: 0.7489
+Epoch 34/50
+357/357 [==============================] - 117s 328ms/step - loss: 0.3531 - accuracy: 0.7851 - val_loss: 0.3565 - val_accuracy: 0.7895
+Epoch 35/50
+357/357 [==============================] - 115s 323ms/step - loss: 0.3184 - accuracy: 0.8056 - val_loss: 0.3931 - val_accuracy: 0.7762
+Epoch 36/50
+357/357 [==============================] - 115s 323ms/step - loss: 0.3268 - accuracy: 0.8041 - val_loss: 0.7312 - val_accuracy: 0.7174
+Epoch 37/50
+357/357 [==============================] - 115s 323ms/step - loss: 0.5086 - accuracy: 0.7256 - val_loss: 0.4377 - val_accuracy: 0.7344
+Epoch 38/50
+357/357 [==============================] - 115s 323ms/step - loss: 0.4898 - accuracy: 0.7339 - val_loss: 0.4392 - val_accuracy: 0.7486
+Epoch 39/50
+357/357 [==============================] - 115s 323ms/step - loss: 0.3323 - accuracy: 0.7972 - val_loss: 0.4307 - val_accuracy: 0.7965
+Epoch 40/50
+357/357 [==============================] - 115s 323ms/step - loss: 0.3074 - accuracy: 0.8101 - val_loss: 0.3669 - val_accuracy: 0.7966
+Epoch 41/50
+357/357 [==============================] - 117s 327ms/step - loss: 0.2872 - accuracy: 0.8219 - val_loss: 0.3196 - val_accuracy: 0.8116
+Epoch 42/50
+357/357 [==============================] - 115s 323ms/step - loss: 0.2687 - accuracy: 0.8335 - val_loss: 0.3486 - val_accuracy: 0.7991
+Epoch 43/50
+357/357 [==============================] - 115s 323ms/step - loss: 0.2602 - accuracy: 0.8381 - val_loss: 0.3334 - val_accuracy: 0.8044
+Epoch 44/50
+357/357 [==============================] - 116s 324ms/step - loss: 0.2730 - accuracy: 0.8322 - val_loss: 0.3430 - val_accuracy: 0.8112
+Epoch 45/50
+357/357 [==============================] - 117s 327ms/step - loss: 0.2481 - accuracy: 0.8450 - val_loss: 0.3174 - val_accuracy: 0.8323
+Epoch 46/50
+357/357 [==============================] - 116s 324ms/step - loss: 0.2362 - accuracy: 0.8527 - val_loss: 0.3275 - val_accuracy: 0.8271
+Epoch 47/50
+357/357 [==============================] - 115s 323ms/step - loss: 0.2201 - accuracy: 0.8618 - val_loss: 0.3433 - val_accuracy: 0.8147
+Epoch 48/50
+357/357 [==============================] - 115s 324ms/step - loss: 0.2571 - accuracy: 0.8444 - val_loss: 0.3561 - val_accuracy: 0.8300
+Epoch 49/50
+357/357 [==============================] - 115s 323ms/step - loss: 0.2231 - accuracy: 0.8617 - val_loss: 0.4232 - val_accuracy: 0.8120
+Epoch 50/50
+357/357 [==============================] - 115s 323ms/step - loss: 0.2010 - accuracy: 0.8733 - val_loss: 0.3685 - val_accuracy: 0.8746
+time lapsing 5814.08594250679 s 
+</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 训练时长较短，模型为达到收敛因此最高精度不是很高，但训练曲线和验证曲线趋势十分吻合，且loss有明显的降低，表明模型性能有提升</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>plot_fig(result,modelname<span class="op">+</span><span class="st">"_Loss_Acc_epoch.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="main_files/figure-html/cell-37-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>h5<span class="op">=</span>glob.glob(<span class="st">"./checkpoint/"</span><span class="op">+</span>modelname<span class="op">+</span><span class="st">"/*.hdf5"</span>)</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>model_list<span class="op">=</span>np.sort(h5)</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="co"># model=load_model(model_list[-1])</span></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>model<span class="op">=</span>load_model(model_list[<span class="op">-</span><span class="dv">1</span>],custom_objects<span class="op">=</span>{<span class="st">'loss'</span>:weighted_categorical_crossentropy}) <span class="co">#loss作为自定义层需要指出</span></span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model_list[<span class="op">-</span><span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>./checkpoint/convattunet\-45e-val_loss0.317361.hdf5</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 首先对切片数据进行预测，查看效果</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>i<span class="op">=</span><span class="dv">100</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>pred<span class="op">=</span>model.predict(xtest,batch_size<span class="op">=</span><span class="dv">64</span>)</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>pred<span class="op">=</span>np.argmax(pred,axis<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>gt<span class="op">=</span>np.argmax(ytest,axis<span class="op">=-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>14/14 [==============================] - 15s 816ms/step</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>val_plot_func(xtest[i:i<span class="op">+</span><span class="dv">20</span>],gt[i:i<span class="op">+</span><span class="dv">20</span>],pred[i:i<span class="op">+</span><span class="dv">20</span>])</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>i<span class="op">+=</span><span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="main_files/figure-html/cell-40-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="main_files/figure-html/cell-40-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="main_files/figure-html/cell-40-output-3.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 评估结果发现1类和4类地物较之前都有精度的提升，整体miou提升16%</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> call_matric(pred,gt, [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="st">'all'</span>])</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     precision    recall  F1-score       iou        oa      miou
+0     0.939834  0.777367  0.850915  0.740515  0.832341  0.679057
+1     0.544363  0.946242  0.691128  0.528033  0.832341  0.679057
+2     0.645177  0.880091  0.744544  0.593047  0.832341  0.679057
+3     0.923623  0.863848  0.892736  0.806254  0.832341  0.679057
+4     0.730599  0.994085  0.842215  0.727437  0.832341  0.679057
+all   0.756720  0.892327  0.804308  0.679057  0.832341  0.679057</code></pre>
+</div>
+</div>
+</section>
+<section id="整景影像的预测" class="level4">
+<h4 class="anchored" data-anchor-id="整景影像的预测">4.3 整景影像的预测</h4>
+<div class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 加载整景的影像进行测试</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>test_data  <span class="op">=</span> h5py.File(<span class="st">'./data/kaggle_test1_3b_5c.hdf5'</span>, <span class="st">'r'</span>)</span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>testimg <span class="op">=</span> np.array(test_data[<span class="st">'image'</span>])</span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>testlabel<span class="op">=</span>np.array(test_data[<span class="st">'label'</span>])</span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(testimg.shape,testlabel.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(1, 3840, 3840, 3) (1, 3840, 3840)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 与训练数据采用相同的预处理方式</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>image<span class="op">=</span>adjust_contrast(testimg)</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">max</span>(image),np.<span class="bu">max</span>(testimg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="48">
+<pre><code>(1.0, 9995)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 首先对影像做padding，保证其能够被crop_size整除，先沿着行列分别裁切样本，再统一进行预测，预测后数据按照原来的顺序再排列组合复原。需要注意的是这里采用的是膨胀预测的方法，喂给模型用来预测的切片大小是256，但放的时候只保留了中间的128×128，四周数据可靠度低，直接废弃</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> center_predict(img,model,batch_size,n_label,strides<span class="op">=</span><span class="dv">128</span>,img_size<span class="op">=</span><span class="dv">256</span>):</span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>    corner_size<span class="op">=</span><span class="bu">int</span>(<span class="fl">0.25</span><span class="op">*</span>img_size)</span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>    h,w,c <span class="op">=</span> img.shape</span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>    padding_h <span class="op">=</span> (h<span class="op">//</span>strides <span class="op">+</span> <span class="dv">1</span>) <span class="op">*</span> strides<span class="op">+</span>corner_size<span class="op">+</span>corner_size</span>
+<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>    padding_w <span class="op">=</span> (w<span class="op">//</span>strides <span class="op">+</span> <span class="dv">1</span>) <span class="op">*</span> strides<span class="op">+</span>corner_size<span class="op">+</span>corner_size</span>
+<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb65-8"><a href="#cb65-8" aria-hidden="true" tabindex="-1"></a>    padding_img <span class="op">=</span> np.zeros((padding_h,padding_w,c),dtype<span class="op">=</span>np.float16)</span>
+<span id="cb65-9"><a href="#cb65-9" aria-hidden="true" tabindex="-1"></a>    padding_img[corner_size:corner_size<span class="op">+</span>h,corner_size:corner_size<span class="op">+</span>w,:] <span class="op">=</span> img[:,:,:]</span>
+<span id="cb65-10"><a href="#cb65-10" aria-hidden="true" tabindex="-1"></a>    mask_whole <span class="op">=</span> np.zeros((padding_h,padding_w,n_label),dtype<span class="op">=</span>np.float16)</span>
+<span id="cb65-11"><a href="#cb65-11" aria-hidden="true" tabindex="-1"></a>    crop_batch<span class="op">=</span>[]</span>
+<span id="cb65-12"><a href="#cb65-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(h<span class="op">//</span>strides<span class="op">+</span><span class="dv">1</span>):</span>
+<span id="cb65-13"><a href="#cb65-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(w<span class="op">//</span>strides<span class="op">+</span><span class="dv">1</span>):</span>
+<span id="cb65-14"><a href="#cb65-14" aria-hidden="true" tabindex="-1"></a>            crop_img <span class="op">=</span> padding_img[i<span class="op">*</span>strides:i<span class="op">*</span>strides<span class="op">+</span>img_size,j<span class="op">*</span>strides:j<span class="op">*</span>strides<span class="op">+</span>img_size,:]</span>
+<span id="cb65-15"><a href="#cb65-15" aria-hidden="true" tabindex="-1"></a>            ch,cw,c <span class="op">=</span> crop_img.shape</span>
+<span id="cb65-16"><a href="#cb65-16" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb65-17"><a href="#cb65-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> ch <span class="op">!=</span> img_size <span class="kw">or</span> cw <span class="op">!=</span> img_size:</span>
+<span id="cb65-18"><a href="#cb65-18" aria-hidden="true" tabindex="-1"></a>                <span class="cf">continue</span></span>
+<span id="cb65-19"><a href="#cb65-19" aria-hidden="true" tabindex="-1"></a>            crop_batch.append(crop_img)</span>
+<span id="cb65-20"><a href="#cb65-20" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb65-21"><a href="#cb65-21" aria-hidden="true" tabindex="-1"></a>    crop_batch<span class="op">=</span>np.array(crop_batch)</span>
+<span id="cb65-22"><a href="#cb65-22" aria-hidden="true" tabindex="-1"></a>    start_time<span class="op">=</span>time.time()</span>
+<span id="cb65-23"><a href="#cb65-23" aria-hidden="true" tabindex="-1"></a>    pred<span class="op">=</span>model.predict(crop_batch,batch_size<span class="op">=</span>batch_size)</span>
+<span id="cb65-24"><a href="#cb65-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-25"><a href="#cb65-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(h<span class="op">//</span>strides<span class="op">+</span><span class="dv">1</span>):</span>
+<span id="cb65-26"><a href="#cb65-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(w<span class="op">//</span>strides<span class="op">+</span><span class="dv">1</span>):</span>
+<span id="cb65-27"><a href="#cb65-27" aria-hidden="true" tabindex="-1"></a>            mask_whole[i<span class="op">*</span>strides<span class="op">+</span>corner_size:i<span class="op">*</span>strides<span class="op">+</span>img_size<span class="op">-</span>corner_size,j<span class="op">*</span>strides<span class="op">+</span>corner_size:j<span class="op">*</span>strides<span class="op">+</span>img_size<span class="op">-</span>corner_size] <span class="op">=</span> pred[(i<span class="op">+</span><span class="dv">1</span><span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>(w<span class="op">//</span>strides<span class="op">+</span><span class="dv">1</span>)<span class="op">+</span>(j<span class="op">+</span><span class="dv">1</span>)<span class="op">-</span><span class="dv">1</span>,corner_size:img_size<span class="op">-</span>corner_size,corner_size:img_size<span class="op">-</span>corner_size]</span>
+<span id="cb65-28"><a href="#cb65-28" aria-hidden="true" tabindex="-1"></a>    score <span class="op">=</span> mask_whole[corner_size:corner_size<span class="op">+</span>h,corner_size:corner_size<span class="op">+</span>w]</span>
+<span id="cb65-29"><a href="#cb65-29" aria-hidden="true" tabindex="-1"></a>    end_time<span class="op">=</span>time.time()</span>
+<span id="cb65-30"><a href="#cb65-30" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'pred_time:'</span>,end_time<span class="op">-</span>start_time)</span>
+<span id="cb65-31"><a href="#cb65-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>h_pred <span class="op">=</span> center_predict(image[<span class="dv">0</span>],model,<span class="dv">32</span>,n_label)</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>h_pred_mask<span class="op">=</span>np.argmax(h_pred, axis <span class="op">=</span> <span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(h_pred.shape,testlabel[<span class="dv">0</span>].shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>31/31 [==============================] - 11s 292ms/step
+pred_time: 14.90808916091919
+(3840, 3840, 5) (3840, 3840)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>fig<span class="op">=</span>plt.figure(figsize<span class="op">=</span>(<span class="dv">20</span>,<span class="dv">20</span>)) </span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>plt.imshow(testlabel[<span class="dv">0</span>,:,:])</span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>plt.imshow(h_pred_mask)</span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="main_files/figure-html/cell-46-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/^(?:http:|https:)\/\/www\.junchuanyu\.com\/**/);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="JunchuanYu/blog-en" data-repo-id="R_kgDOIcYXDA" data-category="General" data-category-id="DIC_kwDOIcYXDM4CSlVp" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Blog made with <a href="https://quarto.org/">Quarto</a>, by Junchuan Yu.</div>   
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../jason.yu.mail@qq.com">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/JunchuanYu">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.zhihu.com/people/yu-jun-chuan-84">
+      <i class="bi bi-book" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://space.bilibili.com/18814004/">
+      <i class="bi bi-bootstrap" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

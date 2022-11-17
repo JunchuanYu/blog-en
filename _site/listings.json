@@ -3,7 +3,7 @@
     "listing": "/posts/index.html",
     "items": [
       "/posts/2022-01/article.html",
-      "/posts/lesson/texk_1_rgb.html"
+      "/posts/lesson/main.html"
     ]
   },
   {
@@ -11,7 +11,7 @@
     "items": [
       "/posts/2022-01/article.html",
       "/posts/index.html",
-      "/posts/lesson/texk_1_rgb.html",
+      "/posts/lesson/main.html",
       "/publication/index.html",
       "/publication/temp/index.html",
       "/teaching/index.html",
