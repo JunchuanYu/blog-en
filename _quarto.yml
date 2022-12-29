@@ -4,6 +4,7 @@ project:
 website:
   page-navigation: true
   title: "Junchuan Yu"
+  favicon: favicon.ico
   site-url: "https://junchuanyu.netlify.app/"
   google-analytics: "G-2J79YYG9CZ"
   page-footer:
