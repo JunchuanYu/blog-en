@@ -1,0 +1,10 @@
+---
+title: " AI眼中的诗意——AI绘画 "
+# subtitle: "National Key R&D Program (2022)"
+author: 
+  - "Junchuan Yu"
+date: "2022-10-8"
+categories: [Posts, Deep leanring,Art]
+image: "welcome.jpg"
+toc: true
+---

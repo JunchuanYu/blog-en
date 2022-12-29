@@ -1,0 +1,40 @@
+---
+# title: "Identification of Correlation Factors of hidden Geohazard via Deep Learning"
+# author: "Junchuan Yu"
+# data: 2020/11/23
+format:
+  revealjs: 
+    theme: default
+---
+## 
+<br/>
+<br/>
+<center><font size=28 >**Identification of Correlation Factors of Hidden Geohazard via Deep Learning**</font></center>
+
+  
+<br/>
+<br/>
+<br/>
+
+<center><font size=18 >Junchuan Yu</font></center>
+<center><font size=10 >2022/11/23</font></center>
+
+## 
+
+![](images/1.jpg){fig-align="center" width="100%"}
+
+## 
+
+![](images/2.jpg){fig-align="center" width="100%"}
+
+## 
+
+![](images/3.jpg){fig-align="center" width="100%"}
+
+## 
+
+![](images/4.jpg){fig-align="center" width="100%"}
+
+## 
+
+![](images/5.jpg){fig-align="center" width="100%"}

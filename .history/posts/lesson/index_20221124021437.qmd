@@ -1,0 +1,17 @@
+---
+title: " 利用多光谱遥感数据进行地物分类 "
+subtitle: "Work with Remote Sensing Data in Python: Lesson 3-3"
+author: 
+  - "Junchuan Yu"
+date: "2022-11-15"
+categories: [Posts, Deep leanring,Teaching,Workshop]
+image: "welcome.jpg"
+toc: true
+contents: "/{main.ipynb}"
+---
+
+
+<!-- ##   -->
+```` {.ipynb code-preview="main.ipynb"}
+````
+<!-- {{< include main.ipynb >}} -->

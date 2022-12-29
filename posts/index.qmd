@@ -2,7 +2,7 @@
 title: "Posts"
 listing:
   - id: posts
-    contents: "*/{*.qmd,*.md,*.ipynb}"
+    contents: "*/{index.qmd,index.md,index.ipynb}"
     type: grid
     fields: [image, date, title, subtitle]
     sort: "date desc"

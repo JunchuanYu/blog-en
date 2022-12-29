@@ -1,0 +1,11 @@
+{
+  "hash": "a5e99131ae1c14a93c7ea062abac9d9b",
+  "result": {
+    "markdown": "---\ntitle: ' 利用多光谱遥感数据进行地物分类 '\nsubtitle: 'Work with Remote Sensing Data in Python: Lesson 3-3'\nauthor:\n  - Junchuan Yu\ndate: '2022-11-15'\ncategories:\n  - Posts\n  - Deep leanring\n  - Teaching\n  - Workshop\nimage: welcome.jpg\ntoc: true\ncontents: '/{main.ipynb}'\n---\n\n",
+    "supporting": [
+      "index_files\\figure-html"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

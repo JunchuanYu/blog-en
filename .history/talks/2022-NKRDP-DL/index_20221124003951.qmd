@@ -1,0 +1,40 @@
+---
+title: " Identification of Correlation Factors of Hidden Geohazard via Deep Learning "
+subtitle: "National Key R&D Program (2022)"
+author: 
+  - "Junchuan Yu"
+date: "2022-11-23"
+categories: [Talks, NKRDP, Deep leanring]
+image: "index.jpg"
+# toc: true
+---
+
+<!-- -   Event: [rstudio::conf(2022)](https://www.rstudio.com/conference/2022/schedule/)
+
+-   [Talk video](https://www.rstudio.com/conference/2022/talks/making-awesome-automations-github-actions/) -->
+<!-- 
+
+-   [Slides](https://yujc.quarto.pub/slide-221123/#/section/)
+
+## Complementary materials
+
+-   [Blog post: How important is GitHub Actions to RStudio/Posit? Code for a plot in my talk!](https://beamilz.com/posts/series-gha/2022-07-28-github-actions-rstudio/en/)
+
+-   [Blog post: Introduction to GitHub Actions to R users](https://beamilz.com/posts/series-gha/2022-series-gha-1-what-is/en/)
+
+-   [Blog post: Monitoring quarto-dev repositories: Creating a workflow with GitHub Actions for R users](https://beamilz.com/posts/series-gha/2022-series-gha-2-creating-your-first-action/en/)
+
+-   [GitHub repository: awesome-gha - Awesome GitHub Actions for R](https://github.com/beatrizmilz/awesome-gha)
+ -->
+
+## Slides
+
+-   [Slides](https://yujc.quarto.pub/slide-221123/#/section/):
+
+[![](index.jpg){fig-align="center"}](https://yujc.quarto.pub/slide-221123/#/section/)
+
+
+<!-- ``` {.markdown code-preview="./slide/_slide-221123.qmd"} -->
+  ``` {.markdown code-preview="./slide/_slide-221123.qmd"}
+  ## Slide Title {.smaller}
+  ```
