@@ -3,18 +3,18 @@ title: "Teaching"
 listing:
   - id: teaching
     contents: "*/{*.qmd,*.md,*.ipynb}"
-    type: grid
+    type: default
     fields: [image, date, title, subtitle]
     sort: "date desc"
-    categories: cloud
+    # categories: cloud
     sort-ui: true
     filter-ui: true
     page-size: 36     
 page-layout: full
-title-block-banner: false
+title-block-banner: true
 comments: false
 include-in-header: meta.html  
-toc: true
+toc: false
 ---
 
 

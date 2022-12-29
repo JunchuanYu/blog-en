@@ -24,7 +24,7 @@
   {
     "listing": "/talks/index.html",
     "items": [
-      "/talks/2022-NKRDP-DL/index.html"
+      "/talks/2022-11-23_NKRDP-DL/index.html"
     ]
   },
   {
@@ -35,8 +35,6 @@
   },
   {
     "listing": "/teaching/index.html",
-    "items": [
-      "/teaching/temp/index.html"
-    ]
+    "items": []
   }
 ]
