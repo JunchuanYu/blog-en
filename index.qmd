@@ -21,7 +21,7 @@ listing:
   #   page-size: 3     
   - id: talks
     contents: talks/**/{main.qmd,index.md,index.ipynb}
-    type: grid
+    type: default
     fields: [image, date, title, subtitle]
     sort: "date desc"
     #categories: cloud
