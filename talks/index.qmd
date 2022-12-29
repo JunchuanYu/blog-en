@@ -2,7 +2,7 @@
 title: "Talks"
 comments: false
 listing:
-  contents: "*/*.qmd"
+  contents: "*/{main.qmd,index.md,index.ipynb}"
   sort: "date desc"
   type: default
   fields: [image, date, title, subtitle]  

@@ -71,68 +71,13 @@ ul.task-list li input[type="checkbox"] {
 
     const options = {
       valueNames: ['listing-image','listing-date','listing-title','listing-subtitle','listing-categories','listing-author','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+      page: 3,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
     window['quarto-listings']['listing-posts'] = new List('listing-posts', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-publication .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-subtitle','listing-categories','listing-author','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-publication'] = new List('listing-publication', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-teaching .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-subtitle','listing-categories','listing-author','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-teaching'] = new List('listing-teaching', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -249,7 +194,7 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/JunchuanYu"><i class="bi bi-book" role="img">
+    <a class="nav-link" href="https://www.zhihu.com/people/yu-jun-chuan-84"><i class="bi bi-book" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -274,8 +219,7 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
    
   <ul>
   <li><a href="#recent-posts-posts-recentes" id="toc-recent-posts-posts-recentes" class="nav-link active" data-scroll-target="#recent-posts-posts-recentes">Recent posts / Posts recentes</a></li>
-  <li><a href="#recent-talks-palestras-recentes" id="toc-recent-talks-palestras-recentes" class="nav-link" data-scroll-target="#recent-talks-palestras-recentes">Recent Talks / Palestras recentes</a></li>
-  <li><a href="#posts" id="toc-posts" class="nav-link" data-scroll-target="#posts">Posts</a></li>
+  <li><a href="#recent-talks" id="toc-recent-talks" class="nav-link" data-scroll-target="#recent-talks">Recent Talks</a></li>
   </ul>
 </nav>
     </div>
@@ -329,9 +273,138 @@ Posts
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="Posts,Deep leanring,Art" data-listing-date-sort="1665158400000" data-listing-file-modified-sort="1669225944659" data-listing-reading-time-sort="0.69">
+<div class="quarto-post image-right" data-index="1" data-categories="Posts,Deep leanring,Teaching,Workshop" data-listing-date-sort="1670601600000" data-listing-file-modified-sort="1672306291266" data-listing-reading-time-sort="0.11">
 <div class="thumbnail">
-<p><a href="./posts/2022-10-8_ai_poem/index.html"> <img src="./posts/2022-10-8_ai_poem/welcome.jpg" class="thumnail-image"> </a></p>
+<p><a href="./posts/2022-12-10wrsdp_1-3-2/index.html"> <img src="./posts/2022-12-10wrsdp_1-3-2/welcome.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/2022-12-10wrsdp_1-3-2/index.html">
+<h3 class="no-anchor listing-title">
+基于遥感指数提取水体
+</h3>
+<div class="listing-subtitle">
+Work with Remote Sensing Data in Python: Lesson 1-3-2
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
+Posts
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Deep leanring'); return false;">
+Deep leanring
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Teaching'); return false;">
+Teaching
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Workshop'); return false;">
+Workshop
+</div>
+</div>
+<a href="./posts/2022-12-10wrsdp_1-3-2/index.html"> </a>
+</div>
+<div class="metadata">
+<a href="./posts/2022-12-10wrsdp_1-3-2/index.html">
+<div class="listing-date">
+Dec 10, 2022
+</div>
+<div class="listing-author">
+Junchuan Yu
+</div>
+<div class="listing-reading-time">
+0 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="Posts,Deep leanring,Teaching,Workshop" data-listing-date-sort="1668614400000" data-listing-file-modified-sort="1672308384297" data-listing-reading-time-sort="0.275">
+<div class="thumbnail">
+<p><a href="./posts/2022-11-17wrsdp_1-3-1/index.html"> <img src="./posts/2022-11-17wrsdp_1-3-1/welcome.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/2022-11-17wrsdp_1-3-1/index.html">
+<h3 class="no-anchor listing-title">
+哨兵2号数据获取及处理
+</h3>
+<div class="listing-subtitle">
+Work with Remote Sensing Data in Python: Lesson 1-3-1
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
+Posts
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Deep leanring'); return false;">
+Deep leanring
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Teaching'); return false;">
+Teaching
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Workshop'); return false;">
+Workshop
+</div>
+</div>
+<a href="./posts/2022-11-17wrsdp_1-3-1/index.html"> </a>
+</div>
+<div class="metadata">
+<a href="./posts/2022-11-17wrsdp_1-3-1/index.html">
+<div class="listing-date">
+Nov 17, 2022
+</div>
+<div class="listing-author">
+Junchuan Yu
+</div>
+<div class="listing-reading-time">
+0 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="Posts,Deep leanring,Teaching,Workshop" data-listing-date-sort="1668441600000" data-listing-file-modified-sort="1672301744040" data-listing-reading-time-sort="0.145">
+<div class="thumbnail">
+<p><a href="./posts/2022-11-15_wrsdp_3-3/index.html"> <img data-src="./posts/2022-11-15_wrsdp_3-3/welcome.jpg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/2022-11-15_wrsdp_3-3/index.html">
+<h3 class="no-anchor listing-title">
+利用多光谱遥感数据进行地物分类
+</h3>
+<div class="listing-subtitle">
+Work with Remote Sensing Data in Python: Lesson 3-3
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
+Posts
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Deep leanring'); return false;">
+Deep leanring
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Teaching'); return false;">
+Teaching
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Workshop'); return false;">
+Workshop
+</div>
+</div>
+<a href="./posts/2022-11-15_wrsdp_3-3/index.html"> </a>
+</div>
+<div class="metadata">
+<a href="./posts/2022-11-15_wrsdp_3-3/index.html">
+<div class="listing-date">
+Nov 15, 2022
+</div>
+<div class="listing-author">
+Junchuan Yu
+</div>
+<div class="listing-reading-time">
+0 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="Posts,Deep leanring,Art" data-listing-date-sort="1665158400000" data-listing-file-modified-sort="1669225944659" data-listing-reading-time-sort="0.69">
+<div class="thumbnail">
+<p><a href="./posts/2022-10-8_ai_poem/index.html"> <img data-src="./posts/2022-10-8_ai_poem/welcome.jpg" class="thumnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./posts/2022-10-8_ai_poem/index.html">
@@ -373,31 +446,19 @@ Junchuan Yu
 <div class="listing-no-matching d-none">
 No matching items
 </div>
+<nav id="posts-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
 </div>
-<p><a href="../posts/index.html"> </a><button type="button" class="btn btn-primary float-end btn-sm"><a href="../posts/index.html">See all/button&gt;</a><p></p>
+<p><a href="../posts/index.html"> <button type="button" class="btn btn-primary float-end btn-sm">See all</button></a></p>
 <p><br></p>
-</button></p></section>
-<section id="recent-talks-palestras-recentes" class="level2">
-<h2 class="anchored" data-anchor-id="recent-talks-palestras-recentes">Recent Talks / Palestras recentes</h2>
-<p><a href="../talks/index.html"> <button type="button" class="btn btn-danger float-end btn-sm">Next activities/Atividades futuras</button></a><br></p>
+</section>
+<section id="recent-talks" class="level2">
+<h2 class="anchored" data-anchor-id="recent-talks">Recent Talks</h2>
 <div id="listing-talks" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1667429085000" data-listing-reading-time-sort="0.005">
-<a href="./talks/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-img-bg" style="height: 150px;">
-&nbsp;
-</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Talks
-</h5>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="Talks,NKRDP,Deep leanring" data-listing-date-sort="1669132800000" data-listing-file-modified-sort="1672293417376" data-listing-reading-time-sort="0.41">
-<a href="./talks/2022-11-23_NKRDP-DL/index.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="0" data-categories="Talks,NKRDP,Deep leanring" data-listing-date-sort="1669132800000" data-listing-file-modified-sort="1672293417376" data-listing-reading-time-sort="0.41">
+<a href="./talks/2022-11-23_NKRDP-DL/main.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
 <img src="./talks/2022-11-23_NKRDP-DL/index.jpg" class="thumbnail-image card-img" style="height: 150px;">
@@ -424,151 +485,12 @@ No matching items
 </div>
 </div>
 <p><a href="../talks/index.html"> <button type="button" class="btn btn-primary float-end btn-sm">See all</button></a></p>
-</section>
-<section id="posts" class="level2">
-<h2 class="anchored" data-anchor-id="posts">Posts</h2>
-<div id="posts">
-
-</div>
-<p><a href="../posts/index.html"> <button type="button" class="btn btn-primary float-end btn-sm">See all posts</button></a></p>
 
 
 
 </section>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-publication">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1672324636240" data-listing-reading-time-sort="0.245">
-<div class="thumbnail">
-<a href="./publication/index.html">
-<div class="thumbnail-image">
-
-</div>
-</a><p><a href="./publication/index.html"></a></p>
-</div>
-<div class="body">
-<a href="./publication/index.html">
-<h3 class="no-anchor listing-title">
-Publication
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./publication/index.html">
-<div class="listing-reading-time">
-0 min
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="news" data-listing-date-sort="1668096000000" data-listing-file-modified-sort="1668568032000" data-listing-reading-time-sort="0.16">
-<div class="thumbnail">
-<p><a href="./publication/temp/index.html"> <img src="./publication/temp/welcome.jpg" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./publication/temp/index.html">
-<h3 class="no-anchor listing-title">
-Welcome To My Blog
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('news'); return false;">
-news
-</div>
-</div>
-<a href="./publication/temp/index.html"> </a>
-</div>
-<div class="metadata">
-<a href="./publication/temp/index.html">
-<div class="listing-date">
-Nov 11, 2022
-</div>
-<div class="listing-author">
-Tristan O’Malley
-</div>
-<div class="listing-reading-time">
-0 min
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div><div class="quarto-listing quarto-listing-container-default" id="listing-teaching">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1668571809000" data-listing-reading-time-sort="0.01">
-<div class="thumbnail">
-<a href="./teaching/index.html">
-<div class="thumbnail-image">
-
-</div>
-</a><p><a href="./teaching/index.html"></a></p>
-</div>
-<div class="body">
-<a href="./teaching/index.html">
-<h3 class="no-anchor listing-title">
-Teaching
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./teaching/index.html">
-<div class="listing-reading-time">
-0 min
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="news" data-listing-date-sort="1668096000000" data-listing-file-modified-sort="1668570487000" data-listing-reading-time-sort="0.16">
-<div class="thumbnail">
-<p><a href="./teaching/temp/index.html"> <img src="./teaching/temp/welcome.jpg" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./teaching/temp/index.html">
-<h3 class="no-anchor listing-title">
-Welcome To My Blog
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('news'); return false;">
-news
-</div>
-</div>
-<a href="./teaching/temp/index.html"> </a>
-</div>
-<div class="metadata">
-<a href="./teaching/temp/index.html">
-<div class="listing-date">
-Nov 11, 2022
-</div>
-<div class="listing-author">
-Tristan O’Malley
-</div>
-<div class="listing-reading-time">
-0 min
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

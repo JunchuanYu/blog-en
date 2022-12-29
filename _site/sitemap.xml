@@ -1,99 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://localhost:6649/posts/index.html</loc>
-    <lastmod>2022-11-16T03:55:59.997Z</lastmod>
-  </url>
-  <url>
-    <loc>https://localhost:6649/index.html</loc>
-    <lastmod>2022-11-16T04:10:24.149Z</lastmod>
-  </url>
-  <url>
-    <loc>https://localhost:6649/about.html</loc>
-    <lastmod>2022-11-16T04:03:36.856Z</lastmod>
-  </url>
-  <url>
-    <loc>https://localhost:6649/talks/index.html</loc>
-    <lastmod>2022-11-16T04:10:33.991Z</lastmod>
-  </url>
-  <url>
-    <loc>https://localhost:6649/publication/index.html</loc>
-    <lastmod>2022-11-16T04:10:28.362Z</lastmod>
-  </url>
-  <url>
-    <loc>https://localhost:6649/publication/temp/index.html</loc>
-    <lastmod>2022-11-16T03:46:35.294Z</lastmod>
-  </url>
-  <url>
-    <loc>https://localhost:6649/teaching/index.html</loc>
-    <lastmod>2022-11-16T04:10:17.586Z</lastmod>
-  </url>
-  <url>
-    <loc>https://localhost:6649/teaching/temp/index.html</loc>
-    <lastmod>2022-11-16T03:48:09.680Z</lastmod>
-  </url>
-  <url>
-    <loc>https://localhost:6649/talks/2022-rstudio-conf/index.html</loc>
-    <lastmod>2022-11-16T04:10:37.420Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/teaching/index.html</loc>
-    <lastmod>2022-12-29T14:37:54.257Z</lastmod>
-  </url>
-  <url>
     <loc>https://junchuanyu.netlify.app/teaching/about.html</loc>
-    <lastmod>2022-12-29T18:02:42.424Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/teaching/posts/index.html</loc>
-    <lastmod>2022-12-29T18:02:38.578Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/teaching/publication/index.html</loc>
-    <lastmod>2022-12-29T18:02:46.031Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/teaching/posts/lesson/main.html</loc>
-    <lastmod>2022-12-29T08:04:55.377Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/teaching/talks/2022-NKRDP-DL/index.html</loc>
-    <lastmod>2022-12-29T08:22:57.796Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/teaching/talks/index.html</loc>
-    <lastmod>2022-12-29T18:02:49.300Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/teaching/posts/lesson/index.html</loc>
-    <lastmod>2022-12-29T08:05:52.907Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/teaching/posts/lesson/main - 副本.html</loc>
-    <lastmod>2022-12-29T08:03:58.756Z</lastmod>
+    <lastmod>2022-12-29T18:48:07.651Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/teaching/posts/2022-10-8_ai_poem/index.html</loc>
-    <lastmod>2022-12-29T08:22:04.185Z</lastmod>
+    <lastmod>2022-12-29T19:04:38.776Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/teaching/posts/2022-11-15_wrsdp_3-3/index.html</loc>
-    <lastmod>2022-12-29T08:22:07.427Z</lastmod>
+    <lastmod>2022-12-29T18:47:31.016Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/teaching/posts/2022-11-17wrsdp_1-3-1/index.html</loc>
-    <lastmod>2022-12-29T14:37:50.415Z</lastmod>
+    <lastmod>2022-12-29T18:47:33.543Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/teaching/posts/2022-12-10wrsdp_1-3-2/index.html</loc>
-    <lastmod>2022-12-29T09:31:44.386Z</lastmod>
+    <lastmod>2022-12-29T18:47:35.995Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/teaching/posts/index.html</loc>
+    <lastmod>2022-12-29T19:04:49.608Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/teaching/publication/index.html</loc>
+    <lastmod>2022-12-29T18:47:38.649Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/teaching/talks/2022-11-23_NKRDP-DL/index.html</loc>
-    <lastmod>2022-12-29T14:37:52.336Z</lastmod>
+    <lastmod>2022-12-29T19:04:27.400Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/teaching/talks/index.html</loc>
+    <lastmod>2022-12-29T19:14:16.873Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/teaching/teaching/index.html</loc>
-    <lastmod>2022-12-29T17:47:13.321Z</lastmod>
+    <lastmod>2022-12-29T18:47:42.991Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/teaching/index.html</loc>
+    <lastmod>2022-12-29T19:14:14.493Z</lastmod>
   </url>
 </urlset>
