@@ -1,1 +1,1 @@
-Sitemap: https://junchuanyu.netlify.app/teaching/sitemap.xml
+Sitemap: https://junchuanyu.netlify.app/sitemap.xml

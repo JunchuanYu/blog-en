@@ -4,7 +4,7 @@ project:
 website:
   page-navigation: true
   title: "Junchuan Yu"
-  site-url: "https://junchuanyu.netlify.app/teaching/"
+  site-url: "https://junchuanyu.netlify.app/"
   google-analytics: "G-2J79YYG9CZ"
   page-footer:
     left: "Blog made with [Quarto](https://quarto.org/), by Junchuan Yu. "
