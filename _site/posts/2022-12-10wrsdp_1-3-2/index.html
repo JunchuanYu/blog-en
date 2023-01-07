@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Junchuan Yu">
-<meta name="dcterms.date" content="2022-12-10">
+<meta name="dcterms.date" content="2022-12-31">
 
-<title>Junchuan Yu - 基于遥感指数提取水体</title>
+<title>Junchuan Yu - 基于遥感指数的水体提取</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -95,6 +95,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../favicon.ico" rel="icon">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -141,7 +142,7 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="">
-<meta property="og:title" content="Junchuan Yu - 基于遥感指数提取水体">
+<meta property="og:title" content="Junchuan Yu - 基于遥感指数的水体提取">
 <meta property="og:description" content="Welcome to my blog!">
 <meta property="og:image" content="">
 
@@ -152,6 +153,7 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
 <meta property="twitter:description" content="Welcome to my blog!">
 <meta property="twitter:image" content="">
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -217,7 +219,7 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">基于遥感指数提取水体</h1>
+      <h1 class="title">基于遥感指数的水体提取</h1>
             <p class="subtitle lead">Work with Remote Sensing Data in Python: Lesson 1-3-2</p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Posts</div>
@@ -241,7 +243,7 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">December 10, 2022</p>
+        <p class="date">December 31, 2022</p>
       </div>
     </div>
     
@@ -257,11 +259,13 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#基于遥感指数提取水体" id="toc-基于遥感指数提取水体" class="nav-link active" data-scroll-target="#基于遥感指数提取水体">基于遥感指数提取水体<br></a>
+  <li><a href="#练习2-基于遥感指数的水体提取" id="toc-练习2-基于遥感指数的水体提取" class="nav-link active" data-scroll-target="#练习2-基于遥感指数的水体提取">练习2 基于遥感指数的水体提取</a>
   <ul class="collapse">
-  <li><a href="#水体指数计算" id="toc-水体指数计算" class="nav-link" data-scroll-target="#水体指数计算">水体指数计算</a></li>
-  <li><a href="#去除小图斑" id="toc-去除小图斑" class="nav-link" data-scroll-target="#去除小图斑">去除小图斑</a></li>
-  <li><a href="#成果出图" id="toc-成果出图" class="nav-link" data-scroll-target="#成果出图">成果出图</a></li>
+  <li><a href="#方法介绍" id="toc-方法介绍" class="nav-link" data-scroll-target="#方法介绍">1. 方法介绍</a></li>
+  <li><a href="#数据读取" id="toc-数据读取" class="nav-link" data-scroll-target="#数据读取">2. 数据读取</a></li>
+  <li><a href="#水体指数计算" id="toc-水体指数计算" class="nav-link" data-scroll-target="#水体指数计算">3. 水体指数计算</a></li>
+  <li><a href="#去除小图斑" id="toc-去除小图斑" class="nav-link" data-scroll-target="#去除小图斑">4. 去除小图斑</a></li>
+  <li><a href="#成果出图" id="toc-成果出图" class="nav-link" data-scroll-target="#成果出图">5. 成果出图</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -272,26 +276,16 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
 
 
 
-<section id="基于遥感指数提取水体" class="level1">
-<h1>基于遥感指数提取水体<br></h1>
-<p>阈值法是比较简单但却较为有效地水体提取方法，且多数地复杂方法地基础仍然是阈值法。目前，较为常用的阈值提取方法主要为NDWI、MNDWI以及部分针对特殊影像的阈值提取方法。此类方法是利用水体在部分波段中反射率较高，而在一些波段中反射率低的特点，通过波段之间的计算来凸显水体，并且通过设定阈值，从而达到提取水体的目的。</p>
-<p>NDWI（归一化差异水体指数）:<br></p>
-<ul>
-<li>NDWI = (GREEN-NIR)/(GREEN+NIR)</li>
-</ul>
-<p>式中GREEN表示绿光波段的反射率，NIR表示近红外波段的反射率。该方法尽管已经较为古老，但其是最为常用的水体提取方法（部分高分辨率数据仅有4个波段），并且目前很多的水体指数法都是在该方法地基础上进行地变化。该方法对于大部分的常规水体均可有效提取，但是同样受到其他因素的影响较大。</p>
-<p>NDWI（改进的归一化差异水体指数）：<br></p>
-<ul>
-<li>MNDWI=(GREEN-SWIR)/(GREEN+SWIR)</li>
-</ul>
-<p>式中GREEN表示绿光波段的反射率，SWIR表示中红外波段的反射率。该方法是NDWI的变种，但是总体提取精度要优于NDWI。但是对于部分高分辨率数据不适用（不存在中红外波段），因此在进行中低分辨率的水体自动提取时常用。且由于该方法对于部分湖泊湿地中的富营养化的水体提取也较为适用，因此也常用来提取此类水体。<br></p>
-<p>环境要求： <br></p>
-<ul>
-<li>GDAL==2.4.1</li>
-<li>numpy==1.19.5</li>
-<li>PyCRS==1.0.2</li>
-<li>scikit-image==0.17.2</li>
-</ul>
+<!-- <div align=center><img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/WRSDP-2.png"></div> -->
+<p><img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/WRSDP-2.png" class="img-fluid"></p>
+<section id="练习2-基于遥感指数的水体提取" class="level1">
+<h1>练习2 基于遥感指数的水体提取</h1>
+<section id="方法介绍" class="level3">
+<h3 class="anchored" data-anchor-id="方法介绍">1. 方法介绍</h3>
+<p>阈值法是比较简单但却较为有效的水体提取方法，优点是物理含义明确，计算简单，效率高，缺点一是在一些复杂场景中，受建筑阴影等影响容易出现误识别，二是基于像元计算存在的“椒盐现象”，三是最大的确定是阈值需要人为设定。虽然这是一个非常原始的方法，但即使在今天依然有很大应用价值，比如作为一种特征与其他类型数据做融合处理，结合机器学习优化阈值设定的问题，还可以在一些广域识别应用中起到高置信样本筛选的作用等等。 NDWI（归一化差异水体指数）:<br>
+<font size="2"><span class="math display">\[    NDWI = (GREEN-NIR)/(GREEN+NIR) \]</span></font></p>
+<p>式中GREEN表示绿光波段的反射率，NIR表示近红外波段的反射率。该指数的构建是利用了水体光谱在近红外区间反射率几乎为零的特性，更适合要素均匀分区且类型相对单一的自然场景中。 MNDWI（改进的归一化差异水体指数）： <font size="2"><span class="math display">\[  MNDWI=(GREEN-SWIR)/(GREEN+SWIR)\]</span></font></p>
+<p>式中GREEN表示绿光波段的反射率，SWIR表示中红外波段的反射率。该方法是NDWI的变种，将NDWI中的近红外替换成短波红外波段，提高了水体与建筑物等地物的可区分度，该指数较为适合于城镇水体信息的提取，然而大部分高分卫星数据由于缺少短波红外波段而无法使用该指数。</p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
@@ -302,6 +296,9 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rasterio.plot</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="数据读取" class="level3">
+<h3 class="anchored" data-anchor-id="数据读取">2. 数据读取</h3>
 <div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 读图像文件</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_img(filename):</span>
@@ -396,8 +393,9 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
 <p><img src="index_files/figure-html/cell-4-output-3.png" class="img-fluid"></p>
 </div>
 </div>
+</section>
 <section id="水体指数计算" class="level3">
-<h3 class="anchored" data-anchor-id="水体指数计算">水体指数计算</h3>
+<h3 class="anchored" data-anchor-id="水体指数计算">3. 水体指数计算</h3>
 <ul>
 <li>NDWI（归一化差异水体指数）：NDWI = (GREEN-NIR)/(GREEN+NIR)</li>
 <li>MNDWI（改进的归一化差异水体指数）：MNDWI=(GREEN-SWIR)/(GREEN+SWIR)</li>
@@ -523,7 +521,7 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
 </div>
 </section>
 <section id="去除小图斑" class="level3">
-<h3 class="anchored" data-anchor-id="去除小图斑">去除小图斑</h3>
+<h3 class="anchored" data-anchor-id="去除小图斑">4. 去除小图斑</h3>
 <ul>
 <li>使用阈值分割法会使图像上布满不规则小图斑，影响分割精度</li>
 <li>利用滤波等候处理方法降低结果噪声</li>
@@ -606,8 +604,8 @@ C:\Users\Administrator\AppData\Local\Temp\ipykernel_28856\1761671902.py:5: Matpl
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>ndwi_shp <span class="op">=</span> tif_to_shp(sr_out,out_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="成果出图" class="level2">
-<h2 class="anchored" data-anchor-id="成果出图">成果出图</h2>
+<section id="成果出图" class="level3">
+<h3 class="anchored" data-anchor-id="成果出图">5. 成果出图</h3>
 <ul>
 <li>利用rasterio更容易实现将shape文件与栅格影像进行叠加显示</li>
 <li>plt.imshow更适合临时出图，更专业的出版需求通常采用axs这种方式实现</li>
