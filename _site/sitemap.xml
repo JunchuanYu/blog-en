@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://junchuanyu.netlify.app/about.html</loc>
-    <lastmod>2022-12-29T19:21:27.942Z</lastmod>
+    <lastmod>2023-01-18T15:00:15.699Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2022-10-8_ai_poem/index.html</loc>
@@ -14,15 +14,15 @@
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2022-11-17wrsdp_1-3-1/index.html</loc>
-    <lastmod>2023-01-07T15:55:41.013Z</lastmod>
+    <lastmod>2023-01-18T14:59:51.515Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2022-12-10wrsdp_1-3-2/index.html</loc>
-    <lastmod>2023-01-07T15:55:57.843Z</lastmod>
+    <lastmod>2023-01-18T15:00:04.741Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/index.html</loc>
-    <lastmod>2023-01-07T15:55:34.779Z</lastmod>
+    <lastmod>2023-01-18T14:59:47.389Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/publication/index.html</loc>
@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/index.html</loc>
-    <lastmod>2023-01-07T15:56:24.862Z</lastmod>
+    <lastmod>2023-01-18T14:59:01.200Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/talks/2022-11-23_NKRDP-DL/main.html</loc>
@@ -51,5 +51,9 @@
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2022-11-17wrsdp_1-3-1/Lesson1-3-1.html</loc>
     <lastmod>2023-01-07T15:55:13.136Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/2023-1-18wrsdp_1-4-1/index.html</loc>
+    <lastmod>2023-01-18T14:58:58.603Z</lastmod>
   </url>
 </urlset>
