@@ -152,10 +152,6 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
 <meta property="twitter:title" content="Junchuan's blog">
 <meta property="twitter:description" content="Welcome to my blog!">
 <meta property="twitter:image" content="">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-<script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -381,7 +377,7 @@ Construct a data combination with 8 bands, and use the data region, ID and other
 <p align="justify ">
 The expert data in the table is downloaded here, and the label file can be downloaded through the link provided in the paper. During the download process, the file download may fail due to network reasons. In this case, you can try a few more times.
 </p><p>
-</p><div class="cell" data-execution_count="33">
+</p><div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data<span class="op">=</span>pd.read_csv(<span class="st">'./expert.csv'</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>outdir<span class="op">=</span><span class="st">'c:/temp/'</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, row <span class="kw">in</span> data.iterrows():</span>
@@ -402,22 +398,10 @@ The expert data in the table is downloaded here, and the label file can be downl
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        download_img(ImgTiles,basename,outdir)</span>
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># if index % 50==0:</span></span>
 <span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        <span class="co">#     print('downloading......No.: '+str(index))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>1281 20190112T012711_20190112T012712_T53MMR</code></pre>
 </div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"56d5e65917c34ed78e840d3a5044eeea","version_major":2,"version_minor":0}
-</script>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>1289 20190510T004711_20190510T004710_T54LYR</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"619f0e269f9e448aa668b817ed7ffe2b","version_major":2,"version_minor":0}
-</script>
-</div>
+<p>If you want to get the downloaded label data and related forms, you can follow the WeChat public account [45度科研人] and leave me a message！</p>
+<div data-align="center">
+<img width="300" height="300" src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/45%E5%BA%A6%E7%A7%91%E7%A0%94%E4%BA%BA%E5%85%AC%E4%BC%97%E5%8F%B7%E4%BA%8C%E7%BB%B4%E7%A0%81new.gif">
 </div>
 
 
