@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://junchuanyu.netlify.app/about.html</loc>
-    <lastmod>2023-01-29T08:43:44.181Z</lastmod>
+    <lastmod>2023-02-06T09:17:19.410Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2022-10-8_ai_poem/index.html</loc>
@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2022-11-17wrsdp_1-3-1/index.html</loc>
-    <lastmod>2023-01-29T08:39:53.332Z</lastmod>
+    <lastmod>2023-02-06T09:17:28.639Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2022-12-10wrsdp_1-3-2/index.html</loc>
@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/index.html</loc>
-    <lastmod>2023-01-29T08:39:57.977Z</lastmod>
+    <lastmod>2023-02-06T09:17:00.285Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/publication/index.html</loc>
@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/index.html</loc>
-    <lastmod>2023-01-29T08:39:56.816Z</lastmod>
+    <lastmod>2023-02-06T09:17:01.905Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/talks/2022-11-23_NKRDP-DL/main.html</loc>
@@ -58,10 +58,22 @@
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2023-1-27dynamicworld/index.html</loc>
-    <lastmod>2023-01-27T11:08:07.359Z</lastmod>
+    <lastmod>2023-02-06T09:08:49.914Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2023-1-18wrsdp_1-4-2/index.html</loc>
     <lastmod>2023-01-29T08:43:01.720Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/2020-2-10wrsdp1-5-2/index.html</loc>
+    <lastmod>2023-02-06T09:16:32.594Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/2020-2-10wrsdp1-5-2/基于时间序列遥感的水稻类型识别-P2.html</loc>
+    <lastmod>2023-02-06T09:08:14.114Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/2023-2-6wrsdp_1-5-1/index.html</loc>
+    <lastmod>2023-02-06T09:08:32.588Z</lastmod>
   </url>
 </urlset>
