@@ -1,0 +1,107 @@
+---
+title: " Build an online translation APP based on the Transformer model "
+author: 
+  - "Junchuan Yu"
+date: "2023-2-27"
+categories:
+  - Posts
+  - Deep leanring
+  - APP
+image: "welcome.jpg"
+toc: true
+---
+
+# AI-Translator
+
+Build an online translation and grammar checking APP based on the Transformer model.
+
+APP link: https://junchuanyu-tools.hf.space/
+
+<iframe
+	src="https://junchuanyu-tools.hf.space"
+	frameborder="0"
+	width="100%"
+	height="800"
+></iframe>
+
+
+## Interface
+
+The AI-Translator has two interfaces, one for text translation and one for grammar checking and text generation.You can enter sentence through the interface and click the "RUN" button to get the result.
+
+![](https://dunazo.oss-cn-beijing.aliyuncs.com/blog/DEMO.gif)
+
+## How to use API
+
+You can realize more functions by calling the API.The api call demo is as follows:
+
+DEMO-1: translation
+
+```python
+import requests
+
+response = requests.post("https://junchuanyu-tools.hf.space/run/translate_zh", json={
+	"data": [
+		"Build an online translation and grammar checking app.",
+	]
+}).json()
+
+data = response["data"]
+
+print(data)
+
+response2 = requests.post("https://junchuanyu-tools.hf.space/run/translate_en", json={
+	"data": [
+		"你好吗？代码男",
+	]
+}).json()
+
+data2 = response2["data"]
+print(data2)
+
+```
+
+DEMO-2: grammar checker
+
+```python
+
+import requests
+
+response = requests.post("https://junchuanyu-tools.hf.space/run/gramacorrect", json={
+	"data": [
+		"I is jack",
+	]
+}).json()
+
+data = response["data"]
+print(data)
+
+```
+
+DEMO-3: text generator
+
+```python
+import requests
+
+response = requests.post("https://junchuanyu-tools.hf.space/run/generator", json={
+	"data": [
+		"hello coding guy, i want",
+	]
+}).json()
+
+data = response["data"]
+
+print(data)
+
+```
+
+
+
+
+
+
+
+
+
+
+

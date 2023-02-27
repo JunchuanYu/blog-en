@@ -1,0 +1,23 @@
+---
+title: " Build an online translation APP based on the Transformer model "
+author: 
+  - "Junchuan Yu"
+date: "2023-2-27"
+categories:
+  - Posts
+  - Deep leanring
+  image: "welcome.jpg"
+toc: true
+---
+
+
+
+<iframe src="https://yujc.quarto.pub/slide-221123/#/section/" frameborder="0" width="100%" height="500&"></iframe>
+
+
+<iframe
+	src="https://junchuanyu-tools.hf.space"
+	frameborder="0"
+	width="100%"
+	height="100%"
+></iframe>
