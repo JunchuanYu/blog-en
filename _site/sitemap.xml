@@ -2,31 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://junchuanyu.netlify.app/about.html</loc>
-    <lastmod>2023-02-06T09:17:19.410Z</lastmod>
+    <lastmod>2023-03-03T18:10:36.074Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2022-10-8_ai_poem/index.html</loc>
-    <lastmod>2022-12-29T19:04:38.776Z</lastmod>
+    <lastmod>2023-03-03T18:10:51.149Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2022-11-15_wrsdp_3-3/index.html</loc>
-    <lastmod>2022-12-29T18:47:31.016Z</lastmod>
+    <lastmod>2023-03-03T18:11:02.442Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2022-11-17wrsdp_1-3-1/index.html</loc>
-    <lastmod>2023-02-06T09:17:28.639Z</lastmod>
+    <lastmod>2023-03-03T18:11:11.292Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2022-12-10wrsdp_1-3-2/index.html</loc>
-    <lastmod>2023-02-27T06:25:35.513Z</lastmod>
+    <lastmod>2023-03-03T18:11:18.961Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/index.html</loc>
-    <lastmod>2023-02-27T08:26:42.328Z</lastmod>
+    <lastmod>2023-03-03T18:15:48.485Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/publication/index.html</loc>
-    <lastmod>2022-12-29T18:47:38.649Z</lastmod>
+    <lastmod>2023-03-03T18:11:48.791Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/talks/2022-11-23_NKRDP-DL/index.html</loc>
@@ -34,19 +34,19 @@
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/talks/index.html</loc>
-    <lastmod>2023-01-07T15:38:05.042Z</lastmod>
+    <lastmod>2023-03-03T18:11:54.547Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/teaching/index.html</loc>
-    <lastmod>2022-12-29T18:47:42.991Z</lastmod>
+    <lastmod>2023-03-03T18:11:56.585Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/index.html</loc>
-    <lastmod>2023-02-27T08:26:40.973Z</lastmod>
+    <lastmod>2023-03-03T18:15:44.599Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/talks/2022-11-23_NKRDP-DL/main.html</loc>
-    <lastmod>2023-01-07T15:38:00.820Z</lastmod>
+    <lastmod>2023-03-03T18:11:51.400Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2022-11-17wrsdp_1-3-1/Lesson1-3-1.html</loc>
@@ -54,19 +54,19 @@
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2023-1-18wrsdp_1-4-1/index.html</loc>
-    <lastmod>2023-02-27T06:25:37.239Z</lastmod>
+    <lastmod>2023-03-03T18:11:24.363Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2023-1-27dynamicworld/index.html</loc>
-    <lastmod>2023-02-27T06:25:41.021Z</lastmod>
+    <lastmod>2023-03-03T18:11:35.163Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2023-1-18wrsdp_1-4-2/index.html</loc>
-    <lastmod>2023-02-27T06:25:39.233Z</lastmod>
+    <lastmod>2023-03-03T18:11:30.806Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2020-2-10wrsdp1-5-2/index.html</loc>
-    <lastmod>2023-02-27T08:26:39.292Z</lastmod>
+    <lastmod>2023-03-03T18:10:47.415Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2020-2-10wrsdp1-5-2/基于时间序列遥感的水稻类型识别-P2.html</loc>
@@ -74,7 +74,7 @@
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2023-2-6wrsdp_1-5-1/index.html</loc>
-    <lastmod>2023-02-27T08:25:26.545Z</lastmod>
+    <lastmod>2023-03-03T18:11:42.845Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2023--27-aitranslator/main.html</loc>
@@ -82,6 +82,10 @@
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2023-2-27-aitranslator/index.html</loc>
-    <lastmod>2023-02-27T08:22:17.408Z</lastmod>
+    <lastmod>2023-03-03T18:11:38.172Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/2023-3-4newbing/index.html</loc>
+    <lastmod>2023-03-03T18:16:12.178Z</lastmod>
   </url>
 </urlset>
