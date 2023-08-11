@@ -2,6 +2,7 @@
   {
     "listing": "/posts/index.html",
     "items": [
+      "/posts/2023-8-11hsireduce/index.html",
       "/posts/2023-8-2hsispectral/index.html",
       "/posts/2023-7-25hsireadandwrite/index.html",
       "/posts/2023-4-19seganything/index.html",
@@ -35,6 +36,7 @@
     "listing": "/index.html",
     "items": [
       "/posts/index.html",
+      "/posts/2023-8-11hsireduce/index.html",
       "/posts/2023-8-2hsispectral/index.html",
       "/posts/2023-7-25hsireadandwrite/index.html",
       "/posts/2023-4-19seganything/index.html",
