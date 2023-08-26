@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Junchuan Yu">
+<meta name="dcterms.date" content="2023-08-27">
+
+<title>Junchuan Yu - 用Numpy拆解神经网络</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2J79YYG9CZ"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
+</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<!-- Primary Meta Tags -->
+<title>Junchuan's blog</title>
+<meta name="title" content="Junchuan's blog">
+<meta name="description" content="Welcome to my blog!">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="">
+<meta property="og:title" content="Junchuan Yu - 用Numpy拆解神经网络">
+<meta property="og:description" content="Welcome to my blog!">
+<meta property="og:image" content="">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="">
+<meta property="twitter:title" content="Junchuan's blog">
+<meta property="twitter:description" content="Welcome to my blog!">
+<meta property="twitter:image" content="">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Junchuan Yu</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts/index.html">
+ <span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../publication/index.html">
+ <span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks/index.html">
+ <span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/JunchuanYu"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.zhihu.com/people/yu-jun-chuan-84"><i class="bi bi-book" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://space.bilibili.com/18814004/"><i class="bi bi-bootstrap" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">用Numpy拆解神经网络</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Posts</div>
+                <div class="quarto-category">Deep leanring</div>
+                <div class="quarto-category">APP</div>
+                <div class="quarto-category">Teaching</div>
+                <div class="quarto-category">Workshop</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Junchuan Yu </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 27, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#用numpy拆解神经网络" id="toc-用numpy拆解神经网络" class="nav-link active" data-scroll-target="#用numpy拆解神经网络">用Numpy拆解神经网络</a></li>
+  <li><a href="#基于numpy构建神经网络" id="toc-基于numpy构建神经网络" class="nav-link" data-scroll-target="#基于numpy构建神经网络">1. 基于Numpy构建神经网络</a></li>
+  <li><a href="#手写字体数字在线识别应用" id="toc-手写字体数字在线识别应用" class="nav-link" data-scroll-target="#手写字体数字在线识别应用">2. 手写字体数字在线识别应用</a>
+  <ul class="collapse">
+  <li><a href="#数据处理" id="toc-数据处理" class="nav-link" data-scroll-target="#数据处理">2.1 数据处理</a></li>
+  <li><a href="#训练模型" id="toc-训练模型" class="nav-link" data-scroll-target="#训练模型">2.2 训练模型</a></li>
+  <li><a href="#测试模型" id="toc-测试模型" class="nav-link" data-scroll-target="#测试模型">2.3 测试模型</a></li>
+  <li><a href="#构建交互app" id="toc-构建交互app" class="nav-link" data-scroll-target="#构建交互app">2.4 构建交互app</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p><img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/WRSDP-3-1.png" class="img-fluid"></p>
+<section id="用numpy拆解神经网络" class="level1">
+<h1>用Numpy拆解神经网络</h1>
+<p align="justify ">
+深度学习的核心是神经网络，通过了解其内部计算方法，可以帮助大家更好地理解整个深度学习模型的原理和基本概念，如前向传播、反向传播、激活函数、损失函数等。从本期开始，在介绍高光谱的同时，将同步穿插介绍一些关于深度学习的知识，本篇主要介绍如何用Numpy复现一个简单的神经网络，并构建一个在线识别手写数字的应用。
+</p><p>
+</p><ul>
+<li>神经网络计算过程</li>
+<li>Numy构建多层感知机</li>
+<li>网络训练和测试</li>
+<li>在线手写数字识别app</li>
+</ul>
+<p>参考资料： - <a href="http://f6a.cn/NxPKp">http://f6a.cn/NxPKp</a> - <a href="http://f6a.cn/WedtT">http://f6a.cn/WedtT</a></p>
+<section id="网络的前向传播过程" class="level4">
+<h4 class="anchored" data-anchor-id="网络的前向传播过程">（1） 网络的前向传播过程：</h4>
+<p>以下是一个三层的神经网络，假设输入数据为 X，隐藏层的输出为 a1，输出层的输出为 a2，权重矩阵为 W1 和 W2，偏置向量为 b1 和 b2，使用 sigmoid 激活函数。 <span class="math display">\[
+    z1 = X * W1 + b1
+\]</span> $$</p>
+<pre><code>a1 = sigmoid(z1)</code></pre>
+<p><span class="math display">\[
+\]</span> z2 = a1 * W2 + b2 <span class="math display">\[
+\]</span> a2 = sigmoid(z2) $$</p>
+<p align="center">
+<img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/neural_network-7.png" alt="">
+</p>
+</section>
+<section id="网络的反向传播过程" class="level4">
+<h4 class="anchored" data-anchor-id="网络的反向传播过程">（2） 网络的反向传播过程：</h4>
+<p>假设损失函数为 L，隐藏层的输出为 a1，输出层的输出为 a2，隐藏层的输入为 z1，输出层的输入为 z2，学习率为 lr。</p>
+<p>首先，计算输出层的梯度： <span class="math display">\[
+\frac{\partial L}{\partial a_2} = \frac{\partial L}{\partial a_2} \odot \sigma'(z_2)
+\]</span></p>
+<p>然后，计算隐藏层的梯度： <span class="math display">\[
+\frac{\partial L}{\partial a_1} = (\frac{\partial L}{\partial a_2} \cdot W_2^\top) \odot \sigma'(z_1)
+\]</span></p>
+<p>接下来，计算权重和偏置的梯度，以W1和b1为例，W2和b2计算方式相同： <span class="math display">\[
+\frac{\partial L}{\partial W_1} = X^\top \cdot \frac{\partial L}{\partial a_1} \\
+\frac{\partial L}{\partial b_1} = \sum{\frac{\partial L}{\partial a_1}}
+\]</span></p>
+<p>最后，使用梯度下降法更新权重和偏置，仅以W1为例，其他三个参数的更新方式相同： <span class="math display">\[
+W_1 = W_1 - \text{lr} \cdot \frac{\partial L}{\partial W_1} \\
+\]</span></p>
+<p>这里使用的是链式法则来计算梯度，从输出层开始，逐层向前反向传播梯度。然后，使用梯度下降法根据学习率 lr 来更新权重和偏置。</p>
+</section>
+</section>
+<section id="基于numpy构建神经网络" class="level1">
+<h1>1. 基于Numpy构建神经网络</h1>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.datasets <span class="im">import</span> mnist</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sigmoid(x):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span> <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> np.exp(<span class="op">-</span>x))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Dsigmoid(x):</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sigmoid(x)<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>sigmoid(x))</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> NN(<span class="bu">object</span>):</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, k_in, k_h, k_out, batch_size, lr):</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.lr <span class="op">=</span> lr                                        <span class="co"># learning rate</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.W1 <span class="op">=</span> np.random.randn(k_in, k_h) <span class="op">*</span> <span class="fl">0.01</span>          <span class="co"># 输入层到隐藏层的权重矩阵</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.b1 <span class="op">=</span> np.random.randn(k_h) <span class="op">*</span> <span class="fl">0.01</span>                <span class="co"># 隐藏层的偏置向量</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.W2 <span class="op">=</span> np.random.randn(k_h, k_out) <span class="op">*</span> <span class="fl">0.01</span>         <span class="co"># 隐藏层到输出层的权重矩阵</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.b2 <span class="op">=</span> np.random.randn(k_out) <span class="op">*</span> <span class="fl">0.01</span>              <span class="co"># 输出层的偏置向量</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.bs <span class="op">=</span> batch_size                                 <span class="co"># 批量大小</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="va">self</span>.W1.shape, <span class="va">self</span>.b1.shape, <span class="va">self</span>.W2.shape, <span class="va">self</span>.b2.shape)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 前向传播</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> predict(<span class="va">self</span>,X):</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.X <span class="op">=</span> X                                           <span class="co"># 输入数据</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.z1 <span class="op">=</span> np.dot(X, <span class="va">self</span>.W1) <span class="op">+</span> <span class="va">self</span>.b1                <span class="co"># 隐藏层输入</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.a1 <span class="op">=</span> sigmoid(<span class="va">self</span>.z1)                            <span class="co"># 隐藏层激活输出</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.z2 <span class="op">=</span> np.dot(<span class="va">self</span>.a1, <span class="va">self</span>.W2) <span class="op">+</span> <span class="va">self</span>.b2          <span class="co"># 输出层输入</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.a2 <span class="op">=</span> sigmoid(<span class="va">self</span>.z2)  </span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.a2                                       <span class="co"># 输出层激活输出      </span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, X, y):</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.X <span class="op">=</span> X                                           <span class="co"># 输入数据</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.a2 <span class="op">=</span> <span class="va">self</span>.predict(<span class="va">self</span>.X)                            <span class="co"># 输出层激活输出</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        loss <span class="op">=</span> np.<span class="bu">sum</span>((<span class="va">self</span>.a2 <span class="op">-</span> y) <span class="op">*</span> (<span class="va">self</span>.a2 <span class="op">-</span> y)) <span class="op">/</span> <span class="dv">2</span>      <span class="co"># 计算损失（均方差）</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.d2 <span class="op">=</span> (<span class="va">self</span>.a2 <span class="op">-</span> y) <span class="op">*</span> Dsigmoid(<span class="va">self</span>.z2)           <span class="co"># 输出层的误差</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> loss, <span class="va">self</span>.a2</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 反向传播</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> backward(<span class="va">self</span>):</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>        dW2 <span class="op">=</span> np.dot(<span class="va">self</span>.a1.T, <span class="va">self</span>.d2) <span class="op">/</span> <span class="va">self</span>.bs                  <span class="co"># 隐藏层到输出层的权重梯度</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>        db2 <span class="op">=</span> np.<span class="bu">sum</span>(<span class="va">self</span>.d2, axis<span class="op">=</span><span class="dv">0</span>) <span class="op">/</span> <span class="va">self</span>.bs                     <span class="co"># 输出层偏置的梯度</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>        d1 <span class="op">=</span> np.dot(<span class="va">self</span>.d2, <span class="va">self</span>.W2.T) <span class="op">*</span> Dsigmoid(<span class="va">self</span>.z1)         <span class="co"># 隐藏层的误差</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>        dW1 <span class="op">=</span> np.dot(<span class="va">self</span>.X.T, d1) <span class="op">/</span> <span class="va">self</span>.bs                        <span class="co"># 输入层到隐藏层的权重梯度</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>        db1 <span class="op">=</span> np.<span class="bu">sum</span>(d1, axis<span class="op">=</span><span class="dv">0</span>) <span class="op">/</span> <span class="va">self</span>.bs                          <span class="co"># 隐藏层偏置的梯度</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.W2 <span class="op">-=</span> <span class="va">self</span>.lr <span class="op">*</span> dW2             <span class="co"># 更新隐藏层到输出层的权重</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.b2 <span class="op">-=</span> <span class="va">self</span>.lr <span class="op">*</span> db2             <span class="co"># 更新输出层的偏置</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.W1 <span class="op">-=</span> <span class="va">self</span>.lr <span class="op">*</span> dW1             <span class="co"># 更新输入层到隐藏层的权重</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.b1 <span class="op">-=</span> <span class="va">self</span>.lr <span class="op">*</span> db1             <span class="co"># 更新隐藏层的偏置</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="手写字体数字在线识别应用" class="level1">
+<h1>2. 手写字体数字在线识别应用</h1>
+<section id="数据处理" class="level2">
+<h2 class="anchored" data-anchor-id="数据处理">2.1 数据处理</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(X_train, Y_train), (X_valid, Y_valid) <span class="op">=</span> mnist.load_data()</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(X_train.shape,Y_train.shape,X_valid.shape,Y_valid.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>(60000, 28, 28) (60000,) (10000, 28, 28) (10000,)</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fig<span class="op">=</span>plt.figure(figsize<span class="op">=</span>(<span class="dv">25</span>,<span class="dv">5</span>))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="dv">1</span>,<span class="dv">10</span>,i<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    plt.axis(<span class="st">'off'</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    plt.imshow(X_train[i,:,:])</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/%E7%94%A8numpy%E6%8B%86%E8%A7%A3%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C_13_0.png" class="img-fluid"></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> onehot(targets, num):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> np.zeros((num, <span class="dv">10</span>))</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num):</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        result[i][targets[i]] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>X_train<span class="op">=</span>X_train.reshape(<span class="dv">60000</span>, <span class="dv">28</span><span class="op">*</span><span class="dv">28</span>) <span class="op">/</span> <span class="fl">255.</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>X_valid<span class="op">=</span>X_valid.reshape(<span class="dv">10000</span>, <span class="dv">28</span><span class="op">*</span><span class="dv">28</span>) <span class="op">/</span> <span class="fl">255.</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>y_train <span class="op">=</span> onehot(Y_train, <span class="dv">60000</span>) <span class="co"># (60000, 10)</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>y_valid <span class="op">=</span> onehot(Y_valid, <span class="dv">10000</span>) <span class="co"># (10000, 10)</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(X_train.shape,y_train.shape,X_valid.shape,Y_valid.shape)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.<span class="bu">max</span>(X_train),np.<span class="bu">max</span>(X_valid))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>(60000, 784) (60000, 10) (10000, 784) (10000,)
+1.0 1.0</code></pre>
+</section>
+<section id="训练模型" class="level2">
+<h2 class="anchored" data-anchor-id="训练模型">2.2 训练模型</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_accuracy(y_true, y_pred):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    y_true_labels <span class="op">=</span> np.argmax(y_true, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    y_pred_labels <span class="op">=</span> np.argmax(y_pred, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    correct_predictions <span class="op">=</span> np.<span class="bu">sum</span>(y_true_labels <span class="op">==</span> y_pred_labels)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    accuracy <span class="op">=</span> correct_predictions <span class="op">/</span> <span class="bu">len</span>(y_true)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> accuracy</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> train(k_in, k_h, k_out, batch_size, lr, epochs):</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    nn <span class="op">=</span> NN(k_in, k_h, k_out, batch_size, lr)     <span class="co"># 创建神经网络对象  </span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    log <span class="op">=</span> {<span class="st">'train_loss'</span>: [], <span class="st">'train_acc'</span>: []} <span class="co"># 存储训练过程的损失和准确率</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 开始训练循环</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(epochs):</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>        epoch_train_loss <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>        epoch_train_correct <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 分批次训练</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, X_train.shape[<span class="dv">0</span>], batch_size):</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>            X <span class="op">=</span> X_train[i:i <span class="op">+</span> batch_size] <span class="co"># 获取当前批次的训练数据</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>            y <span class="op">=</span> y_train[i:i <span class="op">+</span> batch_size] <span class="co"># 获取当前批次的标签</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>            loss, y_pred <span class="op">=</span> nn.forward(X, y) <span class="co"># 前向传播计算损失并获取预测结果</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>            nn.backward()  <span class="co"># 反向传播更新参数</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>            epoch_train_loss <span class="op">+=</span> loss <span class="co"># 累计当前批次内的损失率</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>            epoch_train_correct <span class="op">+=</span> calculate_accuracy(y, y_pred) <span class="co"># 累计当前批次内和准确率</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 计算单个轮次内的平均损失和准确率</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>        train_loss <span class="op">=</span> epoch_train_loss <span class="op">/</span> (X_train.shape[<span class="dv">0</span>] <span class="op">//</span> batch_size)</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>        train_acc <span class="op">=</span> epoch_train_correct <span class="op">/</span> (X_train.shape[<span class="dv">0</span>] <span class="op">//</span> batch_size)</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 将训练过程的损失和准确率记录到日志中</span></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>        log[<span class="st">'train_loss'</span>].append(train_loss)</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>        log[<span class="st">'train_acc'</span>].append(train_acc)</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Epoch:"</span>, epoch, <span class="st">"..................."</span>, <span class="st">"Loss： </span><span class="sc">{:.3f}</span><span class="st">   Acc: </span><span class="sc">{:.3f}</span><span class="st">"</span>.<span class="bu">format</span>(train_loss, train_acc))</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>    np.savez(<span class="st">"./nnmodel.npz"</span>, w1<span class="op">=</span>nn.W1, b1<span class="op">=</span>nn.b1, w2<span class="op">=</span>nn.W2, b2<span class="op">=</span>nn.b2) <span class="co"># 保存训练后的参数</span></span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 返回训练过程的损失和准确率</span></span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>k_in<span class="op">=</span>X_train.shape[<span class="dv">1</span>]</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>k_h<span class="op">=</span><span class="dv">100</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>k_out<span class="op">=</span><span class="bu">len</span>(np.unique(Y_valid))</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>batch_size<span class="op">=</span><span class="dv">50</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>epochs<span class="op">=</span><span class="dv">30</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>lr<span class="op">=</span><span class="fl">0.5</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>log<span class="op">=</span>train(k_in,k_h,k_out,batch_size,lr,epochs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>(784, 100) (100,) (100, 10) (10,)
+Epoch: 0 ................... Loss： 16.001   Acc: 0.501
+Epoch: 1 ................... Loss： 6.050   Acc: 0.880
+Epoch: 2 ................... Loss： 4.432   Acc: 0.905
+Epoch: 3 ................... Loss： 3.831   Acc: 0.915
+Epoch: 4 ................... Loss： 3.466   Acc: 0.922
+Epoch: 5 ................... Loss： 3.201   Acc: 0.928
+......................................</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_log(log):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    plt.style.use(<span class="st">"ggplot"</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    axs[<span class="dv">0</span>].plot(log[<span class="st">'train_loss'</span>], <span class="st">'#008000'</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    axs[<span class="dv">0</span>].set_title(<span class="st">'Training Loss'</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    axs[<span class="dv">0</span>].set_xlabel(<span class="st">'Epochs'</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    axs[<span class="dv">0</span>].set_ylabel(<span class="st">'Loss'</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    axs[<span class="dv">1</span>].plot(log[<span class="st">'train_acc'</span>], <span class="st">'#008000'</span>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    axs[<span class="dv">1</span>].set_title(<span class="st">'Training Accuracy'</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    axs[<span class="dv">1</span>].set_xlabel(<span class="st">'Epochs'</span>)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    axs[<span class="dv">1</span>].set_ylabel(<span class="st">'Accuracy'</span>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()  </span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>plot_log(log)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/%E7%94%A8numpy%E6%8B%86%E8%A7%A3%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C_19_0.png" class="img-fluid"></p>
+</section>
+<section id="测试模型" class="level2">
+<h2 class="anchored" data-anchor-id="测试模型">2.3 测试模型</h2>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_model(k_in,k_h,k_out,batch_size,lr):</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> np.load(<span class="st">"./nnmodel.npz"</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    nn <span class="op">=</span> NN(k_in,k_h,k_out,batch_size,lr)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    nn.W1 <span class="op">=</span> r[<span class="st">"w1"</span>]</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    nn.b1 <span class="op">=</span> r[<span class="st">"b1"</span>]</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    nn.W2 <span class="op">=</span> r[<span class="st">"w2"</span>]</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    nn.b2 <span class="op">=</span> r[<span class="st">"b2"</span>]</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> nn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>model<span class="op">=</span>load_model(k_in,k_h,k_out,batch_size,lr)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>val_pred <span class="op">=</span> model.predict(X_valid)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>val_acc<span class="op">=</span>calculate_accuracy(y_valid,val_pred)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Val Precison:"</span>, val_acc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>(784, 100) (100,) (100, 10) (10,)
+Val Precison: 0.9658</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">8</span>):</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="dv">2</span>, <span class="dv">4</span>, i<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    plt.axis(<span class="st">'off'</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    plt.imshow(X_valid.reshape(<span class="dv">10000</span>, <span class="dv">28</span>, <span class="dv">28</span>)[i<span class="op">+</span><span class="dv">20</span>, :, :],cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"Pred:    </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(<span class="bu">int</span>(np.argmax(model.predict(X_valid)[i<span class="op">+</span><span class="dv">20</span>]))))</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/%E7%94%A8numpy%E6%8B%86%E8%A7%A3%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C_23_0.png" class="img-fluid"></p>
+</section>
+<section id="构建交互app" class="level2">
+<h2 class="anchored" data-anchor-id="构建交互app">2.4 构建交互app</h2>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> gradio <span class="im">as</span> gr</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 构建预测函数</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> predict_minist(image):</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    normalized <span class="op">=</span> np.array(image)<span class="op">/</span> <span class="fl">255.0</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># np.save("image.npy", normalized)</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    flattened <span class="op">=</span> normalized.reshape(<span class="dv">1</span>, <span class="dv">784</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    prediction <span class="op">=</span> model.predict(flattened)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    pred_index <span class="op">=</span> <span class="bu">int</span>(np.argmax(prediction,axis<span class="op">=-</span><span class="dv">1</span>))</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pred_index</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>iface <span class="op">=</span> gr.Interface(fn<span class="op">=</span>predict_minist, inputs<span class="op">=</span>gr.Sketchpad(), outputs<span class="op">=</span><span class="st">"text"</span>,</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>                     title<span class="op">=</span><span class="st">"Handwritten Digit Recognition"</span>,</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>                     description<span class="op">=</span><span class="st">"Draw a digit and the model will predict the digit. Please draw the digit in the center of the canvas"</span>)</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>iface.launch(height<span class="op">=</span><span class="dv">550</span>,width<span class="op">=</span><span class="st">"100%"</span>,show_api<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>Running on local URL:  http://127.0.0.1:7888
+
+To create a public link, set `share=True` in `launch()`.</code></pre>
+<p align="center">
+<img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/image.gif" alt="">
+</p>
+<hr>
+<p>请关注微信公众号【45度科研人】获取更多精彩内容，欢迎后台留言！</p>
+<div data-align="center">
+<img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/wechat-simple.png" style="width:200px;height:200px;">
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/^(?:http:|https:)\/\/www\.junchuanyu\.com\/**/);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="JunchuanYu/blog-en" data-repo-id="R_kgDOIcYXDA" data-category="General" data-category-id="DIC_kwDOIcYXDM4CSlVp" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Blog made with <a href="https://quarto.org/">Quarto</a>, by Junchuan Yu.</div>   
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../jason.yu.mail@qq.com">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/JunchuanYu">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.zhihu.com/people/yu-jun-chuan-84">
+      <i class="bi bi-book" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://space.bilibili.com/18814004/">
+      <i class="bi bi-bootstrap" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
