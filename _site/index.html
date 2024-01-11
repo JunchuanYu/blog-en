@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.280">
+<meta name="generator" content="quarto-1.4.540">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -48,7 +48,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -57,8 +63,10 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script>
@@ -138,7 +146,7 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
 <meta property="og:type" content="website">
 <meta property="og:url" content="">
 <meta property="og:title" content="Junchuan Yu - Junchuan’s blog">
-<meta property="og:description" content="Welcome to my blog!">
+<meta property="og:description" content="">
 <meta property="og:image" content="">
 
 <!-- Twitter -->
@@ -148,7 +156,35 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
 <meta property="twitter:description" content="Welcome to my blog!">
 <meta property="twitter:image" content="">
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -157,52 +193,54 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Junchuan Yu</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts/index.html">
- <span class="menu-text">Posts</span></a>
+    <a class="nav-link" href="./posts/index.html"> 
+<span class="menu-text">Posts</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./publication/index.html">
- <span class="menu-text">Publications</span></a>
+    <a class="nav-link" href="./publication/index.html"> 
+<span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./talks/index.html">
- <span class="menu-text">Talks</span></a>
+    <a class="nav-link" href="./talks/index.html"> 
+<span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/JunchuanYu"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/JunchuanYu"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.zhihu.com/people/yu-jun-chuan-84"><i class="bi bi-book" role="img">
+    <a class="nav-link" href="https://www.zhihu.com/people/yu-jun-chuan-84"> <i class="bi bi-book" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://space.bilibili.com/18814004/"><i class="bi bi-bootstrap" role="img">
+    <a class="nav-link" href="https://space.bilibili.com/18814004/"> <i class="bi bi-bootstrap" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -230,7 +268,7 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -238,51 +276,49 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
   </div>
   
 
+
 </header>
+
 
 <section id="recent-posts-posts-recentes" class="level2">
 <h2 class="anchored" data-anchor-id="recent-posts-posts-recentes">Recent posts / Posts recentes</h2>
 <div id="listing-posts" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1677866605000" data-listing-reading-time-sort="0.01">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1677866605000" data-listing-reading-time-sort="1" data-listing-word-count-sort="2">
 <div class="thumbnail">
-<a href="./posts/index.html">
-<div class="thumbnail-image">
-
-</div>
-</a><p><a href="./posts/index.html"></a></p>
+<p><a href="./posts/index.html" class="no-external"></a></p><a href="./posts/index.html" class="no-external">
+<p class="card-img-top"><img src="posts\2023-8-27numpyandnn\welcome.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/index.html">
 <h3 class="no-anchor listing-title">
-Posts
+<a href="./posts/index.html" class="no-external">Posts</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/index.html" class="no-external"></a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./posts/index.html">
+<p><a href="./posts/index.html" class="no-external"></a></p><a href="./posts/index.html" class="no-external">
 <div class="listing-reading-time">
-0 min
+1 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="Posts,Deep leanring,APP,Teaching,Workshop" data-listing-date-sort="1693065600000" data-listing-file-modified-sort="1693071624996" data-listing-reading-time-sort="9.535">
+<div class="quarto-post image-right" data-index="1" data-categories="Posts,Deep leanring,APP,Teaching,Workshop" data-listing-date-sort="1693065600000" data-listing-file-modified-sort="1693071708000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1902">
 <div class="thumbnail">
-<p><a href="./posts/2023-8-27numpyandnn/index.html"> <img src="./posts/2023-8-27numpyandnn/welcome.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2023-8-27numpyandnn/index.html" class="no-external"></a></p><a href="./posts/2023-8-27numpyandnn/index.html" class="no-external">
+<p><img src="./posts/2023-8-27numpyandnn/welcome.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/2023-8-27numpyandnn/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2023-8-27numpyandnn/index.html">
 <h3 class="no-anchor listing-title">
-用Numpy拆解神经网络
+<a href="./posts/2023-8-27numpyandnn/index.html" class="no-external">用Numpy拆解神经网络</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2023-8-27numpyandnn/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
 Posts
@@ -300,10 +336,9 @@ Teaching
 Workshop
 </div>
 </div>
-<a href="./posts/2023-8-27numpyandnn/index.html"> </a>
 </div>
 <div class="metadata">
-<a href="./posts/2023-8-27numpyandnn/index.html">
+<a href="./posts/2023-8-27numpyandnn/index.html" class="no-external">
 <div class="listing-date">
 Aug 27, 2023
 </div>
@@ -311,24 +346,24 @@ Aug 27, 2023
 Junchuan Yu
 </div>
 <div class="listing-reading-time">
-9 min
+10 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="Posts,Hyperspectral,Teaching,Workshop" data-listing-date-sort="1691683200000" data-listing-file-modified-sort="1691767916091" data-listing-reading-time-sort="4.335">
+<div class="quarto-post image-right" data-index="2" data-categories="Posts,Hyperspectral,Teaching,Workshop" data-listing-date-sort="1691683200000" data-listing-file-modified-sort="1691767916000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="867">
 <div class="thumbnail">
-<p><a href="./posts/2023-8-11hsireduce/index.html"> <img src="./posts/2023-8-11hsireduce/welcome.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2023-8-11hsireduce/index.html" class="no-external"></a></p><a href="./posts/2023-8-11hsireduce/index.html" class="no-external">
+<p><img src="./posts/2023-8-11hsireduce/welcome.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/2023-8-11hsireduce/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2023-8-11hsireduce/index.html">
 <h3 class="no-anchor listing-title">
-高光谱数据去噪及降维处理
+<a href="./posts/2023-8-11hsireduce/index.html" class="no-external">高光谱数据去噪及降维处理</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2023-8-11hsireduce/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
 Posts
@@ -343,178 +378,11 @@ Teaching
 Workshop
 </div>
 </div>
-<a href="./posts/2023-8-11hsireduce/index.html"> </a>
 </div>
 <div class="metadata">
-<a href="./posts/2023-8-11hsireduce/index.html">
+<a href="./posts/2023-8-11hsireduce/index.html" class="no-external">
 <div class="listing-date">
 Aug 11, 2023
-</div>
-<div class="listing-author">
-Junchuan Yu
-</div>
-<div class="listing-reading-time">
-4 min
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="Posts,Hyperspectral,Teaching,Workshop" data-listing-date-sort="1690905600000" data-listing-file-modified-sort="1691328710037" data-listing-reading-time-sort="6.24">
-<div class="thumbnail">
-<p><a href="./posts/2023-8-2hsispectral/index.html"> <img data-src="./posts/2023-8-2hsispectral/welcome.jpg" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2023-8-2hsispectral/index.html">
-<h3 class="no-anchor listing-title">
-光谱库读写+光谱处理及交互式采集
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
-Posts
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Hyperspectral'); return false;">
-Hyperspectral
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Teaching'); return false;">
-Teaching
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Workshop'); return false;">
-Workshop
-</div>
-</div>
-<a href="./posts/2023-8-2hsispectral/index.html"> </a>
-</div>
-<div class="metadata">
-<a href="./posts/2023-8-2hsispectral/index.html">
-<div class="listing-date">
-Aug 2, 2023
-</div>
-<div class="listing-author">
-Junchuan Yu
-</div>
-<div class="listing-reading-time">
-6 min
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="Posts,Hyperspectral,Teaching,Workshop" data-listing-date-sort="1690214400000" data-listing-file-modified-sort="1691328897924" data-listing-reading-time-sort="4.02">
-<div class="thumbnail">
-<p><a href="./posts/2023-7-25hsireadandwrite/index.html"> <img data-src="./posts/2023-7-25hsireadandwrite/welcome.JPG" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2023-7-25hsireadandwrite/index.html">
-<h3 class="no-anchor listing-title">
-多种高光谱数据格式的读写和可视化
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
-Posts
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Hyperspectral'); return false;">
-Hyperspectral
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Teaching'); return false;">
-Teaching
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Workshop'); return false;">
-Workshop
-</div>
-</div>
-<a href="./posts/2023-7-25hsireadandwrite/index.html"> </a>
-</div>
-<div class="metadata">
-<a href="./posts/2023-7-25hsireadandwrite/index.html">
-<div class="listing-date">
-Jul 25, 2023
-</div>
-<div class="listing-author">
-Junchuan Yu
-</div>
-<div class="listing-reading-time">
-4 min
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="Posts,Deep leanring,APP" data-listing-date-sort="1681833600000" data-listing-file-modified-sort="1681894043000" data-listing-reading-time-sort="0.09">
-<div class="thumbnail">
-<p><a href="./posts/2023-4-19seganything/index.html"> <img data-src="./posts/2023-4-19seganything/welcome.jpg" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2023-4-19seganything/index.html">
-<h3 class="no-anchor listing-title">
-Segment-RS一个基于SAM的遥感智能交互解译工具
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
-Posts
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Deep leanring'); return false;">
-Deep leanring
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('APP'); return false;">
-APP
-</div>
-</div>
-<a href="./posts/2023-4-19seganything/index.html"> </a>
-</div>
-<div class="metadata">
-<a href="./posts/2023-4-19seganything/index.html">
-<div class="listing-date">
-Apr 19, 2023
-</div>
-<div class="listing-author">
-Junchuan Yu
-</div>
-<div class="listing-reading-time">
-0 min
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="Posts,Deep leanring,APP" data-listing-date-sort="1680969600000" data-listing-file-modified-sort="1680976501000" data-listing-reading-time-sort="5.025">
-<div class="thumbnail">
-<p><a href="./posts/2023-4-9seganything/index.html"> <img data-src="./posts/2023-4-9seganything/welcome.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2023-4-9seganything/index.html">
-<h3 class="no-anchor listing-title">
-第一个通用语义分割模型？Segment Anything Model (SAM)在遥感数据上的应用测试
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
-Posts
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Deep leanring'); return false;">
-Deep leanring
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('APP'); return false;">
-APP
-</div>
-</div>
-<a href="./posts/2023-4-9seganything/index.html"> </a>
-</div>
-<div class="metadata">
-<a href="./posts/2023-4-9seganything/index.html">
-<div class="listing-date">
-Apr 9, 2023
 </div>
 <div class="listing-author">
 Junchuan Yu
@@ -525,19 +393,103 @@ Junchuan Yu
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="Posts,Deep leanring,APP" data-listing-date-sort="1680364800000" data-listing-file-modified-sort="1680426869000" data-listing-reading-time-sort="4.635">
+<div class="quarto-post image-right" data-index="3" data-categories="Posts,Hyperspectral,Teaching,Workshop" data-listing-date-sort="1690905600000" data-listing-file-modified-sort="1691328710000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1248">
 <div class="thumbnail">
-<p><a href="./posts/2023-4-2sydneyaiplus/index.html"> <img data-src="./posts/2023-4-2sydneyaiplus/welcome.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2023-8-2hsispectral/index.html" class="no-external"></a></p><a href="./posts/2023-8-2hsispectral/index.html" class="no-external">
+<p><img data-src="./posts/2023-8-2hsispectral/welcome.jpg" class="thumbnail-image"></p>
+</a><p><a href="./posts/2023-8-2hsispectral/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2023-4-2sydneyaiplus/index.html">
 <h3 class="no-anchor listing-title">
-Sydney-AI 2.0: Providing Free Services to Researchers!
+<a href="./posts/2023-8-2hsispectral/index.html" class="no-external">光谱库读写+光谱处理及交互式采集</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2023-8-2hsispectral/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
+Posts
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Hyperspectral'); return false;">
+Hyperspectral
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Teaching'); return false;">
+Teaching
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Workshop'); return false;">
+Workshop
+</div>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/2023-8-2hsispectral/index.html" class="no-external">
+<div class="listing-date">
+Aug 2, 2023
+</div>
+<div class="listing-author">
+Junchuan Yu
+</div>
+<div class="listing-reading-time">
+7 min
 </div>
 </a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="Posts,Hyperspectral,Teaching,Workshop" data-listing-date-sort="1690214400000" data-listing-file-modified-sort="1691328897000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="804">
+<div class="thumbnail">
+<p><a href="./posts/2023-7-25hsireadandwrite/index.html" class="no-external"></a></p><a href="./posts/2023-7-25hsireadandwrite/index.html" class="no-external">
+<p><img data-src="./posts/2023-7-25hsireadandwrite/welcome.JPG" class="thumbnail-image"></p>
+</a><p><a href="./posts/2023-7-25hsireadandwrite/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2023-7-25hsireadandwrite/index.html" class="no-external">多种高光谱数据格式的读写和可视化</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2023-7-25hsireadandwrite/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
+Posts
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Hyperspectral'); return false;">
+Hyperspectral
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Teaching'); return false;">
+Teaching
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Workshop'); return false;">
+Workshop
+</div>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/2023-7-25hsireadandwrite/index.html" class="no-external">
+<div class="listing-date">
+Jul 25, 2023
+</div>
+<div class="listing-author">
+Junchuan Yu
+</div>
+<div class="listing-reading-time">
+5 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-categories="Posts,Deep leanring,APP" data-listing-date-sort="1681833600000" data-listing-file-modified-sort="1681894043000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="18">
+<div class="thumbnail">
+<p><a href="./posts/2023-4-19seganything/index.html" class="no-external"></a></p><a href="./posts/2023-4-19seganything/index.html" class="no-external">
+<p><img data-src="./posts/2023-4-19seganything/welcome.jpg" class="thumbnail-image"></p>
+</a><p><a href="./posts/2023-4-19seganything/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2023-4-19seganything/index.html" class="no-external">Segment-RS一个基于SAM的遥感智能交互解译工具</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2023-4-19seganything/index.html" class="no-external"></a>
+</div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
 Posts
@@ -549,12 +501,128 @@ Deep leanring
 APP
 </div>
 </div>
-<a href="./posts/2023-4-2sydneyaiplus/index.html"> </a>
 </div>
 <div class="metadata">
-<a href="./posts/2023-4-2sydneyaiplus/index.html">
+<a href="./posts/2023-4-19seganything/index.html" class="no-external">
+<div class="listing-date">
+Apr 19, 2023
+</div>
+<div class="listing-author">
+Junchuan Yu
+</div>
+<div class="listing-reading-time">
+1 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-categories="Posts,Deep leanring,APP" data-listing-date-sort="1680969600000" data-listing-file-modified-sort="1680976501000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1005">
+<div class="thumbnail">
+<p><a href="./posts/2023-4-9seganything/index.html" class="no-external"></a></p><a href="./posts/2023-4-9seganything/index.html" class="no-external">
+<p><img data-src="./posts/2023-4-9seganything/welcome.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/2023-4-9seganything/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2023-4-9seganything/index.html" class="no-external">第一个通用语义分割模型？Segment Anything Model (SAM)在遥感数据上的应用测试</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2023-4-9seganything/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
+Posts
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Deep leanring'); return false;">
+Deep leanring
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('APP'); return false;">
+APP
+</div>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/2023-4-9seganything/index.html" class="no-external">
+<div class="listing-date">
+Apr 9, 2023
+</div>
+<div class="listing-author">
+Junchuan Yu
+</div>
+<div class="listing-reading-time">
+6 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-categories="Posts,Deep leanring,APP" data-listing-date-sort="1680364800000" data-listing-file-modified-sort="1680426869000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="927">
+<div class="thumbnail">
+<p><a href="./posts/2023-4-2sydneyaiplus/index.html" class="no-external"></a></p><a href="./posts/2023-4-2sydneyaiplus/index.html" class="no-external">
+<p><img data-src="./posts/2023-4-2sydneyaiplus/welcome.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/2023-4-2sydneyaiplus/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2023-4-2sydneyaiplus/index.html" class="no-external">Sydney-AI 2.0: Providing Free Services to Researchers!</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2023-4-2sydneyaiplus/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
+Posts
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Deep leanring'); return false;">
+Deep leanring
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('APP'); return false;">
+APP
+</div>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/2023-4-2sydneyaiplus/index.html" class="no-external">
 <div class="listing-date">
 Apr 2, 2023
+</div>
+<div class="listing-author">
+Junchuan Yu
+</div>
+<div class="listing-reading-time">
+5 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="8" data-categories="Posts,Deep leanring,APP" data-listing-date-sort="1678464000000" data-listing-file-modified-sort="1678537786000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="704">
+<div class="thumbnail">
+<p><a href="./posts/2023-3-11sydneyai/index.html" class="no-external"></a></p><a href="./posts/2023-3-11sydneyai/index.html" class="no-external">
+<p><img data-src="./posts/2023-3-11sydneyai/welcome.jpg" class="thumbnail-image"></p>
+</a><p><a href="./posts/2023-3-11sydneyai/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2023-3-11sydneyai/index.html" class="no-external">Sydney-AI, a free ChatGPT platform</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2023-3-11sydneyai/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
+Posts
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Deep leanring'); return false;">
+Deep leanring
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('APP'); return false;">
+APP
+</div>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/2023-3-11sydneyai/index.html" class="no-external">
+<div class="listing-date">
+Mar 11, 2023
 </div>
 <div class="listing-author">
 Junchuan Yu
@@ -565,59 +633,19 @@ Junchuan Yu
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="Posts,Deep leanring,APP" data-listing-date-sort="1678464000000" data-listing-file-modified-sort="1678537786000" data-listing-reading-time-sort="3.52">
+<div class="quarto-post image-right" data-index="9" data-categories="Posts,Talks,APP" data-listing-date-sort="1677859200000" data-listing-file-modified-sort="1677868016000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="98">
 <div class="thumbnail">
-<p><a href="./posts/2023-3-11sydneyai/index.html"> <img data-src="./posts/2023-3-11sydneyai/welcome.jpg" class="thumnail-image"> </a></p>
+<p><a href="./posts/2023-3-4newbing/index.html" class="no-external"></a></p><a href="./posts/2023-3-4newbing/index.html" class="no-external">
+<p><img data-src="./posts/2023-3-4newbing/welcome.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/2023-3-4newbing/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2023-3-11sydneyai/index.html">
 <h3 class="no-anchor listing-title">
-Sydney-AI, a free ChatGPT platform
+<a href="./posts/2023-3-4newbing/index.html" class="no-external">New Bing？也许是New + Everything！</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2023-3-4newbing/index.html" class="no-external">ChatGPT加持下的Net Bing，将带来一场新的技术风暴</a>
 </div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
-Posts
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Deep leanring'); return false;">
-Deep leanring
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('APP'); return false;">
-APP
-</div>
-</div>
-<a href="./posts/2023-3-11sydneyai/index.html"> </a>
-</div>
-<div class="metadata">
-<a href="./posts/2023-3-11sydneyai/index.html">
-<div class="listing-date">
-Mar 11, 2023
-</div>
-<div class="listing-author">
-Junchuan Yu
-</div>
-<div class="listing-reading-time">
-3 min
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="9" data-categories="Posts,Talks,APP" data-listing-date-sort="1677859200000" data-listing-file-modified-sort="1677868016000" data-listing-reading-time-sort="0.49">
-<div class="thumbnail">
-<p><a href="./posts/2023-3-4newbing/index.html"> <img data-src="./posts/2023-3-4newbing/welcome.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2023-3-4newbing/index.html">
-<h3 class="no-anchor listing-title">
-New Bing？也许是New + Everything！
-</h3>
-<div class="listing-subtitle">
-ChatGPT加持下的Net Bing，将带来一场新的技术风暴
-</div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
 Posts
@@ -629,10 +657,9 @@ Talks
 APP
 </div>
 </div>
-<a href="./posts/2023-3-4newbing/index.html"> </a>
 </div>
 <div class="metadata">
-<a href="./posts/2023-3-4newbing/index.html">
+<a href="./posts/2023-3-4newbing/index.html" class="no-external">
 <div class="listing-date">
 Mar 4, 2023
 </div>
@@ -640,24 +667,24 @@ Mar 4, 2023
 Junchuan Yu
 </div>
 <div class="listing-reading-time">
-0 min
+1 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="Posts,Deep leanring,APP" data-listing-date-sort="1677427200000" data-listing-file-modified-sort="1677866605000" data-listing-reading-time-sort="0.71">
+<div class="quarto-post image-right" data-index="10" data-categories="Posts,Deep leanring,APP" data-listing-date-sort="1677427200000" data-listing-file-modified-sort="1677866605000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="142">
 <div class="thumbnail">
-<p><a href="./posts/2023-2-27-aitranslator/index.html"> <img data-src="./posts/2023-2-27-aitranslator/welcome.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2023-2-27-aitranslator/index.html" class="no-external"></a></p><a href="./posts/2023-2-27-aitranslator/index.html" class="no-external">
+<p><img data-src="./posts/2023-2-27-aitranslator/welcome.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/2023-2-27-aitranslator/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2023-2-27-aitranslator/index.html">
 <h3 class="no-anchor listing-title">
-Build an online translation APP based on the Transformer model
+<a href="./posts/2023-2-27-aitranslator/index.html" class="no-external">Build an online translation APP based on the Transformer model</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2023-2-27-aitranslator/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
 Posts
@@ -669,10 +696,9 @@ Deep leanring
 APP
 </div>
 </div>
-<a href="./posts/2023-2-27-aitranslator/index.html"> </a>
 </div>
 <div class="metadata">
-<a href="./posts/2023-2-27-aitranslator/index.html">
+<a href="./posts/2023-2-27-aitranslator/index.html" class="no-external">
 <div class="listing-date">
 Feb 27, 2023
 </div>
@@ -680,24 +706,24 @@ Feb 27, 2023
 Junchuan Yu
 </div>
 <div class="listing-reading-time">
-0 min
+1 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="Posts,Deep leanring,Teaching,Workshop" data-listing-date-sort="1675958400000" data-listing-file-modified-sort="1677866601000" data-listing-reading-time-sort="5.66">
+<div class="quarto-post image-right" data-index="11" data-categories="Posts,Deep leanring,Teaching,Workshop" data-listing-date-sort="1675958400000" data-listing-file-modified-sort="1677866601000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1132">
 <div class="thumbnail">
-<p><a href="./posts/2020-2-10wrsdp1-5-2/index.html"> <img data-src="./posts/2020-2-10wrsdp1-5-2/welcomenew.jpg" class="thumnail-image"> </a></p>
+<p><a href="./posts/2020-2-10wrsdp1-5-2/index.html" class="no-external"></a></p><a href="./posts/2020-2-10wrsdp1-5-2/index.html" class="no-external">
+<p><img data-src="./posts/2020-2-10wrsdp1-5-2/welcomenew.jpg" class="thumbnail-image"></p>
+</a><p><a href="./posts/2020-2-10wrsdp1-5-2/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2020-2-10wrsdp1-5-2/index.html">
 <h3 class="no-anchor listing-title">
-基于时间序列遥感的水稻类型识别-P2
+<a href="./posts/2020-2-10wrsdp1-5-2/index.html" class="no-external">基于时间序列遥感的水稻类型识别-P2</a>
 </h3>
 <div class="listing-subtitle">
-Work with Remote Sensing Data in Python: Lesson 1-5-2
+<a href="./posts/2020-2-10wrsdp1-5-2/index.html" class="no-external">Work with Remote Sensing Data in Python: Lesson 1-5-2</a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
 Posts
@@ -712,10 +738,9 @@ Teaching
 Workshop
 </div>
 </div>
-<a href="./posts/2020-2-10wrsdp1-5-2/index.html"> </a>
 </div>
 <div class="metadata">
-<a href="./posts/2020-2-10wrsdp1-5-2/index.html">
+<a href="./posts/2020-2-10wrsdp1-5-2/index.html" class="no-external">
 <div class="listing-date">
 Feb 10, 2023
 </div>
@@ -723,24 +748,24 @@ Feb 10, 2023
 Junchuan Yu
 </div>
 <div class="listing-reading-time">
-5 min
+6 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="Posts,Deep leanring,Teaching,Workshop,GEE" data-listing-date-sort="1675612800000" data-listing-file-modified-sort="1677866605000" data-listing-reading-time-sort="2.035">
+<div class="quarto-post image-right" data-index="12" data-categories="Posts,Deep leanring,Teaching,Workshop,GEE" data-listing-date-sort="1675612800000" data-listing-file-modified-sort="1677866605000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="407">
 <div class="thumbnail">
-<p><a href="./posts/2023-2-6wrsdp_1-5-1/index.html"> <img data-src="./posts/2023-2-6wrsdp_1-5-1/welcomenew.jpg" class="thumnail-image"> </a></p>
+<p><a href="./posts/2023-2-6wrsdp_1-5-1/index.html" class="no-external"></a></p><a href="./posts/2023-2-6wrsdp_1-5-1/index.html" class="no-external">
+<p><img data-src="./posts/2023-2-6wrsdp_1-5-1/welcomenew.jpg" class="thumbnail-image"></p>
+</a><p><a href="./posts/2023-2-6wrsdp_1-5-1/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2023-2-6wrsdp_1-5-1/index.html">
 <h3 class="no-anchor listing-title">
-基于时间序列遥感的水稻类型识别-P1
+<a href="./posts/2023-2-6wrsdp_1-5-1/index.html" class="no-external">基于时间序列遥感的水稻类型识别-P1</a>
 </h3>
 <div class="listing-subtitle">
-Work with Remote Sensing Data in Python: Lesson 1-5-1
+<a href="./posts/2023-2-6wrsdp_1-5-1/index.html" class="no-external">Work with Remote Sensing Data in Python: Lesson 1-5-1</a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
 Posts
@@ -758,10 +783,9 @@ Workshop
 GEE
 </div>
 </div>
-<a href="./posts/2023-2-6wrsdp_1-5-1/index.html"> </a>
 </div>
 <div class="metadata">
-<a href="./posts/2023-2-6wrsdp_1-5-1/index.html">
+<a href="./posts/2023-2-6wrsdp_1-5-1/index.html" class="no-external">
 <div class="listing-date">
 Feb 6, 2023
 </div>
@@ -769,24 +793,24 @@ Feb 6, 2023
 Junchuan Yu
 </div>
 <div class="listing-reading-time">
-2 min
+3 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="Posts,Deep leanring,Teaching,Workshop" data-listing-date-sort="1674921600000" data-listing-file-modified-sort="1677866605000" data-listing-reading-time-sort="0.325">
+<div class="quarto-post image-right" data-index="13" data-categories="Posts,Deep leanring,Teaching,Workshop" data-listing-date-sort="1674921600000" data-listing-file-modified-sort="1677866605000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="65">
 <div class="thumbnail">
-<p><a href="./posts/2023-1-18wrsdp_1-4-2/index.html"> <img data-src="./posts/2023-1-18wrsdp_1-4-2/welcome.JPG" class="thumnail-image"> </a></p>
+<p><a href="./posts/2023-1-18wrsdp_1-4-2/index.html" class="no-external"></a></p><a href="./posts/2023-1-18wrsdp_1-4-2/index.html" class="no-external">
+<p><img data-src="./posts/2023-1-18wrsdp_1-4-2/welcome.JPG" class="thumbnail-image"></p>
+</a><p><a href="./posts/2023-1-18wrsdp_1-4-2/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2023-1-18wrsdp_1-4-2/index.html">
 <h3 class="no-anchor listing-title">
-基于雷达数据的水体变化监测
+<a href="./posts/2023-1-18wrsdp_1-4-2/index.html" class="no-external">基于雷达数据的水体变化监测</a>
 </h3>
 <div class="listing-subtitle">
-Work with Remote Sensing Data in Python: Lesson 1-4-2
+<a href="./posts/2023-1-18wrsdp_1-4-2/index.html" class="no-external">Work with Remote Sensing Data in Python: Lesson 1-4-2</a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
 Posts
@@ -801,10 +825,9 @@ Teaching
 Workshop
 </div>
 </div>
-<a href="./posts/2023-1-18wrsdp_1-4-2/index.html"> </a>
 </div>
 <div class="metadata">
-<a href="./posts/2023-1-18wrsdp_1-4-2/index.html">
+<a href="./posts/2023-1-18wrsdp_1-4-2/index.html" class="no-external">
 <div class="listing-date">
 Jan 29, 2023
 </div>
@@ -812,24 +835,24 @@ Jan 29, 2023
 Junchuan Yu
 </div>
 <div class="listing-reading-time">
-0 min
+1 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-categories="Posts,Deep leanring,Teaching,GEE" data-listing-date-sort="1674748800000" data-listing-file-modified-sort="1677866605000" data-listing-reading-time-sort="2.125">
+<div class="quarto-post image-right" data-index="14" data-categories="Posts,Deep leanring,Teaching,GEE" data-listing-date-sort="1674748800000" data-listing-file-modified-sort="1677866605000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="425">
 <div class="thumbnail">
-<p><a href="./posts/2023-1-27dynamicworld/index.html"> <img data-src="./posts/2023-1-27dynamicworld/welcome.JPG" class="thumnail-image"> </a></p>
+<p><a href="./posts/2023-1-27dynamicworld/index.html" class="no-external"></a></p><a href="./posts/2023-1-27dynamicworld/index.html" class="no-external">
+<p><img data-src="./posts/2023-1-27dynamicworld/welcome.JPG" class="thumbnail-image"></p>
+</a><p><a href="./posts/2023-1-27dynamicworld/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2023-1-27dynamicworld/index.html">
 <h3 class="no-anchor listing-title">
-Dynamic world data download
+<a href="./posts/2023-1-27dynamicworld/index.html" class="no-external">Dynamic world data download</a>
 </h3>
 <div class="listing-subtitle">
-Using Google Earth Engine in python
+<a href="./posts/2023-1-27dynamicworld/index.html" class="no-external">Using Google Earth Engine in python</a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
 Posts
@@ -844,10 +867,9 @@ Teaching
 GEE
 </div>
 </div>
-<a href="./posts/2023-1-27dynamicworld/index.html"> </a>
 </div>
 <div class="metadata">
-<a href="./posts/2023-1-27dynamicworld/index.html">
+<a href="./posts/2023-1-27dynamicworld/index.html" class="no-external">
 <div class="listing-date">
 Jan 27, 2023
 </div>
@@ -855,24 +877,24 @@ Jan 27, 2023
 Junchuan Yu
 </div>
 <div class="listing-reading-time">
-2 min
+3 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="15" data-categories="Posts,Deep leanring,Teaching,Workshop" data-listing-date-sort="1673971200000" data-listing-file-modified-sort="1677866605000" data-listing-reading-time-sort="0.09">
+<div class="quarto-post image-right" data-index="15" data-categories="Posts,Deep leanring,Teaching,Workshop" data-listing-date-sort="1673971200000" data-listing-file-modified-sort="1677866605000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="18">
 <div class="thumbnail">
-<p><a href="./posts/2023-1-18wrsdp_1-4-1/index.html"> <img data-src="./posts/2023-1-18wrsdp_1-4-1/welcome.JPG" class="thumnail-image"> </a></p>
+<p><a href="./posts/2023-1-18wrsdp_1-4-1/index.html" class="no-external"></a></p><a href="./posts/2023-1-18wrsdp_1-4-1/index.html" class="no-external">
+<p><img data-src="./posts/2023-1-18wrsdp_1-4-1/welcome.JPG" class="thumbnail-image"></p>
+</a><p><a href="./posts/2023-1-18wrsdp_1-4-1/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2023-1-18wrsdp_1-4-1/index.html">
 <h3 class="no-anchor listing-title">
-基于GEE的哨兵1号数据获取及水体提取
+<a href="./posts/2023-1-18wrsdp_1-4-1/index.html" class="no-external">基于GEE的哨兵1号数据获取及水体提取</a>
 </h3>
 <div class="listing-subtitle">
-Work with Remote Sensing Data in Python: Lesson 1-4-1
+<a href="./posts/2023-1-18wrsdp_1-4-1/index.html" class="no-external">Work with Remote Sensing Data in Python: Lesson 1-4-1</a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
 Posts
@@ -887,10 +909,9 @@ Teaching
 Workshop
 </div>
 </div>
-<a href="./posts/2023-1-18wrsdp_1-4-1/index.html"> </a>
 </div>
 <div class="metadata">
-<a href="./posts/2023-1-18wrsdp_1-4-1/index.html">
+<a href="./posts/2023-1-18wrsdp_1-4-1/index.html" class="no-external">
 <div class="listing-date">
 Jan 18, 2023
 </div>
@@ -898,24 +919,24 @@ Jan 18, 2023
 Junchuan Yu
 </div>
 <div class="listing-reading-time">
-0 min
+1 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="16" data-categories="Posts,Deep leanring,Teaching,Workshop" data-listing-date-sort="1672416000000" data-listing-file-modified-sort="1677866604000" data-listing-reading-time-sort="0.25">
+<div class="quarto-post image-right" data-index="16" data-categories="Posts,Deep leanring,Teaching,Workshop" data-listing-date-sort="1672416000000" data-listing-file-modified-sort="1677866604000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="50">
 <div class="thumbnail">
-<p><a href="./posts/2022-12-10wrsdp_1-3-2/index.html"> <img data-src="./posts/2022-12-10wrsdp_1-3-2/welcome.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2022-12-10wrsdp_1-3-2/index.html" class="no-external"></a></p><a href="./posts/2022-12-10wrsdp_1-3-2/index.html" class="no-external">
+<p><img data-src="./posts/2022-12-10wrsdp_1-3-2/welcome.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/2022-12-10wrsdp_1-3-2/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2022-12-10wrsdp_1-3-2/index.html">
 <h3 class="no-anchor listing-title">
-基于遥感指数的水体提取
+<a href="./posts/2022-12-10wrsdp_1-3-2/index.html" class="no-external">基于遥感指数的水体提取</a>
 </h3>
 <div class="listing-subtitle">
-Work with Remote Sensing Data in Python: Lesson 1-3-2
+<a href="./posts/2022-12-10wrsdp_1-3-2/index.html" class="no-external">Work with Remote Sensing Data in Python: Lesson 1-3-2</a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
 Posts
@@ -930,10 +951,9 @@ Teaching
 Workshop
 </div>
 </div>
-<a href="./posts/2022-12-10wrsdp_1-3-2/index.html"> </a>
 </div>
 <div class="metadata">
-<a href="./posts/2022-12-10wrsdp_1-3-2/index.html">
+<a href="./posts/2022-12-10wrsdp_1-3-2/index.html" class="no-external">
 <div class="listing-date">
 Dec 31, 2022
 </div>
@@ -941,24 +961,24 @@ Dec 31, 2022
 Junchuan Yu
 </div>
 <div class="listing-reading-time">
-0 min
+1 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="17" data-categories="Posts,Deep leanring,Teaching,Workshop" data-listing-date-sort="1668614400000" data-listing-file-modified-sort="1677866604000" data-listing-reading-time-sort="0.365">
+<div class="quarto-post image-right" data-index="17" data-categories="Posts,Deep leanring,Teaching,Workshop" data-listing-date-sort="1668614400000" data-listing-file-modified-sort="1677866604000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="73">
 <div class="thumbnail">
-<p><a href="./posts/2022-11-17wrsdp_1-3-1/index.html"> <img data-src="./posts/2022-11-17wrsdp_1-3-1/welcome.png" class="thumnail-image"> </a></p>
+<p><a href="./posts/2022-11-17wrsdp_1-3-1/index.html" class="no-external"></a></p><a href="./posts/2022-11-17wrsdp_1-3-1/index.html" class="no-external">
+<p><img data-src="./posts/2022-11-17wrsdp_1-3-1/welcome.png" class="thumbnail-image"></p>
+</a><p><a href="./posts/2022-11-17wrsdp_1-3-1/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2022-11-17wrsdp_1-3-1/index.html">
 <h3 class="no-anchor listing-title">
-哨兵2号数据获取及处理
+<a href="./posts/2022-11-17wrsdp_1-3-1/index.html" class="no-external">哨兵2号数据获取及处理</a>
 </h3>
 <div class="listing-subtitle">
-Work with Remote Sensing Data in Python: Lesson 1-3-1
+<a href="./posts/2022-11-17wrsdp_1-3-1/index.html" class="no-external">Work with Remote Sensing Data in Python: Lesson 1-3-1</a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
 Posts
@@ -973,10 +993,9 @@ Teaching
 Workshop
 </div>
 </div>
-<a href="./posts/2022-11-17wrsdp_1-3-1/index.html"> </a>
 </div>
 <div class="metadata">
-<a href="./posts/2022-11-17wrsdp_1-3-1/index.html">
+<a href="./posts/2022-11-17wrsdp_1-3-1/index.html" class="no-external">
 <div class="listing-date">
 Nov 17, 2022
 </div>
@@ -984,24 +1003,24 @@ Nov 17, 2022
 Junchuan Yu
 </div>
 <div class="listing-reading-time">
-0 min
+1 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="18" data-categories="Posts,Deep leanring,Teaching,Workshop" data-listing-date-sort="1668441600000" data-listing-file-modified-sort="1677866603000" data-listing-reading-time-sort="0.145">
+<div class="quarto-post image-right" data-index="18" data-categories="Posts,Deep leanring,Teaching,Workshop" data-listing-date-sort="1668441600000" data-listing-file-modified-sort="1677866603000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="29">
 <div class="thumbnail">
-<p><a href="./posts/2022-11-15_wrsdp_3-3/index.html"> <img data-src="./posts/2022-11-15_wrsdp_3-3/welcome.jpg" class="thumnail-image"> </a></p>
+<p><a href="./posts/2022-11-15_wrsdp_3-3/index.html" class="no-external"></a></p><a href="./posts/2022-11-15_wrsdp_3-3/index.html" class="no-external">
+<p><img data-src="./posts/2022-11-15_wrsdp_3-3/welcome.jpg" class="thumbnail-image"></p>
+</a><p><a href="./posts/2022-11-15_wrsdp_3-3/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2022-11-15_wrsdp_3-3/index.html">
 <h3 class="no-anchor listing-title">
-利用多光谱遥感数据进行地物分类
+<a href="./posts/2022-11-15_wrsdp_3-3/index.html" class="no-external">利用多光谱遥感数据进行地物分类</a>
 </h3>
 <div class="listing-subtitle">
-Work with Remote Sensing Data in Python: Lesson 3-3
+<a href="./posts/2022-11-15_wrsdp_3-3/index.html" class="no-external">Work with Remote Sensing Data in Python: Lesson 3-3</a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
 Posts
@@ -1016,10 +1035,9 @@ Teaching
 Workshop
 </div>
 </div>
-<a href="./posts/2022-11-15_wrsdp_3-3/index.html"> </a>
 </div>
 <div class="metadata">
-<a href="./posts/2022-11-15_wrsdp_3-3/index.html">
+<a href="./posts/2022-11-15_wrsdp_3-3/index.html" class="no-external">
 <div class="listing-date">
 Nov 15, 2022
 </div>
@@ -1027,24 +1045,24 @@ Nov 15, 2022
 Junchuan Yu
 </div>
 <div class="listing-reading-time">
-0 min
+1 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="19" data-categories="Posts,Deep leanring,Art" data-listing-date-sort="1665158400000" data-listing-file-modified-sort="1677866601000" data-listing-reading-time-sort="0.69">
+<div class="quarto-post image-right" data-index="19" data-categories="Posts,Deep leanring,Art" data-listing-date-sort="1665158400000" data-listing-file-modified-sort="1677866601000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="138">
 <div class="thumbnail">
-<p><a href="./posts/2022-10-8_ai_poem/index.html"> <img data-src="./posts/2022-10-8_ai_poem/welcome.jpg" class="thumnail-image"> </a></p>
+<p><a href="./posts/2022-10-8_ai_poem/index.html" class="no-external"></a></p><a href="./posts/2022-10-8_ai_poem/index.html" class="no-external">
+<p><img data-src="./posts/2022-10-8_ai_poem/welcome.jpg" class="thumbnail-image"></p>
+</a><p><a href="./posts/2022-10-8_ai_poem/index.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./posts/2022-10-8_ai_poem/index.html">
 <h3 class="no-anchor listing-title">
-AI眼中的诗意——AI绘画
+<a href="./posts/2022-10-8_ai_poem/index.html" class="no-external">AI眼中的诗意——AI绘画</a>
 </h3>
 <div class="listing-subtitle">
-
+<a href="./posts/2022-10-8_ai_poem/index.html" class="no-external"></a>
 </div>
-</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Posts'); return false;">
 Posts
@@ -1056,10 +1074,9 @@ Deep leanring
 Art
 </div>
 </div>
-<a href="./posts/2022-10-8_ai_poem/index.html"> </a>
 </div>
 <div class="metadata">
-<a href="./posts/2022-10-8_ai_poem/index.html">
+<a href="./posts/2022-10-8_ai_poem/index.html" class="no-external">
 <div class="listing-date">
 Oct 8, 2022
 </div>
@@ -1067,7 +1084,7 @@ Oct 8, 2022
 Junchuan Yu
 </div>
 <div class="listing-reading-time">
-0 min
+1 min
 </div>
 </a>
 </div>
@@ -1087,22 +1104,22 @@ No matching items
 <h2 class="anchored" data-anchor-id="recent-talks">Recent Talks</h2>
 <div id="listing-talks" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Talks,NKRDP,Deep leanring" data-listing-date-sort="1669132800000" data-listing-file-modified-sort="1677866605000" data-listing-reading-time-sort="0.41">
+<div class="quarto-post image-right" data-index="0" data-categories="Talks,NKRDP,Deep leanring" data-listing-date-sort="1669132800000" data-listing-file-modified-sort="1677866605000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="82">
 <div class="thumbnail">
-<p><a href="./talks/2022-11-23_NKRDP-DL/main.html"> <img src="./talks/2022-11-23_NKRDP-DL/index.jpg" class="thumnail-image"> </a></p>
+<p><a href="./talks/2022-11-23_NKRDP-DL/main.html" class="no-external"></a></p><a href="./talks/2022-11-23_NKRDP-DL/main.html" class="no-external">
+<p><img src="./talks/2022-11-23_NKRDP-DL/index.jpg" class="thumbnail-image"></p>
+</a><p><a href="./talks/2022-11-23_NKRDP-DL/main.html" class="no-external"></a></p>
 </div>
 <div class="body">
-<a href="./talks/2022-11-23_NKRDP-DL/main.html">
 <h3 class="no-anchor listing-title">
-Identification of Correlation Factors of Hidden Geohazard via Deep Learning
+<a href="./talks/2022-11-23_NKRDP-DL/main.html" class="no-external">Identification of Correlation Factors of Hidden Geohazard via Deep Learning</a>
 </h3>
 <div class="listing-subtitle">
-National Key R&amp;D Program (2022)
+<a href="./talks/2022-11-23_NKRDP-DL/main.html" class="no-external">National Key R&amp;D Program (2022)</a>
 </div>
-</a>
 </div>
 <div class="metadata">
-<a href="./talks/2022-11-23_NKRDP-DL/main.html">
+<a href="./talks/2022-11-23_NKRDP-DL/main.html" class="no-external">
 <div class="listing-date">
 Nov 23, 2022
 </div>
@@ -1148,9 +1165,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1186,10 +1217,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("^(?:http:|https:)\/\/www\.junchuanyu\.com\/**");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1199,8 +1247,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1215,6 +1272,233 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1252,26 +1536,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp(/^(?:http:|https:)\/\/www\.junchuanyu\.com\/**/);
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
-    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-      }
-    }
 });
 </script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Blog made with <a href="https://quarto.org/">Quarto</a>, by Junchuan Yu.</div>   
+    <div class="nav-footer-left">
+<p>Blog made with <a href="https://quarto.org/">Quarto</a>, by Junchuan Yu.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
@@ -1302,6 +1577,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+
 
 
 
