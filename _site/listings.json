@@ -2,6 +2,8 @@
   {
     "listing": "/posts/index.html",
     "items": [
+      "/posts/2024-1-15whale2023/test/index.html",
+      "/posts/2024-1-15whale2023/index.html",
       "/posts/2023-8-27numpyandnn/index.html",
       "/posts/2023-8-11hsireduce/index.html",
       "/posts/2023-8-2hsispectral/index.html",
@@ -37,7 +39,9 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/2024-1-15whale2023/test/index.html",
       "/posts/index.html",
+      "/posts/2024-1-15whale2023/index.html",
       "/posts/2023-8-27numpyandnn/index.html",
       "/posts/2023-8-11hsireduce/index.html",
       "/posts/2023-8-2hsispectral/index.html",
