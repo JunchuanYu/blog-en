@@ -1,0 +1,58 @@
+---
+comments: false
+title-block-banner: true
+title-block-banner-color: "#FFDDFF"
+page-size: 40  
+page-layout: full
+---
+
+
+<center><font size=28 >**Publication**</font></center>
+<br>
+
+<center> _Total: 40; First-author: 13; Citations:[Google Scholar](https://scholar.google.com/citations?user=zRCPlPwAAAAJ&hl=en) | [Research Gate](https://www.researchgate.net/profile/Junchuan-Yu/research); Source code: [GitHub](https://github.com/JunchuanYu)_</center>
+
+<br>
+<br>
+
+1. Yunxuan Pnag, Liang Zhang, Qiang Li, et al., Remote Sensing Extraction of Lakes on the Tibetan Plateau Based on the Google Earth Engine and Deep Learning. 2023, 16(3): 583. [[link](https://www.mdpi.com/2072-4292/16/3/583)] 
+<br>
+
+2. Junchuan Yu, Liang Zhang, Qiang Li, et al., 3D autoencoder algorithm for lithological mapping using ZY-1 02D hyperspectral imagery: a case study of Liuyuan region.Journal of Applied Remote Sensing. 2021, 15(4): 42610. [[link](https://www.spiedigitallibrary.org/journals/3D-autoencoder-algorithm-for-lithological-mapping-using-ZY-1-02D/volume-15/issue-04/042610/3D-autoencoder-algorithm-for-lithological-mapping-using-ZY-1-02D/10.1117/1.JRS.15.042610.full?webSyncID=d8b047e9-226b-5a83-74c4-20b2168a0c7e&sessionGUID=edcdec2b-2028-8671-519a-3c6967de0145&_ga=2.219605662.602220705.1672332814-1614319201.1654131863)] [[code](https://github.com/JunchuanYu/3DCAE_for_lithological_mapping)]
+<br>
+
+3. Junchuan Yu, Yichuan Li, Xiangxiang Zheng, et al., An effective cloud detection method for Gaofen-5 images via deep learning.Remote Sensing. 2020, 12(13): 2106. [[link](https://www.mdpi.com/2072-4292/12/13/2106)] [[code](https://github.com/JunchuanYu/MFGNet_Cloud_Detection_Remote_Sensing)]
+<br>
+
+4. Junchuan Yu, Yichuan Li, Bokun Yan, et al., Comparison of GaoFen-5 hyperspectral and airborne hyperspectral imagery: case study of Gossan identification in Subei area.Seventh Symposium on Novel Photoelectronic Detection Technology and Applications. 2021, 11763: 1479-1483. [[link](https://www.spiedigitallibrary.org/conference-proceedings-of-spie/11763/117635J/Comparison-of-GaoFen-5-hyperspectral-and-airborne-hyperspectral-imagery/10.1117/12.2587248.short?_ga=2.261679626.602220705.1672332814-1614319201.1654131863&SSO=1)]
+<br>
+
+5. Junchuan Yu, Yichuan Li, Siqun Zheng, et al., Knowledge guided classification of airborne hyperspectral images with deep convolutional neural network.AOPC 2020: Optical Spectroscopy and Imaging, and Biomedical Optics. 2020, 11566: 67-71. [[link](https://spie.org/Publications/Proceedings/Paper/10.1117/12.2576383)]
+<br>
+
+6. Junchuan Yu, Yichuan Li, Xiangxiang Xiangxiang, et al., Radiometric optimization of airborne hyperspectral imagery for large-scale geological applications.Sixth Symposium on Novel Optoelectronic Detection Technology and Applications. 2020, 11455: 905-910. [[link](https://spie.org/Publications/Proceedings/Paper/10.1117/12.2564651)] 
+<br>
+7. Junchuan Yu, Bokun Yan, Wenliang Liu, et al., Seamless Mosaicking of Multi-strip Airborne Hyperspectral Images Based on Hapke Model.International Conference on Sensing and Imaging. 2019,506:285-292. [[link](https://link.springer.com/chapter/10.1007/978-3-319-91659-0_22)] 
+<br>
+
+8. Junchuan Yu and Bokun Yan, Efficient solution of large-scale domestic hyperspectral data processing and geological application.2017 International Workshop on Remote Sensing with Intelligent Processing (RSIP). 2017: 44565. [[link](https://ieeexplore.ieee.org/document/7970774)]
+<br>
+
+9.  Junchuan Yu, Wenliang Liu, Bokun Yan, et al., Inversion of geochemical compositions of basalts based on field measured spectra.Remote Sensing for Land & Resources.2017,29(1): 158-163. [[link](https://www.researchgate.net/publication/354652111_Inversion_of_geochemical_compositions_of_basalts_based_on_field_measured_spectra)]
+<br>
+
+10.  Junchuan Yu, Xuanxue Mo, Xuehui Yu, et al., Petrogenesis and geological implications of the Late Triassic potassic-ultrapotassic rocks in Changdu Block, northern segment of the Sanjiang area.Acta Petrologica Sinica. 2014, 30(11): 3334-3344. [[link](http://www.ysxb.ac.cn/article/id/aps_20141116)]
+<br>
+
+11. Junchuan Yu, Xuanxue Mo, Yichuan Li, et al., The Cenozoic Basalts From Simao Microcontinent, Eastern Tibet Plateau: The Geochemical Characteristics and Tectonic Significance.Acta Geologica Sinica. 2013, 87:88-89. [[link](https://www.researchgate.net/publication/354652192_The_Cenozoic_Basalts_From_Simao_Microcontinent_Eastern_Tibet_Plateau_The_Geochemical_Characteristics_and_Tectonic_Significance)]
+<br>
+
+12. Junchuan Yu, Xuanxue Mo, Xuehui Yu, et al., Petrogenesis of Late Triassic Volcanic Rocks from Changdu Microcontinent, NE Tibet (West China): Constraints from Geochemistry and Sr-Nd-Pb Isotopes.Acta Geologica Sinica. 2013, 87: 123-137. [[link](https://www.researchgate.net/publication/354652392_Petrogenesis_of_Late_Triassic_Volcanic_Rocks_from_Changdu_MicrocontinentNE_Tibet_West_China_Constraints_from_Geochemistry_and_Sr-Nd-Pb_Isotopes)] 
+<br>
+
+13. Junchuan Yu, Xuanxue Mo, Xuehui Yu, et al., Geochemical characteristics and petrogenesis of Permian basaltic rocks in Keping area, Western Tarim basin: A record of plume-lithosphere interaction.Journal of Earth Science.2012, 23(4): 442-454. [[link](https://www.researchgate.net/publication/257789171_Geochemical_characteristics_and_petrogenesis_of_Permian_basaltic_rocks_in_Keping_area_Western_Tarim_basin_A_record_of_plume-lithosphere_interaction)] 
+<br>
+
+14. Junchuan, Yu, Xuanxue, Mo, Guochen, Dong, et al., Felsic volcanic rocks from northern Tarim, NW China: Zircon U-Pb dating and geochemical characteristics.Acta Petrologica Sinica. 2011, 27(7): 2184-2194. [[link](http://www.ysxb.ac.cn/article/id/aps_20110726)]
+
+
