@@ -118,6 +118,34 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-teaching .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-date','listing-title','listing-subtitle','listing-categories','listing-author','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-teaching'] = new List('listing-teaching', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
   </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2J79YYG9CZ"></script>
 
@@ -216,6 +244,7 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
   <ul>
   <li><a href="#recent-posts-posts-recentes" id="toc-recent-posts-posts-recentes" class="nav-link active" data-scroll-target="#recent-posts-posts-recentes">Recent posts / Posts recentes</a></li>
   <li><a href="#recent-talks" id="toc-recent-talks" class="nav-link" data-scroll-target="#recent-talks">Recent Talks</a></li>
+  <li><a href="#recent-tutorial" id="toc-recent-tutorial" class="nav-link" data-scroll-target="#recent-tutorial">Recent Tutorial</a></li>
   </ul>
 </nav>
     </div>
@@ -242,7 +271,7 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="recent-posts-posts-recentes">Recent posts / Posts recentes</h2>
 <div id="listing-posts" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1716559866404" data-listing-reading-time-sort="0.01">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1716559886478" data-listing-reading-time-sort="0.01">
 <div class="thumbnail">
 <a href="./posts/index.html">
 <div class="thumbnail-image">
@@ -1175,6 +1204,43 @@ No matching items
 </div>
 </div>
 <p><a href="../talks/index.html"> <button type="button" class="btn btn-primary float-end btn-sm">See all</button></a></p>
+</section>
+<section id="recent-tutorial" class="level2">
+<h2 class="anchored" data-anchor-id="recent-tutorial">Recent Tutorial</h2>
+<div id="listing-teaching" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1716558990233" data-listing-reading-time-sort="0.01">
+<div class="thumbnail">
+<a href="./teaching/index.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./teaching/index.html"></a></p>
+</div>
+<div class="body">
+<a href="./teaching/index.html">
+<h3 class="no-anchor listing-title">
+Teaching
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./teaching/index.html">
+<div class="listing-reading-time">
+0 min
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+<p><a href="../teaching/index.html"> <button type="button" class="btn btn-primary float-end btn-sm">See all</button></a></p>
 
 
 
