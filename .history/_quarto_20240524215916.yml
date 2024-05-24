@@ -4,7 +4,8 @@ project:
 website:
   page-navigation: true
   title: "Junchuan Yu"
-  site-url: "https://junchuanyu.netlify.app/teaching/"
+  favicon: favicon.ico
+  site-url: "https://junchuanyu.netlify.app/"
   google-analytics: "G-2J79YYG9CZ"
   page-footer:
     left: "Blog made with [Quarto](https://quarto.org/), by Junchuan Yu. "
@@ -33,7 +34,7 @@ website:
       - icon: github
         href: https://github.com/JunchuanYu
       - icon: book
-        href: https://github.com/JunchuanYu
+        href: https://www.zhihu.com/people/yu-jun-chuan-84
       - icon: bootstrap
         href: https://space.bilibili.com/18814004/
 

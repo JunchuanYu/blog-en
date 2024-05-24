@@ -18,5 +18,5 @@ toc: false
 ---
 
 
-::: {#teaching}
+::: {#posts}
 :::

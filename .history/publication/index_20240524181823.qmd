@@ -36,7 +36,6 @@ page-layout: full
 7. Yichuan Li, Junchuan Yu*, Xuezhong Yu, et al.,Investigation and Analysis of Airborne Gamma Radiation Absorbed Dose Rate of Danjiangkou Reservoir. Symposium on Novel Photoelectronic Detection Technology and Applications.2020.DOI:10.1117/12.2587261. [[link](https://iopscience.iop.org/article/10.1088/1755-1315/660/1/012126)]
 <br>
 
-
 8. Junchuan Yu, Yichuan Li*, Siqun Zheng, et al., Knowledge guided classification of airborne hyperspectral images with deep convolutional neural network.AOPC 2020: Optical Spectroscopy and Imaging, and Biomedical Optics. 2020, 11566: 67-71. [[link](https://spie.org/Publications/Proceedings/Paper/10.1117/12.2576383)]
 <br>
 

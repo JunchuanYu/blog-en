@@ -29,8 +29,8 @@ website:
         href: publication/index.qmd
       - text: Talks
         href: talks/index.qmd
-      # - text: Teaching
-      #   href: teaching/index.qmd
+      - text: Teaching
+        href: teaching/index.qmd
       - icon: github
         href: https://github.com/JunchuanYu
       - icon: book
