@@ -99,8 +99,9 @@ print(data)
 ----------------------------------------
 If you want to get the downloaded label data and related forms, you can follow the WeChat public account [45度科研人] and leave me a message！
 
-<div align=center><img width = '300' height ='300' src ="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/wechat-simple.png"/></div>
-
+<span style="display: block; text-align: center; margin-left: auto; margin-right: auto;">
+    <img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/wechat-simple.png" width="300"  alt="">
+</span>
 
 
 

@@ -62,4 +62,6 @@ print(resText)
 ----------------------------------------
 Kindly consider following the official WeChat account 「45 度科研人」 to access more interesting content. Feel free to leave a message in the background.
 
-<div align=center><img width = '300' height ='300' src ="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/wechat-simple.png"/></div>
+<span style="display: block; text-align: center; margin-left: auto; margin-right: auto;">
+    <img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/wechat-simple.png" width="300"  alt="">
+</span>

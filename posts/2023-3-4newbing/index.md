@@ -128,4 +128,6 @@ AI会不会做坏事？科技是中性的，本身没有善恶之分，好与坏
 
 请关注微信公众号【45度科研人】获取更多精彩内容，欢迎后台留言！
 
-![](https://picx.zhimg.com/80/v2-7cc78066da803082fcda992288de59d2_720w.png)
+<span style="display: block; text-align: center; margin-left: auto; margin-right: auto;">
+    <img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/wechat-simple.png" width="300"  alt="">
+</span>

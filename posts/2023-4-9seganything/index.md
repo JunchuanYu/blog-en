@@ -530,4 +530,6 @@ facebook发布SAM模型的同时也发布了全球迄今为止最大的语义分
 ---------------------------
 请关注微信公众号【45度科研人】获取更多精彩内容，欢迎后台留言！
 
-<div align=center><img width = '300' height ='300' src ="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/wechat-simple.png"/></div>
+<span style="display: block; text-align: center; margin-left: auto; margin-right: auto;">
+    <img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/wechat-simple.png" width="300"  alt="">
+</span>

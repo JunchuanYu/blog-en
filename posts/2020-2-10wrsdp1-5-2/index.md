@@ -389,4 +389,6 @@ Write_Tiff(pred,im_geotrans,im_proj, './data/prediction.tif')
 ```
 ----------------------------------------
 想了解更多请关注[45度科研人]公众号，欢迎给我留言！
-<div align=center><img width = '300' height ='300' src ="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/wechat-simple.png"/></div>
+<span style="display: block; text-align: center; margin-left: auto; margin-right: auto;">
+    <img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/wechat-simple.png" width="300"  alt="">
+</span>

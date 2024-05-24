@@ -99,8 +99,9 @@ The presets for the software roles are as follows:
 ---------------------------
 Kindly consider following the official WeChat account 「45 度科研人」to get the link to the upgraded version of Sydney-AI! If you encounter any problems during use, please leave a message in the official account backend.
 
-<div align=center><img width = '300' height ='300' src ="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/wechat-simple.png"/></div>
-
+<span style="display: block; text-align: center; margin-left: auto; margin-right: auto;">
+    <img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/wechat-simple.png" width="300"  alt="">
+</span>
 
 
 

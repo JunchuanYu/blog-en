@@ -290,6 +290,6 @@ Write_Tiff(np.transpose(mnf_trans,(2,0,1)), './data/reduced.tiff', img_meta['geo
 ---------------------------
 请关注微信公众号【45度科研人】获取更多精彩内容，欢迎后台留言！
 
-<div style="display:flex; justify-content:center;">
-    <img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/wechat-simple.png" style="margin-right:25px;width:200px;height:200px;">
-</div>
+<span style="display: block; text-align: center; margin-left: auto; margin-right: auto;">
+    <img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/wechat-simple.png" width="300"  alt="">
+</span>
