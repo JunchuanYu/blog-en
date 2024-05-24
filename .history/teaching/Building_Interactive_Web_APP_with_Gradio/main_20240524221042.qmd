@@ -1,10 +1,10 @@
 ---
-title: Building Interactive Web APP with Gradio
+title: Building_Interactive_Web_APP_with_Gradio
 subtitle: " A Open-source Python Course: From Beginner to Advanced (2024)"
 author: 
   - "Junchuan Yu"
 date: "2024-5-23"
-categories: [Posts, Gradio, Deep Learning]
+categories: [Teaching, Gradio, Deep Learning]
 image: https://dunazo.oss-cn-beijing.aliyuncs.com/blog/Gradio_main.png
 # toc: true
 ---

@@ -129,3 +129,11 @@ This tutorial is structured into six sections, with each section offering hands-
 ![demo6-1](https://dunazo.oss-cn-beijing.aliyuncs.com/blog/demo6-1.gif)
 
 To learn more about sharing your demo, read our dedicated guide on [sharing your Gradio application](https://www.gradio.app/guides/sharing-your-app).<br><br>
+
+### References 
+
+- [Website:https://gradio.app](https://gradio.app)
+- [Documentation:https://gradio.app/docs/](https://gradio.app/docs/)
+- [Guides:https://gradio.app/guides/](https://gradio.app/guides/)
+- [Getting Started:https://gradio.app/getting_started/](https://gradio.app/getting_started/)
+- [Hugging Face Spaces:https://huggingface.co/spaces](https://huggingface.co/spaces)

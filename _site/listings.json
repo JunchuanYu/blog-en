@@ -2,7 +2,6 @@
   {
     "listing": "/posts/index.html",
     "items": [
-      "/posts/2024-05-23gradio/index.html",
       "/posts/2024-1-15whale2023/index.html",
       "/posts/2023-8-27numpyandnn/index.html",
       "/posts/2023-8-11hsireduce/index.html",
@@ -42,7 +41,6 @@
     "listing": "/index.html",
     "items": [
       "/posts/index.html",
-      "/posts/2024-05-23gradio/index.html",
       "/posts/2024-1-15whale2023/index.html",
       "/posts/2023-8-27numpyandnn/index.html",
       "/posts/2023-8-11hsireduce/index.html",
