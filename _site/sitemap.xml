@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://junchuanyu.netlify.app/about.html</loc>
-    <lastmod>2024-01-11T07:57:06.306Z</lastmod>
+    <lastmod>2024-05-28T18:02:44.689Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2022-10-8_ai_poem/index.html</loc>
@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/index.html</loc>
-    <lastmod>2024-05-24T15:38:52.697Z</lastmod>
+    <lastmod>2024-05-28T18:02:28.241Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/publication/index.html</loc>
@@ -34,15 +34,15 @@
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/talks/index.html</loc>
-    <lastmod>2024-05-24T14:04:20.351Z</lastmod>
+    <lastmod>2024-05-28T18:01:03.498Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/teaching/index.html</loc>
-    <lastmod>2024-05-24T15:35:38.323Z</lastmod>
+    <lastmod>2024-05-28T17:58:01.467Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/index.html</loc>
-    <lastmod>2024-05-24T15:38:51.791Z</lastmod>
+    <lastmod>2024-05-28T18:01:36.670Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/talks/2022-11-23_NKRDP-DL/main.html</loc>
@@ -146,10 +146,18 @@
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/teaching/Building_Interactive_Web_APP_with_Gradio/main.html</loc>
-    <lastmod>2024-05-24T15:35:41.941Z</lastmod>
+    <lastmod>2024-05-28T17:29:40.010Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2024-05-23gradio/index.html</loc>
     <lastmod>2024-05-24T14:06:47.184Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/teaching/Adobe_Illustrator_for_Scientific_Graphic_Design/index.html</loc>
+    <lastmod>2024-05-28T17:57:59.416Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/talks/2023-09-01 Adobeillustrator/main.html</loc>
+    <lastmod>2024-05-28T18:01:05.411Z</lastmod>
   </url>
 </urlset>

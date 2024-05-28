@@ -28,7 +28,8 @@ Hi!
 
 <p align="justify ">I'm Junchuan Yu, a remote sensing enthusiast with a passion for data science and AI technologies.<p>
 
-<p align="justify ">I'm currently serving as a Senior Engineer at the AGRS, where I'm passionate about driving innovation in the realms of deep learning and hyperspectral remote sensing. I'm excited to be exploring their strategic applications to enhance our understanding of geosciences. <p>
+I'm currently serving as a Senior Engineer at the AGRS, where I'm passionate about driving innovation in the realms of deep learning and hyperspectral remote sensing. I'm excited to be exploring their strategic applications to enhance our understanding of geosciences. 
+
 
 <p align="justify "> I'm excited to share my knowledge and connect with like-minded individuals. If you're interested in what's happening at the intersection of data science and remote sensing, feel free to follow my WeChat public account: [45度科研人].<p>
 

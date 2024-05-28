@@ -28,13 +28,15 @@
     "listing": "/talks/index.html",
     "items": [
       "/talks/2023-12-16 HEJINGTALKS/main.html",
+      "/talks/2023-09-01 Adobeillustrator/main.html",
       "/talks/2022-11-23_NKRDP-DL/main.html"
     ]
   },
   {
     "listing": "/teaching/index.html",
     "items": [
-      "/teaching/Building_Interactive_Web_APP_with_Gradio/main.html"
+      "/teaching/Building_Interactive_Web_APP_with_Gradio/main.html",
+      "/teaching/Adobe_Illustrator_for_Scientific_Graphic_Design/index.html"
     ]
   },
   {
@@ -62,8 +64,10 @@
       "/posts/2022-11-15_wrsdp_3-3/index.html",
       "/posts/2022-10-8_ai_poem/index.html",
       "/talks/2023-12-16 HEJINGTALKS/main.html",
+      "/talks/2023-09-01 Adobeillustrator/main.html",
       "/talks/2022-11-23_NKRDP-DL/main.html",
-      "/teaching/index.html"
+      "/teaching/index.html",
+      "/teaching/Adobe_Illustrator_for_Scientific_Graphic_Design/index.html"
     ]
   }
 ]
