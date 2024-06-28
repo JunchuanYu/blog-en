@@ -15,7 +15,7 @@ page-layout: full
 <br>
 <br>
 
-1. Laidian Xi, Junchuan Yu*, Daqing Ge, Ping Zhou, Changhong Hou, Yichuan Li, Yangyang Chen and Yuanbiao Dong, SAM-CFFNet: SAM-Based Cross-Feature Fusion Network for Intelligent Identification of Landslides. Remote Sensing. 2024, 16(13):2334. [[link](https://www.mdpi.com/2072-4292/16/13/2334)] [[code](https://github.com/JunchuanYu/SAM-CFFNet)]
+1. Yichuan Li, Junchuan Yu*, Ming Wang, Minying Xie, Laidian Xi, Yunxuan Pang, and Changhong Hou, SAM-CFFNet: SAM-Based Cross-Feature Fusion Network for Intelligent Identification of Landslides. Remote Sensing. 2024, 16(13):2334. [[link](https://www.mdpi.com/2072-4292/16/13/2334)] [[code](https://github.com/JunchuanYu/SAM-CFFNet)]
 <br>
 
 2. Yichuan Li, Junchuan Yu*, Ming Wang, Minying Xie, Laidian Xi, Yunxuan Pang, and Changhong Hou, Research on the Optimization of Multi-Class Land Cover Classification Using Deep Learning with Multispectral Images. Land. 2024, 13(5): 603. [[link](https://www.mdpi.com/2073-445X/13/5/603)] [[code](https://github.com/JunchuanYu/OUNet_for_multi-class_land_cover_classification)]
