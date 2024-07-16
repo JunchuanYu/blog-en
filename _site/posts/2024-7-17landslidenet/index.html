@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Junchuan Yu">
+<meta name="dcterms.date" content="2024-07-17">
+
+<title>Junchuan Yu - LandslideNet-Adaptive Vision Foundation Model for Landslide detection</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2J79YYG9CZ"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
+</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<!-- Primary Meta Tags -->
+<title>Junchuan's blog</title>
+<meta name="title" content="Junchuan's blog">
+<meta name="description" content="Welcome to my blog!">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="">
+<meta property="og:title" content="Junchuan Yu - LandslideNet-Adaptive Vision Foundation Model for Landslide detection">
+<meta property="og:description" content="Welcome to my blog!">
+<meta property="og:image" content="">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="">
+<meta property="twitter:title" content="Junchuan's blog">
+<meta property="twitter:description" content="Welcome to my blog!">
+<meta property="twitter:image" content="">
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Junchuan Yu</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">About</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts/index.html">Posts</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../publication/index.html">Publications</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks/index.html">Talks</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching/index.html">Teaching</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/JunchuanYu"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.zhihu.com/people/yu-jun-chuan-84"><i class="bi bi-book" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://space.bilibili.com/18814004/"><i class="bi bi-bootstrap" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">LandslideNet-Adaptive Vision Foundation Model for Landslide detection</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Posts</div>
+                <div class="quarto-category">Deep learning</div>
+                <div class="quarto-category">Article</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Junchuan Yu </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 17, 2024</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#landslidenet-adaptive-vision-foundation-model-for-landslide-detection" id="toc-landslidenet-adaptive-vision-foundation-model-for-landslide-detection" class="nav-link active" data-scroll-target="#landslidenet-adaptive-vision-foundation-model-for-landslide-detection">LandslideNet: Adaptive Vision Foundation Model for Landslide detection</a>
+  <ul class="collapse">
+  <li><a href="#abstract" id="toc-abstract" class="nav-link" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">1. Introduction</a></li>
+  <li><a href="#materials-and-methods" id="toc-materials-and-methods" class="nav-link" data-scroll-target="#materials-and-methods">2. MATERIALS AND METHODS</a>
+  <ul class="collapse">
+  <li><a href="#datasets" id="toc-datasets" class="nav-link" data-scroll-target="#datasets">2.1. Datasets</a></li>
+  <li><a href="#architecture-of-landslidenet" id="toc-architecture-of-landslidenet" class="nav-link" data-scroll-target="#architecture-of-landslidenet">2.2. Architecture of LandslideNet</a></li>
+  <li><a href="#design-of-the-tuning-layer" id="toc-design-of-the-tuning-layer" class="nav-link" data-scroll-target="#design-of-the-tuning-layer">2.3. Design of the tuning layer</a></li>
+  </ul></li>
+  <li><a href="#results-and-discussion" id="toc-results-and-discussion" class="nav-link" data-scroll-target="#results-and-discussion">3. RESULTS AND DISCUSSION</a>
+  <ul class="collapse">
+  <li><a href="#experimental-setting" id="toc-experimental-setting" class="nav-link" data-scroll-target="#experimental-setting">3.1. Experimental Setting</a></li>
+  <li><a href="#results-analysis" id="toc-results-analysis" class="nav-link" data-scroll-target="#results-analysis">3.2. Results Analysis</a></li>
+  <li><a href="#quantitative-evaluation-results" id="toc-quantitative-evaluation-results" class="nav-link" data-scroll-target="#quantitative-evaluation-results">Quantitative Evaluation Results</a></li>
+  <li><a href="#influence-of-the-tuning-layer" id="toc-influence-of-the-tuning-layer" class="nav-link" data-scroll-target="#influence-of-the-tuning-layer">Influence of the Tuning Layer</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">4. CONCLUSION</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/JunchuanYu/Building_Interactive_Web_APP_with_Gradio/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="landslidenet-adaptive-vision-foundation-model-for-landslide-detection" class="level1">
+<h1>LandslideNet: Adaptive Vision Foundation Model for Landslide detection</h1>
+<p><strong>Junchuan Yu1,2, Yichuan Li1, Yangyang Chen1,2*, Changhong Hou3, Daqing Ge1,2, Yanni Ma1,2, Qiong Wu1,2</strong></p>
+<ol type="1">
+<li>China Aero Geophysical Survey and Remote Sensing Center for Natural Resources, Beijing, China</li>
+<li>Technology Innovation Center for Geohazard Identification and Monitoring with Earth Observation System, Ministry of Natural Resources, Beijing, China</li>
+<li>China University of Mining and Technology(Beijing), Beijing, China</li>
+</ol>
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<p>Recent advancements in Vision Foundation Models (VFMs) like the Segment Anything Model (SAM) have exhibited remarkable progress in natural image segmentation. However, its performance on remote sensing images is limited, especially in some application scenarios that require strong expert knowledge involvement, such as landslide detection. In this study, we proposed an effective segmentation model, namely LandslideNet, which is realized by embedding a tuning layer in a pre-trained encoder and adapting the SAM to the landslide detection scene for the first time. The proposed method is compared with traditional convolutional neural networks (CNN) on two well-known landslide datasets. The results indicate that the proposed model with fewer training parameters has better performance in detecting small-scale targets and delineating landslide boundaries, with an improvement of 6-7 percentage points in accuracy (F1 and mIoU) compared to mainstream CNN-based methods.</p>
+<p><strong>Index Terms</strong>: LandslideNet, Landslide, Segmentation, Foundation Model, SAM, Fine-Tune</p>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">1. Introduction</h2>
+<p>Landslides often cause catastrophic damage and pose a great threat to human life and property. Therefore, timely and accurate identification of landslides is essential to minimizing these damages. The advancement of remote sensing technology provides sufficient data support for landslide identification. Although visual interpretation has high identification accuracy, the process is both time-consuming and labor-intensive. Therefore, automated landslide identification methods based on remote sensing technology have become a hot topic in recent years.</p>
+<p>Current landslide detection approaches can be broadly categorized into three groups: the traditional approaches, the traditional machine learning approaches, and deep learning approaches. Traditional methods detect landslides by statistically analyzing the spectral characteristics, textures, and terrain information of the target. These methods are limited by poor generalization and require manual intervention. Traditional machine learning methods, such as support vector machine and random forest, are pixel-based methods. They are sensitive to noise and cannot fully use the spatial information of images. Currently, deep learning methods are becoming widely used for landslide detection. CNN-based models like U-Net, PSPNet, and DeepLabv3+ have significantly improved the efficiency and accuracy of landslide detection. In addition, many advances have been made in the research of transformer application, instance segmentation, multiscale feature fusion, and attention mechanisms. However, the lack of data, the limited generalizability of the model, and the difficulty of embedding expert knowledge remain challenges for landslide identification.</p>
+<p>Recent advances in vision foundation models such as SAM have shown impressive performances in various natural image segmentation tasks. Due to its excellent generalization and zero-shot learning capabilities, SAM has attracted much attention in remote sensing image segmentation. However, its performance on remote sensing images is limited. This may be due to the fact that the interactive mechanism of SAM is highly dependent on the accuracy of the prompt information, and the data used to train SAM does not cover most remote sensing scenarios. Inspired by the recent advancements in the field of natural language processing, some researchers have attempted to utilize fine-tuning strategies to improve the performance of SAM for semantic segmentation in remote sensing imagery. However, these efforts have mainly focused on common remote sensing targets, and there is insufficient research on complex application scenarios that rely on expert knowledge, such as landslide identification.</p>
+<p>To address these limitations, a landslide detection method, namely LandslideNet, based on local fine-tuning of the VFM has been proposed. In this study, a tuning layer is designed and embedded in a pre-trained encoder to dynamically learn prompt information, resulting in the adaptation of the SAM to the landslide detection scene. To the best of our knowledge, the proposed method achieves state-of-the-art performance on the Landslide4Sense and Bijie landslide datasets. In summary, this work presents a concise and efficient landslide identification method, explores the role of the tuning layer, and provides valuable insights into ways to fine-tune VFM for remote sensing segmentation tasks.</p>
+</section>
+<section id="materials-and-methods" class="level2">
+<h2 class="anchored" data-anchor-id="materials-and-methods">2. MATERIALS AND METHODS</h2>
+<section id="datasets" class="level3">
+<h3 class="anchored" data-anchor-id="datasets">2.1. Datasets</h3>
+<p>The data used in our experiments comes from two commonly used open-source landslide datasets. The Landslide4Sense dataset is derived from optical imagery captured by the Sentinel-2 satellite with a spatial resolution of 10 meters per pixel. It consists of 3,799 landslide images ranging over the four most landslide-prone regions of the world. The Bijie landslide dataset consists of 770 landslide images. It is extracted from optical images of Bijie City in the northwest of Guizhou Province, China, with a spatial resolution of 0.8 meters per pixel. Each dataset has been normalized and divided into two groups, with 70% and 30% used for training and validation, respectively.</p>
+</section>
+<section id="architecture-of-landslidenet" class="level3">
+<h3 class="anchored" data-anchor-id="architecture-of-landslidenet">2.2. Architecture of LandslideNet</h3>
+<p>Our main goal in this study is to fine-tune the VFM to transfer its powerful feature extraction capability to landslide detection scene where its previous performance was unsatisfactory. The overall architecture of LandslideNet inherits from the SAM, consisting of an encoder and a mask decoder. The image encoder of SAM is a Vision Transformer backbone pre-trained with the Mask Auto-Encoder strategy. The output of the image encoder is a 16-times down-sampled embedding of the input image. We freeze all parameters in the SAM’s image encoder and add a trainable tuning layer after each transform block to dynamically learn the prompt information. The mask decoder consists of a lightweight transformer decoder, and a segmentation head is also initialized with the pre-trained weights of the SAM, but we keep these parameters trainable in the training process. In LandslideNet, we do not use a prompt mechanism similar to SAM, because the fine-tuned tuning layer can be seen as a dynamic prompt.</p>
+<p><img src="./fig0.JPG" class="img-fluid"></p>
+<p><strong>Figure 1.</strong> Overview architecture of the proposed LandslideNet.</p>
+</section>
+<section id="design-of-the-tuning-layer" class="level3">
+<h3 class="anchored" data-anchor-id="design-of-the-tuning-layer">2.3. Design of the tuning layer</h3>
+<p>Proper design of the tuning layer will improve the training efficiency and inference accuracy of the model. The structure of our learnable tuning layer is shown in Figure 1(b). It has a simple structure consisting of three MLP layers forming a bottleneck structure. The GELU activation function is inserted between two MLP layers, as it provides smoother and approximate linearity gradients. The MLPdown is employed to down-project the original features to a smaller dimension. The MLPtune is used as a dynamic prompt layer; its dimension is the same as that of the MLPdown. The MLPup is used to expand the compressed feature back to its original dimension. Each tuning layer will be inserted after the transformer block with a skip connection. Supposing that the input features obtained by the tuning layer from the transformer block are ( x ), and the output result computed by the tuning is ( y ), which is denoted as:</p>
+<p><img src="./fig1.JPG" class="img-fluid"></p>
+<p>where Wu , Wt, Wd are the parameters of each of the three MLP layers. λ is the GELU activation function.</p>
+<p>There are many variants of the tuning layers, which can be sequential or parallel, and their structure and position can be adjusted. We also use CNN instead of MLP, or a combination of CNN and MLP, as the tuning layer. The tuning layer can also be placed inside the transformer block, and the use of skip connections is not mandatory. Through ablation experiments, we attempt to demonstrate that the currently proposed tuning layer structure is optimal for landslide detection.</p>
+</section>
+</section>
+<section id="results-and-discussion" class="level2">
+<h2 class="anchored" data-anchor-id="results-and-discussion">3. RESULTS AND DISCUSSION</h2>
+<p>In this section, we assessed the performance of the proposed LandslideNet on the Bijie and the Landslide4Sense landslide datasets. The evaluation compared the effectiveness of various network models based on precision (P), recall (R), F1-score (F1), and mean intersection over union (mIoU).</p>
+<section id="experimental-setting" class="level3">
+<h3 class="anchored" data-anchor-id="experimental-setting">3.1. Experimental Setting</h3>
+<p>The training procedure was conducted using the PyTorch framework (version 1.13.1) on an NVIDIA Tesla A100 GPU. The optimization employed the Adam with Weight Decay (AdamW) algorithm with an initial learning rate set to 2e-4. The loss functions utilized for training were binary cross-entropy and dice loss. Meanwhile, the proposed models were compared with CCNet, Deeplabv3+, UNet, and PSPNet. All models were trained using the same settings.</p>
+</section>
+<section id="results-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="results-analysis">3.2. Results Analysis</h3>
+<p>The landslide detection results of different models on the Bijie dataset are shown in Figure 2. The results indicate that the semantic segmentation model is effective in detecting the landslide target. Most models were able to correctly distinguish the landslide target from the dirt road. However, LandslideNet outperformed all other models with results closest to the labels and significant advantages in terms of recognition accuracy and completeness. Figure 2a shows that the CNN-based model is ineffective in detecting landslides with complex morphology. On the other hand, as demonstrated in Figures 2c and 2e, our proposed method performs better for small-scale landslide targets or when texture features are indistinguishable from the background. The experimental results of the Landslide4Sense dataset presented in Figure 3 also confirm our previous conclusion. Due to the low resolution of the landslide4sense dataset, the features of landslide targets are even less obvious, as shown in Figures 3a, 3c, and 3d, and it is difficult for PSPNet, DeepLabv3, UNet, and CCNet to accurately detect landslide targets in such a scene. In contrast, the proposed model shows greater robustness.</p>
+</section>
+<section id="quantitative-evaluation-results" class="level3">
+<h3 class="anchored" data-anchor-id="quantitative-evaluation-results">Quantitative Evaluation Results</h3>
+<p>The tables below show the quantitative comparison of model performance on the Bijie and Landslide4Sense datasets, respectively.</p>
+<p><strong>Table 1. Quantitative comparison results on the Bijie dataset.</strong></p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>P</th>
+<th>R</th>
+<th>F1</th>
+<th>mIoU</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CCNet</td>
+<td>85.24%</td>
+<td>83.64%</td>
+<td>84.41%</td>
+<td>75.09%</td>
+</tr>
+<tr class="even">
+<td>Deeplabv3+</td>
+<td>89.19%</td>
+<td>87.40%</td>
+<td>88.27%</td>
+<td>80.28%</td>
+</tr>
+<tr class="odd">
+<td>UNet</td>
+<td>85.81%</td>
+<td>84.77%</td>
+<td>85.28%</td>
+<td>76.20%</td>
+</tr>
+<tr class="even">
+<td>PSPNet</td>
+<td>90.77%</td>
+<td>86.39%</td>
+<td>88.42%</td>
+<td>80.52%</td>
+</tr>
+<tr class="odd">
+<td>LandslideNet</td>
+<td>93.91%</td>
+<td>92.24%</td>
+<td>92.18%</td>
+<td>87.75%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Table 2. Quantitative comparison results on the Landslide4Sense dataset.</strong></p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>P</th>
+<th>R</th>
+<th>F1</th>
+<th>mIoU</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CCNet</td>
+<td>81.55%</td>
+<td>70.75%</td>
+<td>74.97%</td>
+<td>66.11%</td>
+</tr>
+<tr class="even">
+<td>Deeplabv3+</td>
+<td>71.72%</td>
+<td>74.98%</td>
+<td>73.23%</td>
+<td>64.37%</td>
+</tr>
+<tr class="odd">
+<td>UNet</td>
+<td>75.22%</td>
+<td>78.55%</td>
+<td>76.77%</td>
+<td>67.67%</td>
+</tr>
+<tr class="even">
+<td>PSPNet</td>
+<td>75.18%</td>
+<td>79.94%</td>
+<td>77.34%</td>
+<td>68.21%</td>
+</tr>
+<tr class="odd">
+<td>LandslideNet</td>
+<td>83.40%</td>
+<td>84.48%</td>
+<td>83.93%</td>
+<td>75.36%</td>
+</tr>
+</tbody>
+</table>
+<p>In the quantitative evaluation, LandslideNet achieved the best results in all four metrics. Among them, recall and mIoU improved by an average of 6.22 and 7.29 compared to the second-best model.</p>
+<p><img src="./fig2.JPG" class="img-fluid"></p>
+<p><strong>Figure 2.</strong> Landslide detection results of different models on the Bijie dataset.</p>
+<p><img src="./fig3.JPG" class="img-fluid"></p>
+<p><strong>Figure 3.</strong> Landslide detection results of different models on the Landslide4Sense dataset.</p>
+</section>
+<section id="influence-of-the-tuning-layer" class="level3">
+<h3 class="anchored" data-anchor-id="influence-of-the-tuning-layer">Influence of the Tuning Layer</h3>
+<p>The improvement in the recall and mIoU metrics is due to the strong feature extraction capability of the VFM. However, foundation vision models are very demanding on GPU performance due to their large number of parameters, making them difficult to fine-tune using traditional methods. To address this issue, a tuning layer is added to the encoder, and the remaining parameters in the encoder are frozen during training. This reduces the number of trainable parameters of the LandslideNet from 312.48M to 4.2M, which is 1.3% of the original VFM.</p>
+<p><strong>Table 3.</strong> Quantitative comparison results on the trainable model parameters and model performance.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Trainable Parameters</th>
+<th>Total Parameters</th>
+<th>mF1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CCNet</td>
+<td>71.27 M</td>
+<td>71.27 M</td>
+<td>79.69%</td>
+</tr>
+<tr class="even">
+<td>Deeplabv3+</td>
+<td>40.35 M</td>
+<td>40.35 M</td>
+<td>80.75%</td>
+</tr>
+<tr class="odd">
+<td>UNet</td>
+<td>75.36 M</td>
+<td>75.36 M</td>
+<td>81.03%</td>
+</tr>
+<tr class="even">
+<td>PSPNet</td>
+<td>46.58 M</td>
+<td>46.58 M</td>
+<td>82.88%</td>
+</tr>
+<tr class="odd">
+<td>LandslideNet</td>
+<td>4.20 M</td>
+<td>312.48 M</td>
+<td>88.94%</td>
+</tr>
+</tbody>
+</table>
+<p><img src="./fig4.JPG" class="img-fluid"></p>
+<p><strong>Figure 4.</strong> Comparison chart between trainable model parameters and model performance.</p>
+<p>During the experiment, it was found that the landslide detection accuracy is affected by the structure and position of the tuning layer. The MLP structure is generally better than the CNN structure. Placing the tuning layer outside the transformer module with a skip connection is more helpful in improving detection accuracy.</p>
+<p>The first image segmentation foundation model SAM is trained using over 10 million images and has strong segmentation capabilities on natural images. Local fine-tuning aims to adapt large models to downstream tasks while using minimal computational resources. This approach is applicable not only to landslide detection scenes but also to most remote sensing semantic segmentation scenes. It is believed that the large vision model, combined with multimodal prompts, may gradually replace the CNN-based segmentation method as the mainstream remote sensing semantic segmentation method. Our future work will focus on developing an intelligent interactive interpretation method for landslide detection based on the vision foundation model.</p>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">4. CONCLUSION</h2>
+<p>In this study, we apply a VFM to the landslide detection task for the first time. An effective segmentation model, namely LandslideNet, is proposed, which is realized by embedding a tuning layer in a pre-trained encoder and adapting the SAM to the landslide detection scene. Experiments conducted on two public datasets reveal that the proposed method is more competitive in terms of small-scale target and landslide boundary detection accuracy compared to traditional CNN-based methods. In addition, we discuss the influence of adapters with different structures on the detection results. This work not only deepens the application of large vision models in landslide detection but also provides a new technical solution for other remote sensing semantic segmentation tasks.</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ol type="1">
+<li><p>A. Mohan, A. K. Singh, B. Kumar, et al., “Review on remote sensing methods for landslide detection using machine and deep learning.” <em>Transactions on Emerging Telecommunications Technologies</em>, vol.&nbsp;32, no. 7, e3998, 2020.</p></li>
+<li><p>H. Zhang, M. Liu, T. Wang, X. Jiang, B. Liu, and P. Dai, “An Overview of Landslide Detection: Deep Learning and Machine Learning Approaches,” in <em>2021 4th International Conference on Artificial Intelligence and Big Data (ICAIBD)</em>, Chengdu, China, pp.&nbsp;265-271, 2021.</p></li>
+<li><p>O. Ghorbanzadeh, T. Blaschke, K. Gholamnia, et al., “Evaluation of Different Machine Learning Methods and Deep-Learning Convolutional Neural Networks for Landslide Detection.” <em>Remote Sensing</em>, vol.&nbsp;11, no. 2, pp.&nbsp;196, 2019.</p></li>
+<li><p>X. Tang, Z. Tu, Y. Wang, M. Liu, D. Li, and X. Fan, “Automatic Detection of Coseismic Landslides Using a New Transformer Method,” <em>Remote Sensing</em>, vol.&nbsp;14, no. 12, pp.&nbsp;2884, 2022.</p></li>
+<li><p>A. Kirillov, E. Mintun, N. Ravi, H. Mao, et al., “Segment Anything,” <em>arXiv:2304.02643</em>, 2023.</p></li>
+<li><p>L. P. Osco, Q. Wu, E. L. de Lemos, W. N. Gonçalves, et al., “The Segment Anything Model (SAM) for remote sensing applications: From zero to one shot,” <em>Int. J. Appl. Earth Obs. Geoinf.</em>, vol.&nbsp;124, pp.&nbsp;103540, 2023.</p></li>
+<li><p>X. He, C. Li, P. Zhang, J. Yang, and X. E. Wang, “Parameter-efficient Model Adaptation for Vision Transformers,” <em>arXiv:2203.16329</em>, 2023.</p></li>
+<li><p>K. Chen, C. Liu, H. Chen, et al., “RSPrompter: Learning to Prompt for Remote Sensing Instance Segmentation based on Visual Foundation Model,” <em>arXiv:2306.16269</em>, 2023.</p></li>
+<li><p>L. Ding, K. Zhu, D. Peng, et al., “Adapting Segment Anything Model for Change Detection in VHR Remote Sensing Images,” <em>arXiv:2309.01429</em>, 2023.</p></li>
+</ol>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/^(?:http:|https:)\/\/www\.junchuanyu\.com\/**/);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Blog made with <a href="https://quarto.org/">Quarto</a>, by Junchuan Yu.</div>   
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../jason.yu.mail@qq.com">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/JunchuanYu">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.zhihu.com/people/yu-jun-chuan-84">
+      <i class="bi bi-book" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://space.bilibili.com/18814004/">
+      <i class="bi bi-bootstrap" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
