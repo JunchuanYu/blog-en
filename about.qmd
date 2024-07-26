@@ -1,5 +1,5 @@
 ---
-title: "Junchuan Yu"
+title: "于峻川 (Junchuan Yu)"
 comments: false
 image: bea.jpg
 about:

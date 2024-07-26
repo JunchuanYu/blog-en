@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://junchuanyu.netlify.app/about.html</loc>
-    <lastmod>2024-07-21T16:43:52.855Z</lastmod>
+    <lastmod>2024-07-26T18:19:03.206Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2022-10-8_ai_poem/index.html</loc>
@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/index.html</loc>
-    <lastmod>2024-07-21T16:43:33.719Z</lastmod>
+    <lastmod>2024-07-26T18:22:09.685Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/publication/index.html</loc>
@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/index.html</loc>
-    <lastmod>2024-07-21T18:39:02.367Z</lastmod>
+    <lastmod>2024-07-26T18:22:08.270Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/talks/2022-11-23_NKRDP-DL/main.html</loc>
@@ -162,11 +162,11 @@
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2024-5-23adobeillustrator_1/index.html</loc>
-    <lastmod>2024-06-01T05:50:59.170Z</lastmod>
+    <lastmod>2024-07-26T18:11:34.498Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2024-6-1adobeillustrator_2/index.html</loc>
-    <lastmod>2024-06-01T07:14:50.805Z</lastmod>
+    <lastmod>2024-07-26T18:18:45.481Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2024-7-16samcffnet/index.html</loc>
@@ -182,6 +182,14 @@
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/talks/2024-7-21 NLIBTALKS/main.html</loc>
-    <lastmod>2024-07-21T16:39:30.832Z</lastmod>
+    <lastmod>2024-07-21T18:40:26.801Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/2024-7-23gradio_p1/index.html</loc>
+    <lastmod>2024-07-26T18:26:00.932Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/2024-7-27gradio_p2/index.html</loc>
+    <lastmod>2024-07-26T18:28:51.136Z</lastmod>
   </url>
 </urlset>

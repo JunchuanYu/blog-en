@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Junchuan Yu">
+<meta name="dcterms.date" content="2024-07-27">
+
+<title>Junchuan Yu - 使用Gradio构建交互式Web应用-P2</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2J79YYG9CZ"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
+</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<!-- Primary Meta Tags -->
+<title>Junchuan's blog</title>
+<meta name="title" content="Junchuan's blog">
+<meta name="description" content="Welcome to my blog!">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="">
+<meta property="og:title" content="Junchuan Yu - 使用Gradio构建交互式Web应用-P2">
+<meta property="og:description" content="Gradio界面设计与交互组件">
+<meta property="og:image" content="">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="">
+<meta property="twitter:title" content="Junchuan's blog">
+<meta property="twitter:description" content="Welcome to my blog!">
+<meta property="twitter:image" content="">
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Junchuan Yu</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">About</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts/index.html">Posts</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../publication/index.html">Publications</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks/index.html">Talks</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching/index.html">Teaching</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/JunchuanYu"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.zhihu.com/people/yu-jun-chuan-84"><i class="bi bi-book" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://space.bilibili.com/18814004/"><i class="bi bi-bootstrap" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">使用Gradio构建交互式Web应用-P2</h1>
+            <p class="subtitle lead">Gradio界面设计与交互组件</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Posts</div>
+                <div class="quarto-category">Gradio</div>
+                <div class="quarto-category">APP</div>
+                <div class="quarto-category">Deep learning</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Junchuan Yu </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 27, 2024</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#使用gradio构建交互式web应用" id="toc-使用gradio构建交互式web应用" class="nav-link active" data-scroll-target="#使用gradio构建交互式web应用">使用Gradio构建交互式Web应用</a>
+  <ul class="collapse">
+  <li><a href="#part2-gradio界面设计与交互组件" id="toc-part2-gradio界面设计与交互组件" class="nav-link" data-scroll-target="#part2-gradio界面设计与交互组件">Part2 ：Gradio界面设计与交互组件</a>
+  <ul class="collapse">
+  <li><a href="#demo-2-1-gradio的多种交互组件" id="toc-demo-2-1-gradio的多种交互组件" class="nav-link" data-scroll-target="#demo-2-1-gradio的多种交互组件">DEMO 2-1: Gradio的多种交互组件</a></li>
+  <li><a href="#demo-2-2-复杂界面设计与文件的交互" id="toc-demo-2-2-复杂界面设计与文件的交互" class="nav-link" data-scroll-target="#demo-2-2-复杂界面设计与文件的交互">DEMO 2-2: 复杂界面设计与文件的交互</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/JunchuanYu/Building_Interactive_Web_APP_with_Gradio/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="使用gradio构建交互式web应用" class="level1">
+<h1>使用Gradio构建交互式Web应用</h1>
+<p><br><br> 这是一个关于如何使用 Gradio 构建 Web 应用程序的开源系列教程。你将从设置 Python 环境开始，学习文本、图像等各类输入组件，自定义界面，设计复杂的交互等。本课程还将涵盖使用 Gradio 和 GDAL 处理遥感数据，用于图像增强、地理坐标转换、坡度分析等任务；学习如何使用 Gradio 和 Foliumap 创建交互式地图，实现动态地理空间数据可视化；如何集成机器学习模型并在 Hugging Face Spaces 上发布 web 应用程序。本教程包括实例、演示和作业。完成本教程后，你将能够高效地构建、部署和共享交互式 Web 应用程序。</p>
+<p><br><br> 课程相关资源链接<a href="https://github.com/JunchuanYu/Building_Interactive_Web_APP_with_Gradio">GITHUB</a> <br><br></p>
+<p><img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/Gradio_05.png" class="img-fluid"></p>
+<section id="part2-gradio界面设计与交互组件" class="level2">
+<h2 class="anchored" data-anchor-id="part2-gradio界面设计与交互组件">Part2 ：Gradio界面设计与交互组件</h2>
+<p><br><br></p>
+<section id="demo-2-1-gradio的多种交互组件" class="level3">
+<h3 class="anchored" data-anchor-id="demo-2-1-gradio的多种交互组件">DEMO 2-1: Gradio的多种交互组件</h3>
+<p><br><br></p>
+<p>在学习 Gradio 时，关键在于理解和掌握inputs、outputs以及 fn 这三个核心要素。</p>
+<ul>
+<li><p><strong>fn</strong> 是围绕用户界面包装的函数，它接受输入并产生输出，定义了整个交互的核心逻辑。</p></li>
+<li><p><strong>outputs</strong> 决定了最终呈现给用户的结果形式和内容。</p></li>
+<li><p><strong>inputs</strong> 是用户与应用进行交互的起点，学习各类交互组件是掌握数据接口的关键。Gradio 提供了多种交互组件，如文本框（gr.Textbox）、数字输入框（gr.Number）、滑块（gr.Slider）、下拉菜单（gr.Dropdown）、单选按钮（gr.Radio）和图像上传组件（gr.Image）等。本案例将想你展示这些输入组件，请通过与各个组件的互动，掌握不同类型数据输入的技巧。</p></li>
+</ul>
+<p><br><br></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> gradio <span class="im">as</span> gr</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 定义处理函数</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> process_inputs(text_input, number_input, number_slider, dropdown_selection, radio_options, image_input):</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    processed_text <span class="op">=</span> <span class="ss">f"You entered: </span><span class="sc">{</span>text_input<span class="sc">}</span><span class="ss">"</span> </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    processed_number <span class="op">=</span> <span class="ss">f"You entered: </span><span class="sc">{</span>number_input<span class="sc">}</span><span class="ss">"</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    processed_slider <span class="op">=</span> <span class="ss">f"Number selected from slider: </span><span class="sc">{</span>number_slider<span class="sc">}</span><span class="ss">"</span> </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    processed_dropdown <span class="op">=</span> <span class="ss">f"You selected from dropdown: </span><span class="sc">{</span>dropdown_selection<span class="sc">}</span><span class="ss">"</span> </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    processed_radio <span class="op">=</span> <span class="ss">f"You selected from radio buttons: </span><span class="sc">{</span>radio_options<span class="sc">}</span><span class="ss">"</span> </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> image_input <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        imageshape <span class="op">=</span> <span class="ss">f"The shape of the selected image is: </span><span class="sc">{</span>image_input<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> processed_text, processed_number, processed_slider, processed_dropdown, processed_radio, imageshape</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> processed_text, processed_number, processed_slider, processed_dropdown, processed_radio, <span class="va">None</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建一个复杂的界面</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>demo <span class="op">=</span> gr.Interface(</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    fn<span class="op">=</span>process_inputs,  <span class="co"># 处理函数</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    inputs<span class="op">=</span>[</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        gr.Textbox(label<span class="op">=</span><span class="st">"Text Input"</span>),  <span class="co"># 文本输入的文本框</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        gr.Number(minimum<span class="op">=</span><span class="dv">5</span>, maximum<span class="op">=</span><span class="dv">100</span>, step<span class="op">=</span><span class="dv">10</span>, label<span class="op">=</span><span class="st">"Number"</span>),  <span class="co"># 具有范围的数字输入</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        gr.Slider(minimum<span class="op">=</span><span class="dv">0</span>, maximum<span class="op">=</span><span class="dv">100</span>, step<span class="op">=</span><span class="dv">1</span>, label<span class="op">=</span><span class="st">"Number Slider"</span>),  <span class="co"># 用于数字选择的滑块</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        gr.Dropdown(choices<span class="op">=</span>[<span class="st">"Option 1"</span>, <span class="st">"Option 2"</span>, <span class="st">"Option 3"</span>], label<span class="op">=</span><span class="st">"Dropdown Selection"</span>),  <span class="co"># 用于选择的下拉菜单</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        gr.Radio(choices<span class="op">=</span>[<span class="st">"Radio 1"</span>, <span class="st">"Radio 2"</span>, <span class="st">"Radio 3"</span>], label<span class="op">=</span><span class="st">"Radio Options"</span>),  <span class="co"># 用于选择的单选按钮</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        gr.Image(label<span class="op">=</span><span class="st">"Upload Image"</span>, <span class="bu">type</span><span class="op">=</span><span class="st">"numpy"</span>),  <span class="co"># 图像上传组件</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    outputs<span class="op">=</span>[</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        gr.Text(label<span class="op">=</span><span class="st">"Processed Text"</span>), </span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        gr.Text(label<span class="op">=</span><span class="st">"Processed Number"</span>), </span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        gr.Text(label<span class="op">=</span><span class="st">"Processed Slider"</span>), </span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>        gr.Text(label<span class="op">=</span><span class="st">"Processed Dropdown"</span>),  </span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>        gr.Text(label<span class="op">=</span><span class="st">"Processed Radio"</span>),  </span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        gr.Text(label<span class="op">=</span><span class="st">"Processed Image"</span>)  </span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Complex Gradio Interface with Multiple Components"</span>,  <span class="co"># 具有多个组件的复杂 Gradio 界面的标题</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    description<span class="op">=</span><span class="st">"This interface demonstrates the use of various input components such as textbox, slider, dropdown, radio, and image upload."</span>  <span class="co"># 此界面演示了诸如文本框、滑块、下拉菜单、单选按钮和图像上传等各种输入组件的使用。</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>demo.launch(debug<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/demo2-1.gif" class="img-fluid"></p>
+</section>
+<section id="demo-2-2-复杂界面设计与文件的交互" class="level3">
+<h3 class="anchored" data-anchor-id="demo-2-2-复杂界面设计与文件的交互">DEMO 2-2: 复杂界面设计与文件的交互</h3>
+<p><br><br> 学习使用 Gradio 构建复杂界面，你需要掌握这些技巧</p>
+<ul>
+<li><p><strong>gr.Blocks</strong> 对于简单的应用场景我们以如上一个案例一样使用 gr.Interface。但对于需要使用多个 function 的复杂应用，我们需要使用 gr.Blocks,它提供了更高的灵活性和定制性，能满足复杂界面的多样需求。实际上我们在后续的案例中将一直使用它。</p></li>
+<li><p><strong>复杂界面设计</strong> Gradio 为我们提供了非常灵活的界面构建方法，你可以通过gr.Row, gr.Column 构建横向或竖向的组件，并将它们进行任意的组合，通过 gr.Tab 构建多页面的应用，可以通过 gr.Accordion 和 gr.Markdown 来丰富界面的信息。这种自由布局的特性让我们能够根据具体的业务逻辑和用户体验需求，更合理地组织和展示界面元素。</p></li>
+<li><p><strong>Event Listeners</strong> 我认为 Gradio 的输入监听机制是使其区别于其他 app builder 的关键，当用户为一些组件设置 listeners 交互时（如 click，change，select），可以触发预定义的函数或操作，从而增强应用的交互性和动态性。</p></li>
+<li><p><strong>文件机制</strong> 了解文件形式的交互规则也是必不可少的。通过 gr.File, gr.FileExplore 以及 gr.DownloadButton 等可以完成文件的上传、浏览、下载等操作。在Gradio中你可以通过app读写授权文件夹下的文件，但需要注意的是当你想将app处理后的结果以文件形式下载到本地时，app 会通过生成临时文件来响应。</p></li>
+</ul>
+<p>本案例中，只是对以上的技巧做初步的运用，请在后续课程中留意它们的使用，熟练掌握这些技巧，将有助于你构建出功能强大 Gradio 应用。</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> gradio <span class="im">as</span> gr</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 函数用于对输入数字进行平方</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> change_number(x):</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span> </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 函数用于下载图片</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> download_image(x):</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> x[<span class="st">'composite'</span>][:, :, :<span class="dv">3</span>]  <span class="co"># 提取RGB通道</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(img.shape)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    rgb_image <span class="op">=</span> Image.fromarray(img)  <span class="co"># 将数组转换为图像</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    tempdir <span class="op">=</span> <span class="st">'./mydraw.jpg'</span>  <span class="co"># 定义临时文件路径</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    rgb_image.save(tempdir)  <span class="co"># 保存图像</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(tempdir, Path(tempdir).stem)  <span class="co"># 打印文件路径和文件名</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> gr.DownloadButton(label<span class="op">=</span><span class="ss">f"Download </span><span class="sc">{</span>Path(tempdir)<span class="sc">.</span>stem<span class="sc">}</span><span class="ss">"</span>, value<span class="op">=</span>tempdir, visible<span class="op">=</span><span class="va">True</span>)  <span class="co"># 创建下载按钮</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 函数用于获取文件路径并绘制CSV文件中的数据</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> getfilepath(x):</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    path <span class="op">=</span> x[<span class="dv">0</span>]  <span class="co"># 获取文件路径</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    df_read <span class="op">=</span> pd.read_csv(path)  <span class="co"># 读取CSV文件</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    plot <span class="op">=</span> gr.LinePlot(  <span class="co"># 创建折线图</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        df_read,</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span><span class="st">"band"</span>,</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        y<span class="op">=</span><span class="st">"Reflectance"</span>,</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">"Symbol"</span>,</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        color_legend_position<span class="op">=</span><span class="st">"bottom"</span>,</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="st">"Spectra of Different Materials"</span>,  <span class="co"># 图表标题</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        tooltip<span class="op">=</span>[<span class="st">"band"</span>, <span class="st">"Reflectance"</span>, <span class="st">"Symbol"</span>],  <span class="co"># 提示信息</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        height<span class="op">=</span><span class="dv">250</span>,</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        width<span class="op">=</span><span class="dv">500</span>,</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>        container<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> plot</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co"># 函数用于绘制用户上传的CSV文件中的数据</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> getpath(x):</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    path <span class="op">=</span> x.name  <span class="co"># 获取上传的文件路径</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    df_read <span class="op">=</span> pd.read_csv(path)  <span class="co"># 读取CSV文件</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    plot <span class="op">=</span> gr.LinePlot(  <span class="co"># 创建折线图</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>        df_read,</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span><span class="st">"band"</span>,</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>        y<span class="op">=</span><span class="st">"Reflectance"</span>,</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">"Symbol"</span>,</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>        color_legend_position<span class="op">=</span><span class="st">"bottom"</span>,</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="st">"Spectra of Different Materials"</span>,</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>        tooltip<span class="op">=</span>[<span class="st">"band"</span>, <span class="st">"Reflectance"</span>, <span class="st">"Symbol"</span>],</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>        height<span class="op">=</span><span class="dv">250</span>,</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>        width<span class="op">=</span><span class="dv">500</span>,</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>        container<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> plot</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建使用"soft"主题的Gradio界面</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> gr.Blocks(theme<span class="op">=</span><span class="st">"soft"</span>) <span class="im">as</span> demo:</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>    gr.Markdown(<span class="st">"# Web app interface design"</span>)  <span class="co"># Markdown标题</span></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>    csvfile <span class="op">=</span> gr.update(value<span class="op">=</span><span class="st">''</span>)  <span class="co"># 更新组件的值</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> gr.Tab(<span class="st">"Get numbers"</span>):  <span class="co"># 第一个子应用标签页</span></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> gr.Accordion(<span class="st">"Readme"</span>, <span class="bu">open</span><span class="op">=</span><span class="va">False</span>):  <span class="co"># 可折叠的"阅读我"部分</span></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>            gr.Markdown(<span class="st">" Square of the input number"</span>)  <span class="co"># Markdown内容</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> gr.Row():  <span class="co"># 行容器</span></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>            <span class="cf">with</span> gr.Column():  <span class="co"># 列容器</span></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>                temp_slider <span class="op">=</span> gr.Slider(minimum<span class="op">=</span><span class="fl">0.0</span>, maximum<span class="op">=</span><span class="dv">10</span>, step<span class="op">=</span><span class="dv">1</span>, interactive<span class="op">=</span><span class="va">True</span>, label<span class="op">=</span><span class="st">"Slide me"</span>)  <span class="co"># 滑块组件</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>            <span class="cf">with</span> gr.Column():</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>                out_slider <span class="op">=</span> gr.Textbox()  <span class="co"># 文本框组件</span></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> gr.Tab(<span class="st">"Draw a picture"</span>):  <span class="co"># 第二个子应用标签页</span></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>        image_input <span class="op">=</span> gr.ImageEditor(<span class="bu">type</span><span class="op">=</span><span class="st">"numpy"</span>, show_download_button<span class="op">=</span><span class="va">False</span>, label<span class="op">=</span><span class="st">"Draw a Picture"</span>)  <span class="co"># 图像编辑器组件</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>        image_button <span class="op">=</span> gr.DownloadButton(<span class="st">"Download"</span>, visible<span class="op">=</span><span class="va">True</span>, variant<span class="op">=</span><span class="st">'primary'</span>)  <span class="co"># 下载按钮</span></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> gr.Tab(<span class="st">"Plot a figure"</span>):  <span class="co"># 第三个子应用标签页</span></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> gr.Row():  <span class="co"># 行容器</span></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>            <span class="cf">with</span> gr.Column():  <span class="co"># 列容器</span></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>                file_explore <span class="op">=</span> gr.FileExplorer(root_dir<span class="op">=</span><span class="st">"./data"</span>)  <span class="co"># 文件浏览器组件</span></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>            <span class="cf">with</span> gr.Column():</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>                <span class="bu">file</span> <span class="op">=</span> gr.File(file_count<span class="op">=</span><span class="st">"single"</span>, scale<span class="op">=</span><span class="dv">1</span>, label<span class="op">=</span><span class="st">"Upload the csv file"</span>)  <span class="co"># 文件上传组件</span></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> gr.Row():</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>            plot <span class="op">=</span> gr.LinePlot()  <span class="co"># 折线图组件</span></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 将滑块的变化事件链接到change_number函数</span></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>    temp_slider.change(change_number, inputs<span class="op">=</span>temp_slider, outputs<span class="op">=</span>out_slider)</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 将图像编辑器的变化事件链接到download_image函数</span></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>    image_input.change(download_image, inputs<span class="op">=</span>[image_input], outputs<span class="op">=</span>image_button)</span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 将文件浏览器的变化事件链接到getfilepath函数</span></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>    file_explore.change(getfilepath, inputs<span class="op">=</span>file_explore, outputs<span class="op">=</span>plot)</span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 将文件上传组件的变化事件链接到getpath函数</span></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>    <span class="bu">file</span>.change(getpath, inputs<span class="op">=</span><span class="bu">file</span>, outputs<span class="op">=</span>plot)</span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>    demo.launch()  <span class="co"># 启动应用</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/demo2-2.gif" class="img-fluid"></p>
+<table class="table">
+<colgroup>
+<col style="width: 38%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>请关注微信公众号【45度科研人】回复“<strong><span class="citation" data-cites="gradio">@gradio</span></strong>”获取该教程配套数据，欢迎后台留言！</td>
+</tr>
+<tr class="even">
+<td><span style="display: block; text-align: center; margin-left: auto; margin-right: auto;"> <img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/wechat-simple.png" width="200" alt=""> </span></td>
+</tr>
+</tbody>
+</table>
+<p>为了促进沟通与交流，我们建立了「养生科研」学术交流群。这个平台不仅能够让大家迅速获取本公众号的资源，还为各位提供了一个共同探讨问题、交流思想的空间。有意向加入交流群的朋友们，可以通过添加小编的微信来获得入群邀请。请注意，在添加时请按照“加群-单位-研究方向-姓名”的格式备注您的信息，否则您的申请可能无法通过。</p>
+<p><span style="display: block; text-align: center; margin-left: auto; margin-right: auto;"> <img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/laidian.jpg" width="200" alt=""> </span></p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/^(?:http:|https:)\/\/www\.junchuanyu\.com\/**/);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Blog made with <a href="https://quarto.org/">Quarto</a>, by Junchuan Yu.</div>   
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../jason.yu.mail@qq.com">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/JunchuanYu">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.zhihu.com/people/yu-jun-chuan-84">
+      <i class="bi bi-book" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://space.bilibili.com/18814004/">
+      <i class="bi bi-bootstrap" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

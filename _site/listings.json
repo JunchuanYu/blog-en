@@ -2,6 +2,8 @@
   {
     "listing": "/posts/index.html",
     "items": [
+      "/posts/2024-7-27gradio_p2/index.html",
+      "/posts/2024-7-23gradio_p1/index.html",
       "/posts/2024-7-17landslidenet/index.html",
       "/posts/2024-7-16samcffnet/index.html",
       "/posts/2024-6-1adobeillustrator_2/index.html",
@@ -49,6 +51,8 @@
     "listing": "/index.html",
     "items": [
       "/posts/index.html",
+      "/posts/2024-7-27gradio_p2/index.html",
+      "/posts/2024-7-23gradio_p1/index.html",
       "/posts/2024-7-17landslidenet/index.html",
       "/posts/2024-7-16samcffnet/index.html",
       "/posts/2024-6-1adobeillustrator_2/index.html",

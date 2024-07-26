@@ -1,5 +1,5 @@
 ---
-title: "Junchuan Yu"
+title: "于峻川 (Junchuan Yu)"
 comments: false
 image: bea.jpg
 about:
@@ -28,7 +28,7 @@ Hi!
 
 <p align="justify ">I'm Junchuan Yu, a remote sensing enthusiast with a passion for data science and AI technologies.<p>
 
-<p align="justify ">My academic journey took flight at China University of Geosciences (Beijing), and since then,I am committed to driving innovation in the realms of deep learning and hyperspectral remote sensing, focusing on their strategic applications to enhance our understanding of geosciences. Currently, I serve as a Senior Engineer at the China Aero Geophysical Survey and Remote Sensing Center for Natural Resources, where I continue to advance my work in these fields.<p>
+<p align="justify ">I'm currently serving as a Senior Engineer at the AGRS, where I'm passionate about driving innovation in the realms of deep learning and hyperspectral remote sensing. I'm excited to be exploring their strategic applications to enhance our understanding of geosciences. <p>
 
 <p align="justify "> I'm excited to share my knowledge and connect with like-minded individuals. If you're interested in what's happening at the intersection of data science and remote sensing, feel free to follow my WeChat public account: [45度科研人].<p>
 
