@@ -2,6 +2,7 @@
   {
     "listing": "/posts/index.html",
     "items": [
+      "/posts/2024-8-1gradio_p3/index.html",
       "/posts/2024-7-27gradio_p2/index.html",
       "/posts/2024-7-23gradio_p1/index.html",
       "/posts/2024-7-17landslidenet/index.html",
@@ -51,6 +52,7 @@
     "listing": "/index.html",
     "items": [
       "/posts/index.html",
+      "/posts/2024-8-1gradio_p3/index.html",
       "/posts/2024-7-27gradio_p2/index.html",
       "/posts/2024-7-23gradio_p1/index.html",
       "/posts/2024-7-17landslidenet/index.html",
