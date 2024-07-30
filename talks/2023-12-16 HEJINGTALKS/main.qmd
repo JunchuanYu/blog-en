@@ -2,7 +2,7 @@
 title: " 'AI+遥感'技术地学应用实践与展望 "
 subtitle: " AI for Science HeyWhale Annual Conference (2023)"
 author: 
-  - "Junchuan Yu"
+  - "于峻川"
 date: "2023-12-16"
 categories: [Talks, Deep leanring]
 image: "index.jpg"

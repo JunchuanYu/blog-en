@@ -1,7 +1,7 @@
 ---
 title: " 第一个通用语义分割模型？Segment Anything Model (SAM)在遥感数据上的应用测试"
 author: 
-  - "Junchuan Yu"
+  - "于峻川"
 date: "2023-4-9"
 categories:
   - Posts

@@ -1,7 +1,7 @@
 ---
 title: "多种高光谱数据格式的读写和可视化"
 author: 
-  - "Junchuan Yu"
+  - "于峻川"
 date: "2023-7-25"
 categories:
   - Posts

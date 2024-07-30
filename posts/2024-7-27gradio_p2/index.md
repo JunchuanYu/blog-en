@@ -2,7 +2,7 @@
 title: 使用Gradio构建交互式Web应用-P2
 subtitle: Gradio界面设计与交互组件
 author: 
-  - "Junchuan Yu"
+  - "于峻川"
 date: "2024-7-27"
 categories:
   - Posts

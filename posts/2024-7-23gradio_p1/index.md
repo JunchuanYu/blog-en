@@ -2,7 +2,7 @@
 title: 使用Gradio构建交互式Web应用-P1
 subtitle: 什么是Gradio
 author: 
-  - "Junchuan Yu"
+  - "于峻川"
 date: "2024-7-23"
 categories:
   - Posts

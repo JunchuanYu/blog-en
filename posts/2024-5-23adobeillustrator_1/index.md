@@ -3,7 +3,7 @@ title: Adobe Illustrator & 科研制图-P1
 subtitle: 一个关于使用 Adobe Illustrator 进行科研矢量图绘制的免费教程
 
 author: 
-  - "Junchuan Yu"
+  - "于峻川"
 date: "2024-5-23"
 categories:
   - Posts

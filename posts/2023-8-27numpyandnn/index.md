@@ -1,7 +1,7 @@
 ---
 title: "用Numpy拆解神经网络"
 author: 
-  - "Junchuan Yu"
+  - "于峻川"
 date: "2023-8-27"
 categories:
   - Posts

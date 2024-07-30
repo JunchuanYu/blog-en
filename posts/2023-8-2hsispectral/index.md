@@ -1,7 +1,7 @@
 ---
 title: "光谱库读写+光谱处理及交互式采集"
 author: 
-  - "Junchuan Yu"
+  - "于峻川"
 date: "2023-8-2"
 categories:
   - Posts

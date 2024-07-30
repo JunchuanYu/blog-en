@@ -2,7 +2,7 @@
 title: "New Bing？也许是New + Everything！"
 subtitle: 'ChatGPT加持下的Net Bing，将带来一场新的技术风暴'
 author: 
-  - "Junchuan Yu"
+  - "于峻川"
 date: "2023-3-4"
 categories:
   - Posts

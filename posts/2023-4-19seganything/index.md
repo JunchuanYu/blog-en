@@ -1,7 +1,7 @@
 ---
 title: "Segment-RS一个基于SAM的遥感智能交互解译工具"
 author: 
-  - "Junchuan Yu"
+  - "于峻川"
 date: "2023-4-19"
 categories:
   - Posts

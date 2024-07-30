@@ -2,7 +2,7 @@
 title: ' 基于时间序列遥感的水稻类型识别-P1 '
 subtitle: 'Work with Remote Sensing Data in Python: Lesson 1-5-1'
 author:
-  - Junchuan Yu
+  - 于峻川
 date: '2023-2-6'
 categories:
   - Posts

@@ -3,7 +3,7 @@ title: "AI+遥感”技术地学应用实践与展望"
 subtitle: '对话AI for Science先行者——2023和鲸社区科研闭门会'
 
 author: 
-  - "Junchuan Yu"
+  - "于峻川"
 date: "2023-12-16"
 categories:
   - Posts
