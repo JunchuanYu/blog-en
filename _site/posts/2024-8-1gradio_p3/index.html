@@ -275,7 +275,14 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
 <section id="demo-3-1-多通道遥感数据的可视化" class="level3">
 <h3 class="anchored" data-anchor-id="demo-3-1-多通道遥感数据的可视化">DEMO 3-1: 多通道遥感数据的可视化</h3>
 <p><br><br></p>
-<p>在利用Gradio进行遥感数据处理时，我们需要关注遥感数据的读取，可视化以及渲染方式。本案例中以“classification.tif”为例，该影像前三个波段为RGB信息，第四个通道为分类结果信息。 - <strong>读取</strong> gr.Image是我们呈现遥感图像的唯一接口，它默认接受三种形式数据，PIL对象，字符串形式的图像路径以及numpy数组，前两者均只支持png，jpg等格式的自然图像，tiff，img，dat，hdf5等多通道的遥感影像均不支持，因此我们需要构建一个遥感影像读取的函数将遥感影像转换为numpy数组。 - <strong>可视化</strong> 用于可视化的numpy数组需要符合matplotlib.pyplot的渲染要求，即0-255整形数组或0-1的浮点型数组。此外，当呈现单通道影像如分类结果的时候，还需要设置色带。 - <strong>输入</strong> 由于无法直接用gr.Image接收遥感影像，因此输入通常是文件路径，我们可以通过上传或给出绝对路径字符串来实现输入,需要注意的是上传是将本地文件进行拷贝，作为临时文件进行处理。 - <strong>遥感参数</strong> 投影信息等可以通过文本形式进行传递，需要注意数据格式的对齐，比如function中输出为str，接收的gradio组件也应支持str，本案例中是将遥感参数信息作为字符串进行展示。 - <strong>logging</strong> 为了监控程序的处理过程，我们用logging对处理过程进行后台播报以及记录。</p>
+<p>在利用Gradio进行遥感数据处理时，我们需要关注遥感数据的读取，可视化以及渲染方式。本案例中以“classification.tif”为例，该影像前三个波段为RGB信息，第四个通道为分类结果信息。</p>
+<ul>
+<li><p><strong>读取</strong> gr.Image是我们呈现遥感图像的唯一接口，它默认接受三种形式数据，PIL对象，字符串形式的图像路径以及numpy数组，前两者均只支持png，jpg等格式的自然图像，tiff，img，dat，hdf5等多通道的遥感影像均不支持，因此我们需要构建一个遥感影像读取的函数将遥感影像转换为numpy数组。</p></li>
+<li><p><strong>可视化</strong> 用于可视化的numpy数组需要符合matplotlib.pyplot的渲染要求，即0-255整形数组或0-1的浮点型数组。此外，当呈现单通道影像如分类结果的时候，还需要设置色带。</p></li>
+<li><p><strong>输入</strong> 由于无法直接用gr.Image接收遥感影像，因此输入通常是文件路径，我们可以通过上传或给出绝对路径字符串来实现输入,需要注意的是上传是将本地文件进行拷贝，作为临时文件进行处理。</p></li>
+<li><p><strong>遥感参数</strong> 投影信息等可以通过文本形式进行传递，需要注意数据格式的对齐，比如function中输出为str，接收的gradio组件也应支持str，本案例中是将遥感参数信息作为字符串进行展示。</p></li>
+<li><p><strong>logging</strong> 为了监控程序的处理过程，我们用logging对处理过程进行后台播报以及记录。</p></li>
+</ul>
 <p><br><br></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> osgeo <span class="im">import</span> gdal, osr</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> gradio <span class="im">as</span> gr</span>
@@ -375,7 +382,13 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
 <section id="demo-3-2-dem可视化与坡度计算" class="level3">
 <h3 class="anchored" data-anchor-id="demo-3-2-dem可视化与坡度计算">DEMO 3-2: DEM可视化与坡度计算</h3>
 <p><br><br></p>
-<p>在实际应用中，我们需要了解可视化需求与遥感数据计算需求的差异，同时为了实现更为流畅的应用体验，需要掌握简化交互的一些操作技巧。本案例中以“DEM.tif”地形数据为例进行说明。 - <strong>数值计算</strong> 由于gr.Image只能用于显示单通道灰度或真彩色图像，因此在需要进行遥感数值计算的情况下，通常需要准备两个numpy数组对对象进行保存，一个进行归一化用于显示，一个记录原始numpy数据用于后续分析计算。 - <strong>临时变量</strong> 当我们有一个对象无法用现有的Gradio模块来定义或接收，例如多维数组，我们需要用gr.State来单独定义临时变量来承接这个对象，本案例中定义了一个初始值为NONE的变量demarray来承接show_dem函数输出的dem数组。 - <strong>使用按钮？</strong> 按钮是Gradio应用中必不可少的组件，我们在一些关键交互场景中都需要使用按钮，比如选择数据，运行程序，重置变量等等。但按钮设置过多，且没有合理的引导会导致交互体验变差。很多时候我们可以通过Gradio组件带有的事件激活器来实现动态交互。本例中我们提供了两套具有相同功能的代码，一套是采用按钮，一套是使用事件激活器。 - <strong>说明文本</strong> 我们可以通过文本来设置应用程序的标题，对关键变量做解释，设置是在应用下方给出完整的技术报告。相对于gr.Markdown使用gr.HTML可以实现更为丰富多元的文本内容。</p>
+<p>在实际应用中，我们需要了解可视化需求与遥感数据计算需求的差异，同时为了实现更为流畅的应用体验，需要掌握简化交互的一些操作技巧。本案例中以“DEM.tif”地形数据为例进行说明。</p>
+<ul>
+<li><p><strong>数值计算</strong> 由于gr.Image只能用于显示单通道灰度或真彩色图像，因此在需要进行遥感数值计算的情况下，通常需要准备两个numpy数组对对象进行保存，一个进行归一化用于显示，一个记录原始numpy数据用于后续分析计算。</p></li>
+<li><p><strong>临时变量</strong> 当我们有一个对象无法用现有的Gradio模块来定义或接收，例如多维数组，我们需要用gr.State来单独定义临时变量来承接这个对象，本案例中定义了一个初始值为NONE的变量demarray来承接show_dem函数输出的dem数组。</p></li>
+<li><p><strong>使用按钮？</strong> 按钮是Gradio应用中必不可少的组件，我们在一些关键交互场景中都需要使用按钮，比如选择数据，运行程序，重置变量等等。但按钮设置过多，且没有合理的引导会导致交互体验变差。很多时候我们可以通过Gradio组件带有的事件激活器来实现动态交互。本例中我们提供了两套具有相同功能的代码，一套是采用按钮，一套是使用事件激活器。</p></li>
+<li><p><strong>说明文本</strong> 我们可以通过文本来设置应用程序的标题，对关键变量做解释，设置是在应用下方给出完整的技术报告。相对于gr.Markdown使用gr.HTML可以实现更为丰富多元的文本内容。</p></li>
+</ul>
 <p><br><br></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> osgeo <span class="im">import</span> gdal, osr</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> gradio <span class="im">as</span> gr</span>
@@ -485,7 +498,7 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
 <span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    emptyBtn.click(reset_state, outputs<span class="op">=</span>[upload_button, showimg, img_output], show_progress<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>demo.launch()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/demo3-3.gif" class="img-fluid"></p>
+<p><img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/demo3-2_new.gif" class="img-fluid"></p>
 <table class="table">
 <colgroup>
 <col style="width: 38%">
