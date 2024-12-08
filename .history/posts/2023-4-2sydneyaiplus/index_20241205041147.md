@@ -1,7 +1,7 @@
 ---
 title: " Sydney-AI 2.0: Providing Free Services to Researchers!"
 author: 
-  - "Junchuan Yu"
+  - "于峻川 (Junchuan Yu)"
 date: "2023-4-2"
 categories:
   - Posts

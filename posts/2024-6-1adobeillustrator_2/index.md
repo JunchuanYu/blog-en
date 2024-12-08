@@ -1,4 +1,3 @@
-
 ---
 title: Adobe Illustrator & 科研制图-P2
 subtitle: 一个关于使用 Adobe Illustrator 进行科研矢量图绘制的免费教程

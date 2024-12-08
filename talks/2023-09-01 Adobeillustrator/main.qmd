@@ -2,7 +2,7 @@
 title: Adobe Illustrator for Scientific Graphic Design
 subtitle: " A free tutorial on using Adobe Illustrator for scientific graphic design (2023)"
 author: 
-  - "Junchuan Yu"
+  - "于峻川"
 date: "2023-9-1"
 categories: [Talks, Adobe illustrator]
 image: https://dunazo.oss-cn-beijing.aliyuncs.com/blog/Adobe%20Illustrator.jpg

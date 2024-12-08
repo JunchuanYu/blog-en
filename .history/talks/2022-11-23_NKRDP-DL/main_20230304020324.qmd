@@ -2,7 +2,7 @@
 title: " Identification of Correlation Factors of Hidden Geohazard via Deep Learning "
 subtitle: "National Key R&D Program (2022)"
 author: 
-  - "于峻川 (Junchuan Yu)"
+  - "Junchuan Yu"
 date: "2022-11-23"
 categories: [Talks, NKRDP, Deep leanring]
 image: "index.jpg"

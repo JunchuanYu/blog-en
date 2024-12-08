@@ -2,7 +2,7 @@
 title: " LANDSLIDENET: ADAPTIVE VISION FOUNDATION MODEL FOR LANDSLIDE SEGMENTATION "
 subtitle: "IEEE International Geoscience and Remote Sensing Symposium (2024)"
 author: 
-  - "Junchuan Yu"
+  - "于峻川 (Junchuan Yu)"
 date: "2024-07-16"
 categories: [Talks, Deep leanring]
 image: "index.jpg"

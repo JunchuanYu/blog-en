@@ -3,9 +3,11 @@ project:
 
 website:
   page-navigation: true
-  title: "Junchuan Yu"
+  title: "于峻川  (Junchuan Yu) "
   favicon: favicon.ico
   site-url: "https://junchuanyu.netlify.app/"
+  repo-url: https://github.com/JunchuanYu/Building_Interactive_Web_APP_with_Gradio
+  repo-actions: [issue]
   google-analytics: "G-2J79YYG9CZ"
   page-footer:
     left: "Blog made with [Quarto](https://quarto.org/), by Junchuan Yu. "
@@ -54,6 +56,6 @@ format:
 
 editor: visual
 
-comments:
-  giscus:
-    repo: JunchuanYu/blog-en
+# comments:
+#   giscus:
+#     repo: JunchuanYu/blog-en

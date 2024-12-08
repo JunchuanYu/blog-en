@@ -3,7 +3,7 @@ project:
 
 website:
   page-navigation: true
-  title: "于峻川 (Junchuan Yu) "
+  title: "于峻川  (Junchuan Yu) "
   favicon: favicon.ico
   site-url: "https://junchuanyu.netlify.app/"
   repo-url: https://github.com/JunchuanYu/Building_Interactive_Web_APP_with_Gradio

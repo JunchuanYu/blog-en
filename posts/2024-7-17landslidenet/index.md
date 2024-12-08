@@ -2,7 +2,7 @@
 title: LandslideNet-Adaptive Vision Foundation Model for Landslide detection
 
 author: 
-  - "Junchuan Yu"
+  - "于峻川 (Junchuan Yu) 侯长鸿（Changhong Hou) "
 date: "2024-7-17"
 categories:
   - Posts

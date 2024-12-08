@@ -2,7 +2,7 @@
 title: SAM-CFFNet：基于 SAM 的滑坡智能识别跨特征融合网络
 
 author: 
-  - "Junchuan Yu"
+  - "于峻川 (Junchuan Yu) 郗来典（Laidian Xi)"
 date: "2024-7-16"
 categories:
   - Posts

@@ -1,7 +1,7 @@
 ---
 title: " Sydney-AI, a free ChatGPT platform "
 author: 
-  - "Junchuan Yu"
+  - "于峻川 (Junchuan Yu)"
 date: "2023-3-11"
 categories:
   - Posts
