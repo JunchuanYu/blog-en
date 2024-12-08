@@ -15,7 +15,7 @@ page-layout: full
 <br>
 <br>
 
-1. Junchuan Yu, Yichuan Li, Yangyang Chen*, Changhong Hou, Daqing Ge, Yanni Ma,Landslidenet: Adaptive Vision Foundation Model for Landslide Detection. IGARSS 2024 - 2024 IEEE International Geoscience and Remote Sensing Symposium, Athens, Greece, 2024, pp. 7282-7285. [[link](https://ieeexplore.ieee.org/document/10641507)] 
+1. Junchuan Yu, Yichuan Li, Yangyang Chen*, Changhong Hou, Daqing Ge, Yanni Ma,Landslidenet: Adaptive Vision Foundation Model for Landslide Detection. IGARSS 2024 - 2024 IEEE International Geoscience and Remote Sensing Symposium, Athens, Greece, 2024, pp. 7282-7285. [[link](https://ieeexplore.ieee.org/document/10641507)] [[code](https://github.com/JunchuanYu/TransLandSeg)]
 <br>
 
 2. Junchuan Yu*, Yichuan Li, Daqing Ge, Yangyang Chen, Qiong Wu, Yanni Ma, Efficient Geometric Correction Workflow for Airborne Hyperspectral Images through DEM-Driven Correction Techniques.International Archives of the Photogrammetry, Remote Sensing & Spatial Information Sciences, 2024, 48(1). [[link](https://isprs-archives.copernicus.org/articles/XLVIII-1-2024/831/2024/isprs-archives-XLVIII-1-2024-831-2024.html)]

@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="于峻川">
-<meta name="dcterms.date" content="2024-07-23">
+<meta name="dcterms.date" content="2024-09-10">
 
-<title>于峻川 (Junchuan Yu) - 使用Gradio构建交互式Web应用-P1</title>
+<title>于峻川 (Junchuan Yu) - 使用Gradio构建交互式Web应用-P4</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -142,8 +142,8 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="">
-<meta property="og:title" content="于峻川 (Junchuan Yu) - 使用Gradio构建交互式Web应用-P1">
-<meta property="og:description" content="什么是Gradio">
+<meta property="og:title" content="于峻川 (Junchuan Yu) - 使用Gradio构建交互式Web应用-P4">
+<meta property="og:description" content="Gradio与机器学习应用（上）">
 <meta property="og:image" content="">
 
 <!-- Twitter -->
@@ -213,8 +213,8 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">使用Gradio构建交互式Web应用-P1</h1>
-            <p class="subtitle lead">什么是Gradio</p>
+      <h1 class="title">使用Gradio构建交互式Web应用-P4</h1>
+            <p class="subtitle lead">Gradio与机器学习应用（上）</p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Posts</div>
                 <div class="quarto-category">Gradio</div>
@@ -237,7 +237,7 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">July 23, 2024</p>
+        <p class="date">September 10, 2024</p>
       </div>
     </div>
       
@@ -254,7 +254,10 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
   <ul>
   <li><a href="#使用gradio构建交互式web应用" id="toc-使用gradio构建交互式web应用" class="nav-link active" data-scroll-target="#使用gradio构建交互式web应用">使用Gradio构建交互式Web应用</a>
   <ul class="collapse">
-  <li><a href="#安装指南" id="toc-安装指南" class="nav-link" data-scroll-target="#安装指南">安装指南</a></li>
+  <li><a href="#part4-gradio与机器学习应用上" id="toc-part4-gradio与机器学习应用上" class="nav-link" data-scroll-target="#part4-gradio与机器学习应用上">Part4 ：Gradio与机器学习应用（上）</a>
+  <ul class="collapse">
+  <li><a href="#demo-4-1-手写数字识别app" id="toc-demo-4-1-手写数字识别app" class="nav-link" data-scroll-target="#demo-4-1-手写数字识别app">DEMO 4-1: 手写数字识别APP</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/JunchuanYu/Building_Interactive_Web_APP_with_Gradio/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -265,7 +268,6 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
 
 
 
-<p><img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/Gradio.png" class="img-fluid"></p>
 <section id="使用gradio构建交互式web应用" class="level1">
 <h1>使用Gradio构建交互式Web应用</h1>
 <br><br>
@@ -273,101 +275,92 @@ gtag('config', 'G-2J79YYG9CZ', { 'anonymize_ip': true});
 这是一个关于如何使用 Gradio 构建 Web 应用程序的开源系列教程。你将从设置 Python 环境开始，学习文本、图像等各类输入组件，自定义界面，设计复杂的交互等。本课程还将涵盖使用 Gradio 和 GDAL 处理遥感数据，用于图像增强、地理坐标转换、坡度分析等任务；学习如何使用 Gradio 和 Foliumap 创建交互式地图，实现动态地理空间数据可视化；如何集成机器学习模型并在 Hugging Face Spaces 上发布 web 应用程序。本教程包括实例、演示和作业。完成本教程后，你将能够高效地构建、部署和共享交互式 Web 应用程序。
 </p>
 <p><br><br> 课程相关资源链接<a href="https://github.com/JunchuanYu/Building_Interactive_Web_APP_with_Gradio">GITHUB</a></p>
-<p><img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/intro.gif" class="img-fluid" alt="介绍"> <br><br></p>
-<section id="安装指南" class="level3">
-<h3 class="anchored" data-anchor-id="安装指南">安装指南</h3>
+<p><img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/Gradio_09.png" class="img-fluid"></p>
 <p><br><br></p>
-<section id="设置虚拟环境" class="level4">
-<h4 class="anchored" data-anchor-id="设置虚拟环境">1. 设置虚拟环境</h4>
+<section id="part4-gradio与机器学习应用上" class="level2">
+<h2 class="anchored" data-anchor-id="part4-gradio与机器学习应用上">Part4 ：Gradio与机器学习应用（上）</h2>
 <p><br><br></p>
-<p>为确保兼容性和隔离依赖项，创建一个名为”<code>gradiotask</code>“或你为这个Gradio教程选择的其他名称的虚拟环境。本教程使用<strong>Python 3.10.6</strong>构建。我们建议配置<strong>3.10或以上</strong>版本的Python以获得最佳体验。</p>
-<ul>
-<li>创建和激活虚拟环境 使用以下命令使用Python 3.10.6创建新环境： <code>bash  conda create -n gradiotask python=3.10.6</code>
-<ul>
-<li><p>要激活虚拟环境，请使用以下命令：</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate gradiotask</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br><br><br>
-&gt; 提示： &gt; 记得在安装或运行与本教程相关的任何包之前激活您的虚拟环境（<code>gradiotask</code>）。完成后，你可以运行<code>conda deactivate</code>来停用环境。如果需要，你可以使用命令<code>conda env remove -n gradiotask</code>来移除虚拟环境。</p></li>
-</ul></li>
-</ul>
+<section id="demo-4-1-手写数字识别app" class="level3">
+<h3 class="anchored" data-anchor-id="demo-4-1-手写数字识别app">DEMO 4-1: 手写数字识别APP</h3>
 <p><br><br></p>
-</section>
-<section id="gradio安装" class="level4">
-<h4 class="anchored" data-anchor-id="gradio安装">2. Gradio安装</h4>
+<p align="left">
+本案例展示了一个基于随机森林算法的手写字母识别系统。在手写字母识别任务中，虽然可以选择传统的机器学习算法如随机森林或支持向量机，也可以采用更先进的卷积神经网络，但在本案例中，为了演示目的，我们选择了训练成本相对较低的随机森林算法。通过Gradio库，我们创建了一个用户友好的前端界面，用户可以轻松地在画布上绘制字母，而模型会即时给出预测结果。Gradio因其易用性和灵活性，已成为展示深度学习算法的流行前端框架之一。
+</p>
 <p><br><br></p>
-<p><strong>Gradio</strong>需要<strong>Python 3.8或更高版本</strong>。在继续之前，请确保系统上已安装Python。你可以从<a href="https://www.python.org/downloads/">Python官方网站</a>下载。</p>
-<p>我们建议使用Python默认包含的<code>pip</code>安装Gradio。在终端或命令提示符中运行以下命令：</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install gradio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br><br></p>
-<blockquote class="blockquote">
-<p>提示： 所有常见操作系统的详细安装说明<a href="https://www.gradio.app/main/guides/installing-gradio-in-a-virtual-environment">在此处提供</a>。</p>
-</blockquote>
-<p><br><br></p>
-</section>
-<section id="安装附加库" class="level4">
-<h4 class="anchored" data-anchor-id="安装附加库">3. 安装附加库</h4>
-<p><br><br></p>
-<p>为了确保后续的课程能够正常运行并演示，你需要安装以下特定版本的库：</p>
-<ul>
-<li><strong>Pillow</strong>：版本9.2.0</li>
-<li><strong>pandas</strong>：版本1.5.0</li>
-<li><strong>GDAL</strong>：版本3.4.3</li>
-<li><strong>numpy</strong>：版本1.23.3</li>
-<li><strong>geopandas</strong>：版本0.11.1</li>
-<li><strong>Shapely</strong>：版本1.8.4</li>
-<li><strong>scikit-learn</strong>：版本1.1.2</li>
-<li><strong>joblib</strong>：版本1.2.0</li>
-<li><strong>openai</strong>：版本1.16.2</li>
-<li><strong>leafmap</strong>：版本0.29.1</li>
-<li><strong>Gradio</strong>：版本4.27.0</li>
-</ul>
-<blockquote class="blockquote">
-<p>提示：要安装这些库，您可以使用pip install命令全部安装， 安装<strong>GDAL</strong>有时可能会因为其大小和依赖项而出现问题。我们建议本地安装GDAL以避免在线安装的潜在问题。<a href="https://wheelhouse.openquake.org/v3/windows/py310/GDAL-3.4.3-cp310-cp310-win_amd64.whl">这里</a>是适用于Windows和Python 3.10的GDAL 3.4.3安装包。如果您需要其他版本的GDAL，请确保你下载的版本与您的操作系统和Python环境相匹配。<br><br></p>
-</blockquote>
-</section>
-<section id="demo-1-1-建立你的第一个-web-app" class="level4">
-<h4 class="anchored" data-anchor-id="demo-1-1-建立你的第一个-web-app">4. DEMO 1-1: 建立你的第一个 Web app</h4>
-<p><br><br></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> gradio <span class="im">as</span> gr</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> greet(name, intensity): <span class="co"># 定义一个简单的函数，返回一个问候消息</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"Hello, "</span> <span class="op">+</span> name <span class="op">+</span> <span class="st">"!"</span> <span class="op">*</span> <span class="bu">int</span>(intensity)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 定义Gradio界面，具体如下：</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>demo <span class="op">=</span> gr.Interface(</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    fn<span class="op">=</span>greet,</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    inputs<span class="op">=</span>[<span class="st">"text"</span>, <span class="st">"slider"</span>], <span class="co"># 定义输入为文本和滑动条</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    outputs<span class="op">=</span>[<span class="st">"text"</span>], <span class="co"># 定义输出为文本</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>) </span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>demo.launch() <span class="co"># 在默认的网页浏览器中启动Gradio界面</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/demo1-1.gif" class="img-fluid"></p>
-</section>
-<section id="demo-1-2-显示一个图片" class="level4">
-<h4 class="anchored" data-anchor-id="demo-1-2-显示一个图片">DEMO 1-2: 显示一个图片</h4>
-<p><br><br></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> gradio <span class="im">as</span> gr</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> to_black(<span class="bu">file</span>):</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    image <span class="op">=</span> Image.fromarray(<span class="bu">file</span>)  <span class="co"># 将numpy数组转换为PIL图像</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># image = Image.open(file)  # 如果输入是文件路径，将其作为PIL图像打开</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># image = file  # 如果输入已经是PIL图像，直接使用它</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> image.convert(<span class="st">"L"</span>)  <span class="co"># 转换为灰度图像</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> img.rotate(<span class="dv">180</span>)  <span class="co"># 将图像旋转180度</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> img</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>demo <span class="op">=</span> gr.Interface(</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    fn<span class="op">=</span>to_black,</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    inputs<span class="op">=</span>gr.Image(<span class="bu">type</span><span class="op">=</span><span class="st">'numpy'</span>),  <span class="co"># type='pil', 'numpy', 'filepath'</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    outputs<span class="op">=</span>gr.Image(<span class="bu">type</span><span class="op">=</span><span class="st">'pil'</span>),</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>demo.launch(share<span class="op">=</span><span class="va">False</span>)  <span class="co"># 启动Gradio界面，share设置为false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/demo1-2.gif" class="img-fluid"></p>
-<hr>
-<p>请关注微信公众号【45度科研人】回复“<strong><span class="citation" data-cites="gradio">@gradio</span></strong>”获取该教程配套数据，欢迎后台留言！</p>
-<p><span style="display: block; text-align: center; margin-left: auto; margin-right: auto;"> <img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/wechat-simple.png" width="200" alt=""> </span></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 训练一个随机森林模型</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> joblib </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np  </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 加载数据</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="st">'./data/mnist.npz'</span>  </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> np.load(path, allow_pickle<span class="op">=</span><span class="va">True</span>) <span class="im">as</span> f:</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    x_train, y_train <span class="op">=</span> f[<span class="st">"x_train"</span>], f[<span class="st">"y_train"</span>]  <span class="co"># 训练数据和标签</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    x_test, y_test <span class="op">=</span> f[<span class="st">"x_test"</span>], f[<span class="st">"y_test"</span>]  <span class="co"># 测试数据和标签</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x_train.shape, y_train.shape)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>clf <span class="op">=</span> RandomForestClassifier(n_estimators<span class="op">=</span><span class="dv">200</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 训练模型</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>clf.fit(x_train, y_train)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> clf.predict(x_test)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>accuracy <span class="op">=</span> accuracy_score(y_test, y_pred)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Accuracy:"</span>, accuracy)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 将训练好的模型保存到本地</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>joblib.dump(clf, <span class="st">'./data/random_forest_model.pkl'</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 导入Gradio库，用于创建交互式应用</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> gradio <span class="im">as</span> gr</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> joblib</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 加载预先训练好的随机森林模型</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> joblib.load(<span class="st">'./data/random_forest_model.pkl'</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 定义预测函数</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> predict_minist(image):</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    normalized <span class="op">=</span> image[<span class="st">'composite'</span>][:, :, <span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    flattened <span class="op">=</span> normalized.reshape(<span class="dv">1</span>, <span class="dv">784</span>)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    prediction <span class="op">=</span> model.predict(flattened)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(normalized.shape, np.<span class="bu">max</span>(normalized), prediction[<span class="dv">0</span>])</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> prediction[<span class="dv">0</span>]</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> gr.Blocks(theme<span class="op">=</span><span class="st">"soft"</span>) <span class="im">as</span> demo:</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    gr.Markdown(<span class="st">"""</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="st">        &lt;center&gt; </span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="st">        &lt;h1&gt;Handwritten Digit Recognition&lt;/h1&gt;</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="st">        &lt;b&gt;jason.yu.mail@qq.com 📧&lt;/b&gt;</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="st">        &lt;/center&gt;</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="st">        """</span>)  </span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 添加Markdown组件，提示用户在画布中心绘制数字</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    gr.Markdown(<span class="st">"Draw a digit and the model will predict the digit. Please draw the digit in the center of the canvas"</span>)</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> gr.Row():</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>        outtext <span class="op">=</span> gr.Textbox(label<span class="op">=</span><span class="st">"Prediction"</span>)</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> gr.Row():</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>        inputimg <span class="op">=</span> gr.ImageMask(image_mode<span class="op">=</span><span class="st">"RGBA"</span>, crop_size<span class="op">=</span>(<span class="dv">28</span>,<span class="dv">28</span>))</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 构建监听机制，当输入change时，对图像进行预测</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    inputimg.change(predict_minist, inputimg, outtext)</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="co"># 定义demo的网页尺寸</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>demo.launch(height<span class="op">=</span><span class="dv">550</span>,width<span class="op">=</span><span class="st">"100%"</span>,show_api<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/demo4-1.gif" class="img-fluid"></p>
+<table class="table">
+<colgroup>
+<col style="width: 38%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>请关注微信公众号【45度科研人】回复“<strong><span class="citation" data-cites="gradio">@gradio</span></strong>”获取该教程配套数据，欢迎后台留言！</td>
+</tr>
+<tr class="even">
+<td><span style="display: block; text-align: center; margin-left: auto; margin-right: auto;"> <img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/wechat-simple.png" width="200" alt=""> </span></td>
+</tr>
+</tbody>
+</table>
+<p>为了促进沟通与交流，我们建立了「养生科研」学术交流群。这个平台不仅能够让大家迅速获取本公众号的资源，还为各位提供了一个共同探讨问题、交流思想的空间。有意向加入交流群的朋友们，可以通过添加小编的微信来获得入群邀请。请注意，在添加时请按照“加群-单位-研究方向-姓名”的格式备注您的信息，否则您的申请可能无法通过。</p>
+<p><span style="display: block; text-align: center; margin-left: auto; margin-right: auto;"> <img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/laidian.jpg" width="200" alt=""> </span></p>
 
 
 </section>
