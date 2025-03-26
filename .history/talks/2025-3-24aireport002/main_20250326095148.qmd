@@ -1,0 +1,19 @@
+---
+title: "从DeepSeek到Agent——大语言模型驱动的科研范式革新"
+subtitle: " AI Tech Workshop系列讲座（二）"
+author: "于峻川"
+date: "2025-03-24"
+categories: [Talks, LLM, Agent,Deep Learning]
+image: index.jpg 
+---
+
+
+## Slides
+
+-   [Slides](https://yujc.quarto.pub/aireport002/#/section):
+
+
+<iframe 
+src="https://yujc.quarto.pub/aireport002/#/section"     style="width: 100%; height: 90vh; border: none;">
+</iframe>
+

@@ -2,210 +2,186 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://junchuanyu.netlify.app/about.html</loc>
-    <lastmod>2024-12-08T12:25:50.538Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/posts/2022-10-8_ai_poem/index.html</loc>
-    <lastmod>2024-07-30T18:06:26.847Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/posts/2022-11-15_wrsdp_3-3/index.html</loc>
-    <lastmod>2024-07-30T18:06:28.475Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/posts/2022-11-17wrsdp_1-3-1/index.html</loc>
-    <lastmod>2024-07-30T18:06:29.471Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/posts/2022-12-10wrsdp_1-3-2/index.html</loc>
-    <lastmod>2024-07-30T05:03:08.450Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/posts/index.html</loc>
-    <lastmod>2024-12-08T12:58:47.556Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/publication/index.html</loc>
-    <lastmod>2024-12-08T12:25:30.806Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/talks/2022-11-23_NKRDP-DL/index.html</loc>
-    <lastmod>2022-12-29T19:04:27.400Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/talks/index.html</loc>
-    <lastmod>2024-12-08T12:24:04.941Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/teaching/index.html</loc>
-    <lastmod>2024-12-08T12:26:00.774Z</lastmod>
+    <lastmod>2025-03-26T02:19:07.999Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/index.html</loc>
-    <lastmod>2024-12-08T12:58:46.321Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/talks/2022-11-23_NKRDP-DL/main.html</loc>
-    <lastmod>2024-12-08T12:23:58.075Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/posts/2022-11-17wrsdp_1-3-1/Lesson1-3-1.html</loc>
-    <lastmod>2023-01-07T15:55:13.136Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/posts/2023-1-18wrsdp_1-4-1/index.html</loc>
-    <lastmod>2024-07-30T18:06:30.313Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/posts/2023-1-27dynamicworld/index.html</loc>
-    <lastmod>2024-12-08T12:23:53.247Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/posts/2023-1-18wrsdp_1-4-2/index.html</loc>
-    <lastmod>2024-12-08T12:23:52.322Z</lastmod>
+    <lastmod>2025-03-26T02:19:11.567Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2020-2-10wrsdp1-5-2/index.html</loc>
-    <lastmod>2024-12-04T20:12:15.807Z</lastmod>
+    <lastmod>2025-03-26T02:19:12.582Z</lastmod>
   </url>
   <url>
-    <loc>https://junchuanyu.netlify.app/posts/2020-2-10wrsdp1-5-2/基于时间序列遥感的水稻类型识别-P2.html</loc>
-    <lastmod>2023-02-06T09:08:14.114Z</lastmod>
+    <loc>https://junchuanyu.netlify.app/posts/2022-10-8_ai_poem/index.html</loc>
+    <lastmod>2025-03-26T02:19:13.354Z</lastmod>
   </url>
   <url>
-    <loc>https://junchuanyu.netlify.app/posts/2023-2-6wrsdp_1-5-1/index.html</loc>
-    <lastmod>2024-07-30T05:00:07.924Z</lastmod>
+    <loc>https://junchuanyu.netlify.app/posts/2022-11-15_wrsdp_3-3/index.html</loc>
+    <lastmod>2025-03-26T02:19:15.138Z</lastmod>
   </url>
   <url>
-    <loc>https://junchuanyu.netlify.app/posts/2023--27-aitranslator/main.html</loc>
-    <lastmod>2023-02-27T07:39:35.949Z</lastmod>
+    <loc>https://junchuanyu.netlify.app/posts/2022-11-17wrsdp_1-3-1/index.html</loc>
+    <lastmod>2025-03-26T02:19:16.428Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/2022-12-10wrsdp_1-3-2/index.html</loc>
+    <lastmod>2025-03-26T02:19:17.638Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/2023-1-18wrsdp_1-4-1/index.html</loc>
+    <lastmod>2025-03-26T02:19:18.626Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/2023-1-18wrsdp_1-4-2/index.html</loc>
+    <lastmod>2025-03-26T02:19:19.783Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/2023-1-27dynamicworld/index.html</loc>
+    <lastmod>2025-03-26T02:19:20.744Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2023-2-27-aitranslator/index.html</loc>
-    <lastmod>2024-12-08T12:23:54.071Z</lastmod>
+    <lastmod>2025-03-26T02:19:21.628Z</lastmod>
   </url>
   <url>
-    <loc>https://junchuanyu.netlify.app/posts/2023-3-4newbing/index.html</loc>
-    <lastmod>2024-07-30T04:59:36.330Z</lastmod>
+    <loc>https://junchuanyu.netlify.app/posts/2023-2-6wrsdp_1-5-1/index.html</loc>
+    <lastmod>2025-03-26T02:19:22.631Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2023-3-11sydneyai/index.html</loc>
-    <lastmod>2024-12-08T12:23:54.863Z</lastmod>
+    <lastmod>2025-03-26T02:19:23.488Z</lastmod>
   </url>
   <url>
-    <loc>https://junchuanyu.netlify.app/posts/2023-4-2sydneyaiplus/index.html</loc>
-    <lastmod>2024-12-08T12:23:55.669Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/posts/2024-4-9seganything/index.html</loc>
-    <lastmod>2023-04-08T17:54:51.570Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/posts/2024-4-9seganything/seganything.html</loc>
-    <lastmod>2023-04-08T17:44:59.388Z</lastmod>
+    <loc>https://junchuanyu.netlify.app/posts/2023-3-4newbing/index.html</loc>
+    <lastmod>2025-03-26T02:19:24.415Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2023-4-19seganything/index.html</loc>
-    <lastmod>2024-07-30T04:58:41.047Z</lastmod>
+    <lastmod>2025-03-26T02:19:25.248Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/2023-4-2sydneyaiplus/index.html</loc>
+    <lastmod>2025-03-26T02:19:26.169Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2023-4-9seganything/index.html</loc>
-    <lastmod>2024-07-30T04:59:04.485Z</lastmod>
+    <lastmod>2025-03-26T02:19:27.209Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2023-4-9seganything/seganything.html</loc>
-    <lastmod>2023-04-19T02:54:26.703Z</lastmod>
+    <lastmod>2025-03-26T02:19:28.241Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2023-7-25hsireadandwrite/index.html</loc>
-    <lastmod>2024-07-30T04:58:20.665Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/posts/2023-8-2hsispectral/index.html</loc>
-    <lastmod>2024-07-30T04:58:01.352Z</lastmod>
+    <lastmod>2025-03-26T02:19:29.201Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2023-8-11hsireduce/index.html</loc>
-    <lastmod>2024-07-30T04:57:41.701Z</lastmod>
+    <lastmod>2025-03-26T02:19:30.165Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2023-8-27numpyandnn/index.html</loc>
-    <lastmod>2024-07-30T04:57:09.525Z</lastmod>
+    <lastmod>2025-03-26T02:19:31.105Z</lastmod>
   </url>
   <url>
-    <loc>https://junchuanyu.netlify.app/talks/2023-12-16 HEJINGTALKS/main.html</loc>
-    <lastmod>2024-12-08T12:23:59.479Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/talks/2023-12-16 HEJINGTALKS/index.html</loc>
-    <lastmod>2024-01-11T07:55:57.040Z</lastmod>
+    <loc>https://junchuanyu.netlify.app/posts/2023-8-2hsispectral/index.html</loc>
+    <lastmod>2025-03-26T02:19:32.065Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2024-1-15whale2023/index.html</loc>
-    <lastmod>2024-07-30T04:56:49.299Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/teaching/Building_Interactive_Web_APP_with_Gradio/main.html</loc>
-    <lastmod>2024-12-08T12:26:09.124Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/posts/2024-05-23gradio/index.html</loc>
-    <lastmod>2024-05-24T14:06:47.184Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/teaching/Adobe_Illustrator_for_Scientific_Graphic_Design/index.html</loc>
-    <lastmod>2024-06-01T05:47:45.475Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/talks/2023-09-01 Adobeillustrator/main.html</loc>
-    <lastmod>2024-12-08T12:23:58.776Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/posts/2024-5-23adobeillustrator_1/index.html</loc>
-    <lastmod>2024-07-30T18:06:32.090Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/posts/2024-6-1adobeillustrator_2/index.html</loc>
-    <lastmod>2024-12-08T12:23:56.394Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/posts/2024-7-16samcffnet/index.html</loc>
-    <lastmod>2024-12-04T20:15:42.237Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/talks/2024-7-16 IGARSS2024/main.html</loc>
-    <lastmod>2024-12-08T12:24:00.213Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/posts/2024-7-17landslidenet/index.html</loc>
-    <lastmod>2024-12-08T12:23:57.350Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/talks/2024-7-21 NLIBTALKS/main.html</loc>
-    <lastmod>2024-12-08T12:24:00.938Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/posts/2024-7-23gradio_p1/index.html</loc>
-    <lastmod>2024-12-08T12:58:42.036Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/posts/2024-7-27gradio_p2/index.html</loc>
-    <lastmod>2024-12-08T12:58:42.856Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/posts/2024-8-1gradio_p3/index.html</loc>
-    <lastmod>2024-12-08T12:58:43.709Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/posts/2024-8-9gradio_p3/index.html</loc>
-    <lastmod>2024-12-08T12:58:44.503Z</lastmod>
-  </url>
-  <url>
-    <loc>https://junchuanyu.netlify.app/posts/2024-9-10gradio_p4/index.html</loc>
-    <lastmod>2024-12-08T12:57:03.792Z</lastmod>
+    <lastmod>2025-03-26T02:19:32.947Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2024-11-11gradio_p4/index.html</loc>
-    <lastmod>2024-12-08T12:58:51.049Z</lastmod>
+    <lastmod>2025-03-26T02:19:33.804Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/2024-5-23adobeillustrator_1/index.html</loc>
+    <lastmod>2025-03-26T02:19:34.616Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/2024-6-1adobeillustrator_2/index.html</loc>
+    <lastmod>2025-03-26T02:19:35.429Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/2024-7-16samcffnet/index.html</loc>
+    <lastmod>2025-03-26T02:19:36.282Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/2024-7-17landslidenet/index.html</loc>
+    <lastmod>2025-03-26T02:19:37.352Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/2024-7-23gradio_p1/index.html</loc>
+    <lastmod>2025-03-26T02:19:38.225Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/2024-7-27gradio_p2/index.html</loc>
+    <lastmod>2025-03-26T02:19:39.149Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/2024-8-1gradio_p3/index.html</loc>
+    <lastmod>2025-03-26T02:19:40.068Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/2024-8-9gradio_p3/index.html</loc>
+    <lastmod>2025-03-26T02:19:40.904Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/2024-9-10gradio_p4/index.html</loc>
+    <lastmod>2025-03-26T02:19:41.786Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/2025-3-10agrsaitech/index.html</loc>
+    <lastmod>2025-03-26T02:19:42.611Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/index.html</loc>
+    <lastmod>2025-03-26T02:19:43.993Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/publication/index.html</loc>
+    <lastmod>2025-03-26T02:19:44.870Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/talks/2022-11-23_NKRDP-DL/main.html</loc>
+    <lastmod>2025-03-26T02:19:45.664Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/talks/2023-09-01 Adobeillustrator/main.html</loc>
+    <lastmod>2025-03-26T02:19:46.458Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/talks/2023-12-16 HEJINGTALKS/main.html</loc>
+    <lastmod>2025-03-26T02:19:47.262Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/talks/2024-7-16 IGARSS2024/main.html</loc>
+    <lastmod>2025-03-26T02:19:48.046Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/talks/2024-7-21 NLIBTALKS/main.html</loc>
+    <lastmod>2025-03-26T02:19:48.890Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/talks/2025-3-24aireport002/main.html</loc>
+    <lastmod>2025-03-26T02:19:49.651Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/talks/index.html</loc>
+    <lastmod>2025-03-26T02:19:50.572Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/teaching/Adobe_Illustrator_for_Scientific_Graphic_Design/index.html</loc>
+    <lastmod>2025-03-26T02:19:51.416Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/teaching/Building_Interactive_Web_APP_with_Gradio/main.html</loc>
+    <lastmod>2025-03-26T02:19:52.284Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/teaching/index.html</loc>
+    <lastmod>2025-03-26T02:19:53.148Z</lastmod>
   </url>
 </urlset>
