@@ -1,5 +1,5 @@
 ---
-title: "AGRS AI Tech Workshop 正式启动 !"
+title: "AI Tech Workshop 正式启动 !"
 author: 
   - "于峻川"
 date: "2025-3-10"
@@ -20,7 +20,7 @@ toc: true
   </figure>
 </div>
 
-AGRS AI Tech Workshop是由中国自然资源航空物探遥感中心周坚鑫教授组织的前沿人工智能技术交流平台。我们致力于推动AI技术在遥感、物探及地学相关领域的创新应用与发展。
+AI Tech Workshop是由中国自然资源航空物探遥感中心周坚鑫教授组织的前沿人工智能技术交流平台。我们致力于推动AI技术在遥感、物探及地学相关领域的创新应用与发展。
 
 <br/>
 
@@ -31,9 +31,7 @@ AGRS AI Tech Workshop是由中国自然资源航空物探遥感中心周坚鑫�
 - 培养跨学科的AI技术人才
 - 促进AI技术在地学领域的创新应用
 
-
 <br/>
-
 
 ### 活动内容
 
@@ -44,9 +42,7 @@ AGRS AI Tech Workshop是由中国自然资源航空物探遥感中心周坚鑫�
 - **行业应用案例**：AI在遥感、地质、环境等领域的成功实践
 - **项目合作交流**：促进跨学科、跨机构的合作项目
 
-
 <br/>
-
 
 ### 参与方式
 
@@ -63,9 +59,9 @@ AGRS AI Tech Workshop是由中国自然资源航空物探遥感中心周坚鑫�
 
 ### 资源中心
 
-- [技术文档与教程](https://github.com/JunchuanYu/AGRS-AI-Tech-Workshop)
-- [往期活动报道](https://agrsai.netlify.app/news/)
-- [往期报告](https://agrsai.netlify.app/reports/)
+- [技术文档与教程](https://github.com/JunchuanYu/AI-Tech-Workshop)
+- [往期活动报道](https://aitech-ws.netlify.app/news/)
+- [往期报告](https://aitech-ws.netlify.app/reports/)
 
 ![](https://dunazo.oss-cn-beijing.aliyuncs.com/blog/1.jpg)
 ![](https://dunazo.oss-cn-beijing.aliyuncs.com/blog/4.jpg)
@@ -82,7 +78,6 @@ AGRS AI Tech Workshop是由中国自然资源航空物探遥感中心周坚鑫�
 
 
 <br/>
-
 
 
 ---
