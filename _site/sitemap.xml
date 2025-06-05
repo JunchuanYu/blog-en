@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://junchuanyu.netlify.app/about.html</loc>
-    <lastmod>2025-05-05T16:06:09.282Z</lastmod>
+    <lastmod>2025-06-05T08:00:16.814Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/index.html</loc>
-    <lastmod>2025-06-04T03:26:35.220Z</lastmod>
+    <lastmod>2025-06-05T07:59:32.301Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2020-2-10wrsdp1-5-2/index.html</loc>
@@ -142,7 +142,7 @@
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/index.html</loc>
-    <lastmod>2025-06-04T03:26:38.176Z</lastmod>
+    <lastmod>2025-06-05T07:59:34.017Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/publication/index.html</loc>
@@ -154,7 +154,7 @@
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/talks/2023-09-01 Adobeillustrator/main.html</loc>
-    <lastmod>2025-05-05T16:06:43.810Z</lastmod>
+    <lastmod>2025-06-05T08:01:07.203Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/talks/2023-12-16 HEJINGTALKS/main.html</loc>
@@ -174,11 +174,11 @@
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/talks/index.html</loc>
-    <lastmod>2025-05-05T16:06:47.364Z</lastmod>
+    <lastmod>2025-06-05T08:00:27.339Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/teaching/Adobe_Illustrator_for_Scientific_Graphic_Design/index.html</loc>
-    <lastmod>2025-05-05T16:06:48.116Z</lastmod>
+    <lastmod>2025-06-05T08:00:41.891Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/teaching/Building_Interactive_Web_APP_with_Gradio/main.html</loc>
@@ -186,7 +186,7 @@
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/teaching/index.html</loc>
-    <lastmod>2025-05-05T16:06:49.666Z</lastmod>
+    <lastmod>2025-06-05T08:00:35.658Z</lastmod>
   </url>
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2025-5-30translandseg/TransLandSeg.html</loc>
@@ -199,5 +199,13 @@
   <url>
     <loc>https://junchuanyu.netlify.app/posts/2025-5-30translandseg/index.html</loc>
     <lastmod>2025-06-04T03:26:31.923Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/2025-6-5translandseg/index.html</loc>
+    <lastmod>2025-06-05T07:55:53.993Z</lastmod>
+  </url>
+  <url>
+    <loc>https://junchuanyu.netlify.app/posts/2025-5-16geopython001/index.html</loc>
+    <lastmod>2025-06-05T07:59:29.766Z</lastmod>
   </url>
 </urlset>

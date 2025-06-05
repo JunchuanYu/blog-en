@@ -1,0 +1,306 @@
+---
+title: "GeoPython101：开启你的Python之旅"
+author: "于峻川"
+date: "2025-05-16"
+categories: [GeoPython Marathon,AI,Tutorial]
+description: "Python for Earth Science Marathon系列讲座（一）"
+image: index.jpg 
+---
+
+[<img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/geopython001-%20(2).jpg" width="600">]()
+
+
+# **🌍 GeoPython Marathon：** From Basics to Deep Learning for Geoscientists
+
+- **📅 课程名称**：GeoPython101：课程介绍与环境配置
+- **👨‍🏫 分享人**：于峻川
+- **📅 课程时间**：2025年 5 月16 日
+
+
+## PPT在线
+
+[全屏观看链接](https://yujc.quarto.pub/geopython001/#/section):
+
+<iframe 
+src="https://yujc.quarto.pub/geopython001/#/section"     style="width: 100%; height: 90vh; border: none;">
+</iframe>
+
+## 代码资源：
+[GITHUB](https://github.com/JunchuanYu/AI-Tech-Workshop/tree/main/GeoPython%20Marathon)
+
+
+
+### 🎯**1. 课程介绍**
+
+#### 🔍 **1.1 为什么学习Python？**
+
+[<img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/geopython001-%20(1).jpg" width="600">]()
+[<img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/geopython001-%20(8).jpg" width="600">]()
+
+#### 📜**1.2 课程大纲**
+
+
+- 面向遥感、物探、地质从业人员，提供Python与深度学习入门知识，提升AI4S基础能力
+- 打造跨学科AI人才孵化平台，推动智能化能力建设
+
+<table>
+    <tr>
+        <th>阶段</th>
+        <th>课程编号</th>
+        <th>课程名称</th>
+    </tr>
+    <tr>
+        <td rowspan="3"><strong>Python基础</strong></td>
+        <td>1.1</td>
+        <td>Python基本语法</td>
+    </tr>
+    <tr>
+        <td>1.2</td>
+        <td>常用库函数</td>
+    </tr>
+    <tr>
+        <td>1.3</td>
+        <td>文件读写处理</td>
+    </tr>
+    <tr>
+        <td rowspan="4"><strong>进阶篇</strong></td>
+        <td>2.1</td>
+        <td>遥感数据处理-P1</td>
+    </tr>
+    <tr>
+        <td>2.2</td>
+        <td>遥感数据处理-P2</td>
+    </tr>
+    <tr>
+        <td>2.3</td>
+        <td>物探数据处理-P1</td>
+    </tr>
+    <tr>
+        <td>2.4</td>
+        <td>物探数据处理-P2</td>
+    </tr>
+    <tr>
+        <td rowspan="5"><strong>AI篇</strong></td>
+        <td>3.1</td>
+        <td>机器学习基础</td>
+    </tr>
+    <tr>
+        <td>3.2</td>
+        <td>神经网络与反向传播</td>
+    </tr>
+    <tr>
+        <td>3.3</td>
+        <td>深度学习基础</td>
+    </tr>
+    <tr>
+        <td>3.4</td>
+        <td>深度学习进阶-P1</td>
+    </tr>
+    <tr>
+        <td>3.5</td>
+        <td>深度学习进阶-P2</td>
+    </tr>
+</table>
+
+> 💡 **说明**:课程具体内容可根据实际情况调整
+
+
+
+#### 📝**1.3 课程要求**
+
+
+**基本安排**
+- 课程以线下形式为主，授课均以jupyter为媒介
+- 所有课程视频与相关材料将同步至Github(https://github.com/JunchuanYu/AI-Tech-Workshop)和航遥内部FTP（ftp://172.25.13.69/aitech/AITechWorkshop/）；
+- 课程采用共建方式，邀请有开发经验的同事作为主讲人，希望大家积极参与；
+- 每次授课的地点和具体时间会在课程开始前公布，请大家关注微信群通知。
+
+
+
+
+### ⚙️2. 环境配置
+
+#### 📥**2.1 Anaconda安装**
+
+
+
+- 官网[https://www.anaconda.com/download/success](https://www.anaconda.com/download/success)下载Anaconda
+
+<div align="center">
+  <img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/geopython001-%20(3).jpg" width="500">
+</div>
+
+- 依次按照提示安装，需要注意勾选注册为系统路径
+
+<div align="center">
+  <img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/geopython001-%20(4).jpg" width="500">
+</div>
+
+- 安装完成后，在开始菜单中找到Anaconda Prompt，打开命令行界面，输入下面指令，输出conda版本号即安装成功
+ 
+   ```markdown
+  conda --versio
+   ```
+  
+  
+<div align="center">
+  <img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/geopython001-%20(5).jpg" width="500">
+</div>
+
+#### 🐍**2.2 虚拟环境管理**
+
+
+- 创建一个Python版本为3.10，且名为geopy的虚拟环境
+
+  ```bash
+  !conda create -n geopy python==3.10 -y 
+   ```
+- 激活该环境
+  ```bash
+  !conda activate geopy
+  ```
+- 切换为Base环境
+  ```bash
+  !conda activate base 
+  ```
+
+- 删除geopy环境
+  ```bash
+  !conda remove -n geopy --all -y
+  ```
+
+- 在geopy环境中安装numpy库
+  ```bash 
+  !pip install numpy 
+  ```
+
+- 安装ipython
+  ```bash
+  !pip install ipython 
+  ```
+
+- 查看已安装的库
+  ```bash
+  !pip list
+  ```
+
+
+#### 💻2.3 VsCode安装使用
+
+
+- 官网[https://code.visualstudio.com/Download](https://code.visualstudio.com/Download)下载VsCode进行安装
+
+<div align="center">
+  <img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/geopython001-%20(6).jpg" width="500">
+</div>
+
+- 安装完成后，打开VsCode，点击左侧的扩展，搜索并安装Python、Jupyter插件，然后点击重新加载，等待插件安装完成。
+
+- 插件库是VsCode的一大特色，通过安装必要的插件，可以极大提高编程效率。下面提供了一下几个常用的插件：
+  - **Local History**：Py文件历史版本自动保存
+  - **Highlight**：代码高亮
+  - **Github**: Github代码同步与管理
+  - **markdown all in one**：Markdown语言的支持
+  - **Trae AI**：豆包代码补全与大模型问答
+  - **Cline**：大模型问答，可使用本地大模型
+
+- 在电脑任意位置新建一个文件夹名为**Lesson-1**,并在VsCode中选择左侧第一个文件图标，点击**Open Folder**打开该文件夹，即新建了一个工程。
+
+
+#### ✏️2.4 Jupyter Notebook操作
+
+
+jupyter notebook是一个交互式的笔记本，支持运行代码，显示结果，以及图标可视化，以及markdown文本。被广泛用于Python教学、数据分析和报告编写中。
+
+- 按住**Ctrl+ Alt +P**，调出VsCode快捷指令，搜索jupyter，点击**Create：New Jupyter Notebook**，将自动创建一个新的jupyter文件，将该文件另存到刚刚新建的**Lesson-1**文件夹中并命名为**hello.ipunb**。 
+
+<div align="center">
+  <img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/geopython001-%20(7).jpg" width="500">
+</div>
+
+
+
+- Jupyter中Cell的基本操作：
+   - 快捷键 **Y**：将当前cell切换为**Code**模式
+   - 快捷键 **M**：将当前cell切换为**Markdown**模式
+   - 右下角可以进行手动切换两种模式
+   - **Shift + Enter**：执行当前cell并跳转到下一个cell
+   - **Ctrl + Enter**：执行当前cell并保持焦点
+   - 插入cell：**A**（上方插入），**B**（下方插入）
+   - 删除cell：连续按两次 **D**
+   - 复制/粘贴cell：**C** + **V**
+
+
+#### 📘2.5 Markdown基本语法规则
+
+
+以下是一些常用的Markdown语法规则，本教程已包含大部分Markdown写法，可供参考。
+
+
+- **列表**：
+   - 无序列表
+   - 无序列表
+   1. 有序列表
+   2. 有序列表
+<br>
+
+- **文本块**：
+ 
+   ```markdown
+   ### 这是文本块
+   可以设置文字标题级别
+   ```
+<br>
+
+- **代码块**：
+ 
+   ```python
+   print("代码块")
+   ```
+
+- **任务列表**：
+- [x] GeoPython101
+- [ ] GeoPython102
+- [ ] GeoPython102
+
+- **表格**：
+   | 左对齐 | 右对齐 |
+   |-------|-------|
+   | 数据1  | 数据2  |
+
+- **公式（LaTeX）**：
+   - 行内公式：`$E=mc^2$` → $E=mc^2$
+   - 独立公式：
+     $$
+     \sum_{i=1}^n i = \frac{n(n+1)}{2}
+     $$
+
+- **插入图片**：
+   - 链接图片：[图片描述](https://www.python.org/static/img/python-logo.png)
+   - 本地图片：![图片描述](./image/geopython101/python-logo.png)
+   - 图片设置：
+<div style="text-align:center">
+  <img src="https://dunazo.oss-cn-beijing.aliyuncs.com/blog/python-logo.png" style="height:100px; width:auto">
+</div>
+  
+- > 💡 提示：在VS Code中使用Jupyter时，需安装【LaTeX Workshop】扩展以获得更好的公式预览效果。
+
+#### 2.6 🏁第一个Python代码
+
+
+
+
+- 将Jupyter Cell中的模式改为Markdown，输入'Hello, Geoscientists!',按**Shift+Enter**执行。看看运行效果！
+- 在新的Cell中输入一下代码，按**Shift+Enter**执行。注意Cell为Python代码，不是Markdown模式。
+
+   ```python
+   def hello_geo():
+    print("Hello, Geoscientists!")
+  hello_geo()
+   ```
+
+
+### 🚀3. 完成一个小任务
+
+
+新建一个名为geopy的虚拟环境，并安装python==3.10 和必要的库文件，在新的虚拟环境下创建一个名为test.ipynb的文件，运用markdown输出一段文字，“Hello World”
